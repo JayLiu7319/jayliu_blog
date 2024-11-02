@@ -4,7 +4,7 @@ title = 'Jay Liu的随笔录'
 theme = 'diary'
 
 [params]
-favicon = "images/favicon-16x16.png"
+favicon = "images/favicon-egg.png"
 
 
 [[menu.main]]
