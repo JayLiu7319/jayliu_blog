@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://jayliu.tech/'
 languageCode = 'zh'
 title = 'Jay Liu的随笔录'
 theme = 'diary'
