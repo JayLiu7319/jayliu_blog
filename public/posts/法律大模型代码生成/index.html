@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<title>法律大模型代码生成</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="法律大模型的提示学习方法">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="http://localhost:1313/images/favicon-16x16.png">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    分类
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80%e4%bc%aa%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%90" class="nav-一伪代码生成">
+									一、伪代码生成
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e7%9c%9f%e5%ae%9e%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%90" class="nav-二真实代码生成">
+									二、真实代码生成
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%90" class="nav-三单元测试代码生成">
+									三、单元测试代码生成
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%9b%9b%e5%85%a5%e5%8f%82%e6%8f%90%e5%8f%96%e4%b8%8e%e6%a7%bd%e4%bd%8d%e5%a1%ab%e5%85%85" class="nav-四入参提取与槽位填充">
+									四、入参提取与槽位填充
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="http://localhost:1313/">
+            Jay Liu的随笔录
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="http://localhost:1313/">
+        <div class="single-column-header-title">Jay Liu的随笔录</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    法律大模型代码生成
+                    
+                    <div class="post-subtitle">
+                        法律大模型的提示学习方法
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2024-05-02 15:37
+                        </time>
+                        
+
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="一伪代码生成">一、伪代码生成</h2>
+<p>提示词：</p>
+<pre tabindex="0"><code>你是一个法律专家，同时也是一个高级程序员。请根据给出的法律条文规则，将其翻译成一段合理的伪代码。
+
+# 法律条文1
+生产、销售假药的，处三年以下有期徒刑或者拘役，并处罚金；对人体健康造成严重危害或者有其他严重情节的，处三年以上十年以下有期徒刑，并处罚金；致人死亡或者有其他
+特别严重情节的，处十年以上有期徒刑、无期徒刑或者死刑，并处罚金或者没收财产。药品使用单位的人员明知是假药而提供给他人使用的，依照前款的规定处罚。
+
+# 伪代码1
+构成要件 对象, 行为, 主体, 主观, 情节 = Input;
+要素 假药 = 药品管理法第 98 条 + Others, 
+生产 = 司法解释第 6 条第 1 款,
+销售 = 司法解释第 6 条第 2 款第 1 分句, 
+药品使用单位的人员,
+提供 = 司法解释第 6 条第 2 款第 2 分句, 
+明知是假药 = 司法解释第 10 条 + Others,
+致人死亡,
+其他特别严重情节 = 司法解释第 4 条,
+对人体健康造成严重危害 = 司法解释第 2 条,
+其他严重情节 = 司法解释第 3 条;
+结果 犯该罪, 刑罚;
+if (对象 == 假药 &amp;&amp; (行为 == 生产 || 行为 == 销售 || (主体 == 药品使用单位的人员
+&amp;&amp; 行为 == 提供 &amp;&amp; 主观 == 明知是假药)))
+{
+犯该罪 = True;
+if (情节 == 致人死亡 || 情节 == 其他特别严重情节)
+刑罚 = (十年以上有期徒刑 || 无期徒刑 || 死刑) + (罚金 || 没收财产);
+else if (情节 == 对人体健康造成严重危害 || 情节 == 其他严重情节)
+刑罚 = 三年以上十年以下有期徒刑 + 罚金;
+else
+刑罚 = (三年以下有期徒刑 || 拘役) + 罚金;
+}
+else
+犯该罪 = False;
+
+# 法律条文2
+申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+# 伪代码2
+</code></pre><p>输出示例：</p>
+<pre tabindex="0"><code>输入：行为, 事实和理由, 同意撤回, 证明违背真实意思表示;
+状态：行政复议申请状态 = &#34;未处理&#34;;
+输出：行政复议申请的可能结果;
+
+if (行为 == &#34;申请撤回&#34; &amp;&amp; 同意撤回)
+{
+    行政复议申请状态 = &#34;已撤回&#34;;
+    可能结果 = &#34;撤回成功，不能再以同一事实和理由提出行政复议申请&#34;;
+
+    if (证明违背真实意思表示)
+    {
+        可能结果 = &#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议&#34;;
+    }
+}
+else if (行动 == &#34;申请撤回&#34; &amp;&amp; !同意撤回)
+{
+    可能结果 = &#34;撤回请求未得到同意，行政复议申请继续进行&#34;;
+}
+else
+{
+    可能结果 = &#34;无撤回行为，行政复议申请按原流程继续&#34;;
+}
+
+输出 可能结果;
+</code></pre><h2 id="二真实代码生成">二、真实代码生成</h2>
+<p>提示词：</p>
+<pre tabindex="0"><code>你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的伪代码。现在请你将这段伪代码编写为一个python的函数，并尽可能清晰地定义和抽象出入参和返回值：
+
+# 法律条文
+申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+
+# 伪代码
+~~~
+输入：行为, 事实和理由, 同意撤回, 证明违背真实意思表示;
+状态：行政复议申请状态 = &#34;未处理&#34;;
+输出：行政复议申请的可能结果;
+
+if (行为 == &#34;申请撤回&#34; &amp;&amp; 同意撤回)
+{
+    行政复议申请状态 = &#34;已撤回&#34;;
+    可能结果 = &#34;撤回成功，不能再以同一事实和理由提出行政复议申请&#34;;
+
+    if (证明违背真实意思表示)
+    {
+        可能结果 = &#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议&#34;;
+    }
+}
+else if (行动 == &#34;申请撤回&#34; &amp;&amp; !同意撤回)
+{
+    可能结果 = &#34;撤回请求未得到同意，行政复议申请继续进行&#34;;
+}
+else
+{
+    可能结果 = &#34;无撤回行为，行政复议申请按原流程继续&#34;;
+}
+
+输出 可能结果;
+~~~
+
+# 真实代码
+</code></pre><p>真实代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">review_withdrawal</span>(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    处理行政复议申请撤回的函数
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    参数:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - decision_action: 行动类型，&#34;申请撤回&#34; 或其他
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - facts_and_reasons: 申请撤回的事实和理由
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - consent_to_withdraw: 行政复议机构是否同意撤回，布尔值
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - proof_against_true_intention: 申请人是否能证明撤回违背其真实意思表示，布尔值
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    返回值:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    - str: 描述行政复议申请撤回的可能结果
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    行动类型为<span style="color:#960050;background-color:#1e0010">“</span>申请撤回<span style="color:#960050;background-color:#1e0010">”，</span>并且行政复议机构同意撤回<span style="color:#960050;background-color:#1e0010">。</span>  <span style="color:#f92672">-&gt;</span>  true    false
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> decision_action <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;申请撤回&#34;</span> <span style="color:#f92672">and</span> consent_to_withdraw:
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> proof_against_true_intention:
+</span></span><span style="display:flex;"><span>            result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> decision_action <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;申请撤回&#34;</span> <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> consent_to_withdraw:
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;撤回请求未得到同意，行政复议申请继续进行。&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;无撤回行为，行政复议申请按原流程继续。&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result
+</span></span></code></pre></div><h2 id="三单元测试代码生成">三、单元测试代码生成</h2>
+<p>提示词：</p>
+<pre tabindex="0"><code>你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的python代码。现在请你将这段python代码写一个单元测试代码：
+
+# 法律条文
+申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+
+# python代码
+~~~
+def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) -&gt; str:
+    &#34;&#34;&#34;
+    处理行政复议申请撤回的函数
+
+    参数:
+    - decision_action: 行动类型，&#34;申请撤回&#34; 或其他
+    - facts_and_reasons: 申请撤回的事实和理由
+    - consent_to_withdraw: 行政复议机构是否同意撤回，布尔值
+    - proof_against_true_intention: 申请人是否能证明撤回违背其真实意思表示，布尔值
+
+    返回值:
+    - str: 描述行政复议申请撤回的可能结果
+    &#34;&#34;&#34;
+
+    if decision_action == &#34;申请撤回&#34; and consent_to_withdraw:
+        result = &#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&#34;
+
+        if proof_against_true_intention:
+            result = &#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&#34;
+
+    elif decision_action == &#34;申请撤回&#34; and not consent_to_withdraw:
+        result = &#34;撤回请求未得到同意，行政复议申请继续进行。&#34;
+
+    else:
+        result = &#34;无撤回行为，行政复议申请按原流程继续。&#34;
+
+    return result
+~~~
+</code></pre><p>示例输出：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> unittest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestReviewWithdrawal</span>(unittest<span style="color:#f92672">.</span>TestCase):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_withdrawal_success</span>(self):
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> review_withdrawal(
+</span></span><span style="display:flex;"><span>            decision_action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;申请撤回&#34;</span>,
+</span></span><span style="display:flex;"><span>            facts_and_reasons<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;示例事实和理由&#34;</span>,
+</span></span><span style="display:flex;"><span>            consent_to_withdraw<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>            proof_against_true_intention<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(result, <span style="color:#e6db74">&#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_withdrawal_success_with_proof</span>(self):
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> review_withdrawal(
+</span></span><span style="display:flex;"><span>            decision_action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;申请撤回&#34;</span>,
+</span></span><span style="display:flex;"><span>            facts_and_reasons<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;示例事实和理由&#34;</span>,
+</span></span><span style="display:flex;"><span>            consent_to_withdraw<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>            proof_against_true_intention<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(
+</span></span><span style="display:flex;"><span>            result,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&#34;</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_withdrawal_denied</span>(self):
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> review_withdrawal(
+</span></span><span style="display:flex;"><span>            decision_action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;申请撤回&#34;</span>,
+</span></span><span style="display:flex;"><span>            facts_and_reasons<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;示例事实和理由&#34;</span>,
+</span></span><span style="display:flex;"><span>            consent_to_withdraw<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>            proof_against_true_intention<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(result, <span style="color:#e6db74">&#34;撤回请求未得到同意，行政复议申请继续进行。&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_no_withdrawal_action</span>(self):
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> review_withdrawal(
+</span></span><span style="display:flex;"><span>            decision_action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;非撤回操作&#34;</span>,
+</span></span><span style="display:flex;"><span>            facts_and_reasons<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>            consent_to_withdraw<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>            proof_against_true_intention<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(result, <span style="color:#e6db74">&#34;无撤回行为，行政复议申请按原流程继续。&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 如果是直接运行此脚本，则执行测试</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    unittest<span style="color:#f92672">.</span>main()
+</span></span></code></pre></div><h2 id="四入参提取与槽位填充">四、入参提取与槽位填充</h2>
+<p>提示词</p>
+<pre tabindex="0"><code>你是一个法律专家，同时也是一个高级程序员。
+
+已知法律条文：{}
+已知该法律条文对应的python函数：
+{}
+现在有一个人提了一个法律问题：{}
+
+请从这个问题中抽取出Python函数的入参，并以json格式输出
+</code></pre><p>填充后：</p>
+<pre tabindex="0"><code>你是一个法律专家，同时也是一个高级程序员。
+
+已知法律条文：申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+已知该法律条文对应的python函数：
+~~~
+def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) -&gt; str:
+    &#34;&#34;&#34;
+    处理行政复议申请撤回的函数
+
+    参数:
+    - decision_action: 行动类型，&#34;申请撤回&#34; 或其他
+    - facts_and_reasons: 申请撤回的事实和理由
+    - consent_to_withdraw: 行政复议机构是否同意撤回，布尔值
+    - proof_against_true_intention: 申请人是否能证明撤回违背其真实意思表示，布尔值
+
+    返回值:
+    - str: 描述行政复议申请撤回的可能结果
+    &#34;&#34;&#34;
+
+    if decision_action == &#34;申请撤回&#34; and consent_to_withdraw:
+        result = &#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&#34;
+
+        if proof_against_true_intention:
+            result = &#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&#34;
+
+    elif decision_action == &#34;申请撤回&#34; and not consent_to_withdraw:
+        result = &#34;撤回请求未得到同意，行政复议申请继续进行。&#34;
+
+    else:
+        result = &#34;无撤回行为，行政复议申请按原流程继续。&#34;
+
+    return result
+~~~
+现在有一个人提了一个法律问题：行政复议已经受理，当时办案单位让我撤销并给处理，如果解决不了是否还可以提起行政复议？
+
+请从这个问题中抽取出Python函数的入参，并以json格式输出
+</code></pre><p>示例输出：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;decision_action&#34;</span>: <span style="color:#e6db74">&#34;申请撤回&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;facts_and_reasons&#34;</span>: <span style="color:#e6db74">&#34;办案单位建议撤销并给处理方案&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;consent_to_withdraw&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;proof_against_true_intention&#34;</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>类别</th>
+          <th>数据量</th>
+          <th>示例输入</th>
+          <th>示例输出</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>法律论辩</td>
+          <td>9k</td>
+          <td>在充分比较和理解以下5个备选辩方论点后，从备选的5个辩方论点中选择一个正确恰当的论点：【诉方论点】本案事实清楚、证据充分，被告人的行为构成故意伤害罪。自诉人秦某某腿部骨折系……【备选辩方论点】1. 在案件起因上，被告人、自诉人和同村村民于某甲在于某……</td>
+          <td>2</td>
+      </tr>
+      <tr>
+          <td>罪名预测</td>
+          <td>20k</td>
+          <td>【案件事实】公诉机关指控，2013年间，被告人张×在北京市大兴区×旧货市场购买摩托车驾驶证、行驶证、车牌一套。经鉴定，驾驶证、行驶证、车牌均系伪造。公诉机关认为被告人张×具有如实供述的从轻处罚情节，建议判处被告人张×××至六个月。【罪名】</td>
+          <td>伪造、变造、买卖国家机关公文、证件、印章罪</td>
+      </tr>
+      <tr>
+          <td>判决预测</td>
+          <td>20k</td>
+          <td>【案件事实】经审理查明，2010年9月6日，被告人曾某在深圳市宝安区民治街道牛栏前万众城步行街伪造“青神县公安局西龙派出所”公章1枚，次日被公安机关查获。上述事实，被告人曾某在庭审过程中无异议，有经庭审举证、质证的被告人曾某的供述、证人曾某的证言及辨认笔录、抓获经过、扣押物品、文件清单、提取笔录、关于西龙派出所公章的回复函、现场勘察笔录及照片等证据证实，足以认定。【刑期】</td>
+          <td>12个月</td>
+      </tr>
+      <tr>
+          <td>法律概念解释</td>
+          <td>7k</td>
+          <td>股份有限公司在什么情况下可以采用累积投票权制度？</td>
+          <td>所谓累积投票权，是指股东大会选举两名以上的董事或监事时，股东所持的每一股份拥有与当选董事或监事总人数相等的投票权，股东既可以用所有的投票权集中投票选举某一人，也可以分散投票选举数人，按得票多少依次决定董事人选的表决权制度。由此可见……</td>
+      </tr>
+      <tr>
+          <td>司法考试</td>
+          <td>21k</td>
+          <td>【题目】我国民事诉讼法规定的管辖中，哪些管辖属于裁定管辖?【选项】A. 级别管辖B. 移送管辖C. 指定管辖D. 管辖权移转【正确答案】</td>
+          <td>B, C, D</td>
+      </tr>
+      <tr>
+          <td>法律情景问答</td>
+          <td>15k</td>
+          <td>A公司与B公司签订了一份合同，约定B公司向A公司提供商品并由A公司支付货款。A公司将其在该合同下的应收账款转让给了C公司作为保理款项。后来B公司未能按时履行合同约定，导致A公司无法收回货款。请问，在这种情况下，C公司有哪些权利？</td>
+          <td>根据《民法典-合同编》的规定，保理合同应当采用书面形式。同时，《民法典-合同编》第七百六十三条规定，……</td>
+      </tr>
+      <tr>
+          <td>司法建议</td>
+          <td>20k</td>
+          <td>怎么申请行政复议？</td>
+          <td>申请行政复议的具体步骤如下：1. 提交申请：……</td>
+      </tr>
+      <tr>
+          <td>法律多轮对话</td>
+          <td>5k</td>
+          <td>第一轮：老公有家庭暴力行为，我想起诉离婚，请问需要什么手续<!-- raw HTML omitted -->第二轮：是，我报警了。</td>
+          <td>第一轮：根据您所描述的情况，您可以向人民法院提起离婚诉讼……<!-- raw HTML omitted -->第二轮：那很好，您的报警记录可以作为证据在离婚诉讼中使用……</td>
+      </tr>
+      <tr>
+          <td>法条伪代码生成</td>
+          <td>20k</td>
+          <td>你是一个法律专家，同时也是一个高级程序员。请根据给出的法律条文规则，将其翻译成一段合理的伪代码。……</td>
+          <td>if (条件 != 行政复议先决条件) <!-- raw HTML omitted -->{  是否向人民法院提起行政诉讼 = False; } <!-- raw HTML omitted -->else { ……</td>
+      </tr>
+      <tr>
+          <td>法律可执行代码生成</td>
+          <td>20k</td>
+          <td>你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的伪代码。现在请你将这段伪代码编写为一个python的函数，并尽可能清晰地定义和抽象出入参和返回值：……</td>
+          <td>def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) -&gt; str:……</td>
+      </tr>
+      <tr>
+          <td>法律单元测试代码生成</td>
+          <td>20k</td>
+          <td>你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的python代码。现在请你将这段python代码写一个单元测试代码：……</td>
+          <td>class TestReviewWithdrawal(unittest.TestCase):……</td>
+      </tr>
+  </tbody>
+</table>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2024-05-02</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/">
+			Next<br>塞壬的歌声：为什么我们应当摆脱高技术产品？
+                </a>
+                
+                
+                
+                <a class="older-posts">
+			Previous<br>No older posts.
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="http://localhost:1313/">
+    
+        <div class="nav-title">
+            Jay Liu的随笔录
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                分类
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2024 Jay Liu的随笔录
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80%e4%bc%aa%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%90" class="nav-一伪代码生成">
+									一、伪代码生成
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e7%9c%9f%e5%ae%9e%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%90" class="nav-二真实代码生成">
+									二、真实代码生成
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%90" class="nav-三单元测试代码生成">
+									三、单元测试代码生成
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%9b%9b%e5%85%a5%e5%8f%82%e6%8f%90%e5%8f%96%e4%b8%8e%e6%a7%bd%e4%bd%8d%e5%a1%ab%e5%85%85" class="nav-四入参提取与槽位填充">
+									四、入参提取与槽位填充
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2024 Jay Liu的随笔录
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
