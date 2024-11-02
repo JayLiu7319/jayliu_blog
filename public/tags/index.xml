@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Jay Liu的随笔录</description>
     <generator>Hugo</generator>
-    <language>zh</language>
+    <language>zh-cn</language>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

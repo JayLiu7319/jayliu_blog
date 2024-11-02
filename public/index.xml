@@ -5,7 +5,7 @@
     <link>http://localhost:1313/</link>
     <description>Recent content on Jay Liu的随笔录</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
+    <language>zh-cn</language>
     <lastBuildDate>Sat, 02 Nov 2024 14:17:02 +0800</lastBuildDate>
     
         <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
@@ -64,6 +64,369 @@
 &lt;p&gt;在技术向前飞奔的时候，在高技术产品给我们的选择越来越多的时候，我们或许更应当保持对技术的极简主义，用自我的尺度来衡量对技术产品的需要。技术或许的确无罪，但我们身上都有原罪；用技术营造的“新世界”并非不好，但我们的双脚，依然要在真实的世界立足。
 在技术向前飞奔的时候，在高技术产品给我们的选择越来越多的时候，我们或许更应当保持对技术的极简主义，用自我的尺度来衡量对技术产品的需要。技术或许的确无罪，但我们身上都有原罪；用技术营造的“新世界”并非不好，但我们的双脚，依然要在真实的世界立足。&lt;/p&gt;
 - http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>法律大模型代码生成</title>
+        <link>http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</link>
+        <pubDate>Thu, 02 May 2024 15:37:23 +0800</pubDate>
+        
+        <guid>http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</guid>
+        <description>Jay Liu的随笔录 http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ -&lt;h2 id=&#34;一伪代码生成&#34;&gt;一、伪代码生成&lt;/h2&gt;
+&lt;p&gt;提示词：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;你是一个法律专家，同时也是一个高级程序员。请根据给出的法律条文规则，将其翻译成一段合理的伪代码。
+
+# 法律条文1
+生产、销售假药的，处三年以下有期徒刑或者拘役，并处罚金；对人体健康造成严重危害或者有其他严重情节的，处三年以上十年以下有期徒刑，并处罚金；致人死亡或者有其他
+特别严重情节的，处十年以上有期徒刑、无期徒刑或者死刑，并处罚金或者没收财产。药品使用单位的人员明知是假药而提供给他人使用的，依照前款的规定处罚。
+
+# 伪代码1
+构成要件 对象, 行为, 主体, 主观, 情节 = Input;
+要素 假药 = 药品管理法第 98 条 + Others, 
+生产 = 司法解释第 6 条第 1 款,
+销售 = 司法解释第 6 条第 2 款第 1 分句, 
+药品使用单位的人员,
+提供 = 司法解释第 6 条第 2 款第 2 分句, 
+明知是假药 = 司法解释第 10 条 + Others,
+致人死亡,
+其他特别严重情节 = 司法解释第 4 条,
+对人体健康造成严重危害 = 司法解释第 2 条,
+其他严重情节 = 司法解释第 3 条;
+结果 犯该罪, 刑罚;
+if (对象 == 假药 &amp;amp;&amp;amp; (行为 == 生产 || 行为 == 销售 || (主体 == 药品使用单位的人员
+&amp;amp;&amp;amp; 行为 == 提供 &amp;amp;&amp;amp; 主观 == 明知是假药)))
+{
+犯该罪 = True;
+if (情节 == 致人死亡 || 情节 == 其他特别严重情节)
+刑罚 = (十年以上有期徒刑 || 无期徒刑 || 死刑) + (罚金 || 没收财产);
+else if (情节 == 对人体健康造成严重危害 || 情节 == 其他严重情节)
+刑罚 = 三年以上十年以下有期徒刑 + 罚金;
+else
+刑罚 = (三年以下有期徒刑 || 拘役) + 罚金;
+}
+else
+犯该罪 = False;
+
+# 法律条文2
+申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+# 伪代码2
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;输出示例：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;输入：行为, 事实和理由, 同意撤回, 证明违背真实意思表示;
+状态：行政复议申请状态 = &amp;#34;未处理&amp;#34;;
+输出：行政复议申请的可能结果;
+
+if (行为 == &amp;#34;申请撤回&amp;#34; &amp;amp;&amp;amp; 同意撤回)
+{
+    行政复议申请状态 = &amp;#34;已撤回&amp;#34;;
+    可能结果 = &amp;#34;撤回成功，不能再以同一事实和理由提出行政复议申请&amp;#34;;
+
+    if (证明违背真实意思表示)
+    {
+        可能结果 = &amp;#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议&amp;#34;;
+    }
+}
+else if (行动 == &amp;#34;申请撤回&amp;#34; &amp;amp;&amp;amp; !同意撤回)
+{
+    可能结果 = &amp;#34;撤回请求未得到同意，行政复议申请继续进行&amp;#34;;
+}
+else
+{
+    可能结果 = &amp;#34;无撤回行为，行政复议申请按原流程继续&amp;#34;;
+}
+
+输出 可能结果;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;二真实代码生成&#34;&gt;二、真实代码生成&lt;/h2&gt;
+&lt;p&gt;提示词：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的伪代码。现在请你将这段伪代码编写为一个python的函数，并尽可能清晰地定义和抽象出入参和返回值：
+
+# 法律条文
+申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+
+# 伪代码
+~~~
+输入：行为, 事实和理由, 同意撤回, 证明违背真实意思表示;
+状态：行政复议申请状态 = &amp;#34;未处理&amp;#34;;
+输出：行政复议申请的可能结果;
+
+if (行为 == &amp;#34;申请撤回&amp;#34; &amp;amp;&amp;amp; 同意撤回)
+{
+    行政复议申请状态 = &amp;#34;已撤回&amp;#34;;
+    可能结果 = &amp;#34;撤回成功，不能再以同一事实和理由提出行政复议申请&amp;#34;;
+
+    if (证明违背真实意思表示)
+    {
+        可能结果 = &amp;#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议&amp;#34;;
+    }
+}
+else if (行动 == &amp;#34;申请撤回&amp;#34; &amp;amp;&amp;amp; !同意撤回)
+{
+    可能结果 = &amp;#34;撤回请求未得到同意，行政复议申请继续进行&amp;#34;;
+}
+else
+{
+    可能结果 = &amp;#34;无撤回行为，行政复议申请按原流程继续&amp;#34;;
+}
+
+输出 可能结果;
+~~~
+
+# 真实代码
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;真实代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;review_withdrawal&lt;/span&gt;(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; str:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    处理行政复议申请撤回的函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    参数:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    - decision_action: 行动类型，&amp;#34;申请撤回&amp;#34; 或其他
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    - facts_and_reasons: 申请撤回的事实和理由
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    - consent_to_withdraw: 行政复议机构是否同意撤回，布尔值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    - proof_against_true_intention: 申请人是否能证明撤回违背其真实意思表示，布尔值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    返回值:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    - str: 描述行政复议申请撤回的可能结果
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    行动类型为&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;申请撤回&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”，&lt;/span&gt;并且行政复议机构同意撤回&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;  true    false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; decision_action &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;申请撤回&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; consent_to_withdraw:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; proof_against_true_intention:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; decision_action &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;申请撤回&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; consent_to_withdraw:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;撤回请求未得到同意，行政复议申请继续进行。&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;无撤回行为，行政复议申请按原流程继续。&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; result
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;三单元测试代码生成&#34;&gt;三、单元测试代码生成&lt;/h2&gt;
+&lt;p&gt;提示词：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的python代码。现在请你将这段python代码写一个单元测试代码：
+
+# 法律条文
+申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+
+# python代码
+~~~
+def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) -&amp;gt; str:
+    &amp;#34;&amp;#34;&amp;#34;
+    处理行政复议申请撤回的函数
+
+    参数:
+    - decision_action: 行动类型，&amp;#34;申请撤回&amp;#34; 或其他
+    - facts_and_reasons: 申请撤回的事实和理由
+    - consent_to_withdraw: 行政复议机构是否同意撤回，布尔值
+    - proof_against_true_intention: 申请人是否能证明撤回违背其真实意思表示，布尔值
+
+    返回值:
+    - str: 描述行政复议申请撤回的可能结果
+    &amp;#34;&amp;#34;&amp;#34;
+
+    if decision_action == &amp;#34;申请撤回&amp;#34; and consent_to_withdraw:
+        result = &amp;#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&amp;#34;
+
+        if proof_against_true_intention:
+            result = &amp;#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&amp;#34;
+
+    elif decision_action == &amp;#34;申请撤回&amp;#34; and not consent_to_withdraw:
+        result = &amp;#34;撤回请求未得到同意，行政复议申请继续进行。&amp;#34;
+
+    else:
+        result = &amp;#34;无撤回行为，行政复议申请按原流程继续。&amp;#34;
+
+    return result
+~~~
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; unittest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;TestReviewWithdrawal&lt;/span&gt;(unittest&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;TestCase):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_withdrawal_success&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; review_withdrawal(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            decision_action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;申请撤回&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            facts_and_reasons&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;示例事实和理由&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            consent_to_withdraw&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            proof_against_true_intention&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(result, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_withdrawal_success_with_proof&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; review_withdrawal(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            decision_action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;申请撤回&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            facts_and_reasons&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;示例事实和理由&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            consent_to_withdraw&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            proof_against_true_intention&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            result,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_withdrawal_denied&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; review_withdrawal(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            decision_action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;申请撤回&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            facts_and_reasons&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;示例事实和理由&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            consent_to_withdraw&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            proof_against_true_intention&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(result, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;撤回请求未得到同意，行政复议申请继续进行。&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;test_no_withdrawal_action&lt;/span&gt;(self):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; review_withdrawal(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            decision_action&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;非撤回操作&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            facts_and_reasons&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            consent_to_withdraw&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            proof_against_true_intention&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;assertEqual(result, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;无撤回行为，行政复议申请按原流程继续。&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 如果是直接运行此脚本，则执行测试&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    unittest&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;main()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;四入参提取与槽位填充&#34;&gt;四、入参提取与槽位填充&lt;/h2&gt;
+&lt;p&gt;提示词&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;你是一个法律专家，同时也是一个高级程序员。
+
+已知法律条文：{}
+已知该法律条文对应的python函数：
+{}
+现在有一个人提了一个法律问题：{}
+
+请从这个问题中抽取出Python函数的入参，并以json格式输出
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;填充后：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;你是一个法律专家，同时也是一个高级程序员。
+
+已知法律条文：申请人在行政复议决定作出前自愿撤回行政复议申请的，经行政复议机构同意，可以撤回。
+申请人撤回行政复议申请的，不得再以同一事实和理由提出行政复议申请。但是，申请人能够证明撤回行政复议申请违背其真实意思表示的除外。
+
+已知该法律条文对应的python函数：
+~~~
+def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) -&amp;gt; str:
+    &amp;#34;&amp;#34;&amp;#34;
+    处理行政复议申请撤回的函数
+
+    参数:
+    - decision_action: 行动类型，&amp;#34;申请撤回&amp;#34; 或其他
+    - facts_and_reasons: 申请撤回的事实和理由
+    - consent_to_withdraw: 行政复议机构是否同意撤回，布尔值
+    - proof_against_true_intention: 申请人是否能证明撤回违背其真实意思表示，布尔值
+
+    返回值:
+    - str: 描述行政复议申请撤回的可能结果
+    &amp;#34;&amp;#34;&amp;#34;
+
+    if decision_action == &amp;#34;申请撤回&amp;#34; and consent_to_withdraw:
+        result = &amp;#34;撤回成功，不能再以同一事实和理由提出行政复议申请。&amp;#34;
+
+        if proof_against_true_intention:
+            result = &amp;#34;尽管之前撤回，但因能证明撤回违背真实意思表示，可以再次申请行政复议。&amp;#34;
+
+    elif decision_action == &amp;#34;申请撤回&amp;#34; and not consent_to_withdraw:
+        result = &amp;#34;撤回请求未得到同意，行政复议申请继续进行。&amp;#34;
+
+    else:
+        result = &amp;#34;无撤回行为，行政复议申请按原流程继续。&amp;#34;
+
+    return result
+~~~
+现在有一个人提了一个法律问题：行政复议已经受理，当时办案单位让我撤销并给处理，如果解决不了是否还可以提起行政复议？
+
+请从这个问题中抽取出Python函数的入参，并以json格式输出
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;decision_action&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;申请撤回&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;facts_and_reasons&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;办案单位建议撤销并给处理方案&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;consent_to_withdraw&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;proof_against_true_intention&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;类别&lt;/th&gt;
+          &lt;th&gt;数据量&lt;/th&gt;
+          &lt;th&gt;示例输入&lt;/th&gt;
+          &lt;th&gt;示例输出&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;法律论辩&lt;/td&gt;
+          &lt;td&gt;9k&lt;/td&gt;
+          &lt;td&gt;在充分比较和理解以下5个备选辩方论点后，从备选的5个辩方论点中选择一个正确恰当的论点：【诉方论点】本案事实清楚、证据充分，被告人的行为构成故意伤害罪。自诉人秦某某腿部骨折系……【备选辩方论点】1. 在案件起因上，被告人、自诉人和同村村民于某甲在于某……&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;罪名预测&lt;/td&gt;
+          &lt;td&gt;20k&lt;/td&gt;
+          &lt;td&gt;【案件事实】公诉机关指控，2013年间，被告人张×在北京市大兴区×旧货市场购买摩托车驾驶证、行驶证、车牌一套。经鉴定，驾驶证、行驶证、车牌均系伪造。公诉机关认为被告人张×具有如实供述的从轻处罚情节，建议判处被告人张×××至六个月。【罪名】&lt;/td&gt;
+          &lt;td&gt;伪造、变造、买卖国家机关公文、证件、印章罪&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;判决预测&lt;/td&gt;
+          &lt;td&gt;20k&lt;/td&gt;
+          &lt;td&gt;【案件事实】经审理查明，2010年9月6日，被告人曾某在深圳市宝安区民治街道牛栏前万众城步行街伪造“青神县公安局西龙派出所”公章1枚，次日被公安机关查获。上述事实，被告人曾某在庭审过程中无异议，有经庭审举证、质证的被告人曾某的供述、证人曾某的证言及辨认笔录、抓获经过、扣押物品、文件清单、提取笔录、关于西龙派出所公章的回复函、现场勘察笔录及照片等证据证实，足以认定。【刑期】&lt;/td&gt;
+          &lt;td&gt;12个月&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;法律概念解释&lt;/td&gt;
+          &lt;td&gt;7k&lt;/td&gt;
+          &lt;td&gt;股份有限公司在什么情况下可以采用累积投票权制度？&lt;/td&gt;
+          &lt;td&gt;所谓累积投票权，是指股东大会选举两名以上的董事或监事时，股东所持的每一股份拥有与当选董事或监事总人数相等的投票权，股东既可以用所有的投票权集中投票选举某一人，也可以分散投票选举数人，按得票多少依次决定董事人选的表决权制度。由此可见……&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;司法考试&lt;/td&gt;
+          &lt;td&gt;21k&lt;/td&gt;
+          &lt;td&gt;【题目】我国民事诉讼法规定的管辖中，哪些管辖属于裁定管辖?【选项】A. 级别管辖B. 移送管辖C. 指定管辖D. 管辖权移转【正确答案】&lt;/td&gt;
+          &lt;td&gt;B, C, D&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;法律情景问答&lt;/td&gt;
+          &lt;td&gt;15k&lt;/td&gt;
+          &lt;td&gt;A公司与B公司签订了一份合同，约定B公司向A公司提供商品并由A公司支付货款。A公司将其在该合同下的应收账款转让给了C公司作为保理款项。后来B公司未能按时履行合同约定，导致A公司无法收回货款。请问，在这种情况下，C公司有哪些权利？&lt;/td&gt;
+          &lt;td&gt;根据《民法典-合同编》的规定，保理合同应当采用书面形式。同时，《民法典-合同编》第七百六十三条规定，……&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;司法建议&lt;/td&gt;
+          &lt;td&gt;20k&lt;/td&gt;
+          &lt;td&gt;怎么申请行政复议？&lt;/td&gt;
+          &lt;td&gt;申请行政复议的具体步骤如下：1. 提交申请：……&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;法律多轮对话&lt;/td&gt;
+          &lt;td&gt;5k&lt;/td&gt;
+          &lt;td&gt;第一轮：老公有家庭暴力行为，我想起诉离婚，请问需要什么手续&lt;!-- raw HTML omitted --&gt;第二轮：是，我报警了。&lt;/td&gt;
+          &lt;td&gt;第一轮：根据您所描述的情况，您可以向人民法院提起离婚诉讼……&lt;!-- raw HTML omitted --&gt;第二轮：那很好，您的报警记录可以作为证据在离婚诉讼中使用……&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;法条伪代码生成&lt;/td&gt;
+          &lt;td&gt;20k&lt;/td&gt;
+          &lt;td&gt;你是一个法律专家，同时也是一个高级程序员。请根据给出的法律条文规则，将其翻译成一段合理的伪代码。……&lt;/td&gt;
+          &lt;td&gt;if (条件 != 行政复议先决条件) &lt;!-- raw HTML omitted --&gt;{  是否向人民法院提起行政诉讼 = False; } &lt;!-- raw HTML omitted --&gt;else { ……&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;法律可执行代码生成&lt;/td&gt;
+          &lt;td&gt;20k&lt;/td&gt;
+          &lt;td&gt;你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的伪代码。现在请你将这段伪代码编写为一个python的函数，并尽可能清晰地定义和抽象出入参和返回值：……&lt;/td&gt;
+          &lt;td&gt;def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_withdraw: bool, proof_against_true_intention: bool) -&amp;gt; str:……&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;法律单元测试代码生成&lt;/td&gt;
+          &lt;td&gt;20k&lt;/td&gt;
+          &lt;td&gt;你是一个法律专家，同时也是一个高级程序员。请充分理解给出的法律条文规则和对应的python代码。现在请你将这段python代码写一个单元测试代码：……&lt;/td&gt;
+          &lt;td&gt;class TestReviewWithdrawal(unittest.TestCase):……&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+- http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ - </description>
         </item>
     
     

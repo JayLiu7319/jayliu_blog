@@ -1,4 +1,23 @@
 baseURL = 'https://jayliu.tech/'
-languageCode = 'zh'
+languageCode = 'zh-cn'
 title = 'Jay Liu的随笔录'
 theme = 'diary'
+
+[params]
+favicon = "images/favicon-16x16.png"
+
+
+[[menu.main]]
+url = "/categories"
+name = "分类"
+weight = 3
+
+[[menu.main]]
+url = "/tags"
+name = "标签"
+weight = 2
+
+[[menu.main]]
+url = "/posts"
+name = "归档"
+weight = 1
