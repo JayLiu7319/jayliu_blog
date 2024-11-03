@@ -6,165 +6,9 @@
     <description>Recent content on Jay Liu的随笔录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 03 Nov 2024 13:08:18 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Nov 2024 14:17:02 +0800</lastBuildDate>
     
         <atom:link href="https://jayliu.tech/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-        <item>
-        <title>SMW教程第一章：MediaWiki平台的Windows安装搭建</title>
-        <link>https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
-        <pubDate>Sun, 03 Nov 2024 13:08:18 +0800</pubDate>
-        
-        <guid>https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
-        <description>Jay Liu的随笔录 https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
-&lt;h2 id=&#34;一培训说明&#34;&gt;一、培训说明&lt;/h2&gt;
-&lt;p&gt;各位同学大家好，在开始我们的教程培训之前，需要向大家介绍关于本次培训的一些信息，以供大家参考&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;培训目标&lt;/strong&gt;：引导各位同学掌握知识图谱的基本概念和构建思路；掌握 Mediawiki 平台的搭建、使用和开发；掌握 Semantic Mediawiki 的安装和应用；掌握从平台搭建、Schema 设计、数据获取、数据处理与语义化、数据导入导出、知识图谱可视化等全流程的技术；在教程基础上能够根据自身项目主题搭建知识图谱平台，并进行可视化分析、算法应用等；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;培训内容&lt;/strong&gt;：培训内容主要分为两个部分，一是&lt;strong&gt;教程主线&lt;/strong&gt;，二是&lt;strong&gt;相关技术&lt;/strong&gt;。其中，教程主线按照&lt;strong&gt;章节&lt;/strong&gt;划分，为我们培训的&lt;strong&gt;主要内容&lt;/strong&gt;与&lt;strong&gt;规定动作&lt;/strong&gt;，同学们每周需要完成一个章节的教程学习并进行实操，完成对应章节的作业；相关技术按照&lt;strong&gt;主题&lt;/strong&gt;划分，主要是在构建 MediaWiki 平台时涉及到的一系列相关知识，由同学们自由学习和互相分享，&lt;strong&gt;不作强制要求&lt;/strong&gt;，大二项目制小组可以选择其中一个主题 (或自拟主题并经由大二经理认可)，在每周培训会上进行分享，会有相应的加分；大四毕设同学也可以根据自身能力选择并分享。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;教程主线：
-&lt;ul&gt;
-&lt;li&gt;第一章：Mediawiki 平台的安装搭建、皮肤与插件使用&lt;/li&gt;
-&lt;li&gt;第二章：Mediawiki 与 Semantic Mediawiki 的使用和基本概念&lt;/li&gt;
-&lt;li&gt;第三章：Mediawiki 下知识图谱的概念、实现思路与 Schema 设计&lt;/li&gt;
-&lt;li&gt;第四章：Mediawiki 模板设计与数据导入【基础篇】(院士基础数据)&lt;/li&gt;
-&lt;li&gt;第五章：Mediawiki 模板设计与数据导入【高级篇】(院士详细数据)&lt;/li&gt;
-&lt;li&gt;第六章：Mediawiki 数据查询与组件功能开发&lt;/li&gt;
-&lt;li&gt;第七章：Mediawiki、Vue 与 Dgraph 知识图谱可视化 (进阶内容)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;相关技术
-&lt;ul&gt;
-&lt;li&gt;数据获取：爬虫技术 (Python、Selenium、八爪鱼/火车头)&lt;/li&gt;
-&lt;li&gt;数据整理：NLP 算法 (命名实体识别、实体消歧、实体统一、指代消解、关系抽取)、UML 设计、Mindmaster 导图&lt;/li&gt;
-&lt;li&gt;数据呈现：前端基础 (HTML/CSS/JS)、MediaWiki 模板自动生成 (Python)、MediaWiki 模块开发 (Lua)、MediaWiki 高级插件配置与使用 (Semantic Result Formats、Maps、Cargo……)、MediaWiki Extension 开发、MediaWiki Skin 开发……&lt;/li&gt;
-&lt;li&gt;算法洞察：图算法 (社团发现、异常检测、链接预测……)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;培训形式&lt;/strong&gt;：培训形式上，主要以&lt;strong&gt;教程引导&lt;/strong&gt; + &lt;strong&gt;实践作业&lt;/strong&gt; + &lt;strong&gt;学生自组织培训分享&lt;/strong&gt;为主。我们会提前一周发布本周的教程与作业，并在每周的培训会上对同学们的作业进行&lt;strong&gt;逐一展示、逐一检查&lt;/strong&gt;，保证同学落实到位。在每周的培训会上，首先由选择某一相关技术的小组或同学进行&lt;strong&gt;技术分享和实操演示&lt;/strong&gt;，然后由助教和经理对同学们的作业进行检查与打分。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;培训周期&lt;/strong&gt;：培训时长为 6~8 周，每周固定时间在腾讯会议开培训会。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;二mediawiki-平台安装-windows-系统&#34;&gt;二、MediaWiki 平台安装 (Windows 系统)&lt;/h2&gt;
-&lt;h3 id=&#34;1wampserver-安装&#34;&gt;1、Wampserver 安装&lt;/h3&gt;
-&lt;p&gt;Wampserver 是一个 Web 集成环境，该集成环境中打包安装了包括 php、apache、mysql 以及 mariadb 等软件 (ps：如果电脑&lt;strong&gt;原来已有 mysql 或者 php 服务运行&lt;/strong&gt;的话最好停止)。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第一步&lt;/strong&gt;：Wampserver 版本使用教程包中提供的安装包安装，&lt;strong&gt;一路按照默认选项点下一步即可&lt;/strong&gt;，注意安装过程中选择 PHP 版本为 7.3 以上。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/f374f5e6e9b3c36e9a6a223d93fe784e.png&#34; alt=&#34;image-20241103111702824&#34;&gt;&lt;/p&gt;
-&lt;p&gt;首次运行可能会被 360 杀毒软件报警，忽略警告即可。该软件开始正常运行以后&lt;strong&gt;图标会变绿&lt;/strong&gt;，表明 Wamp 安装成功。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第二步&lt;/strong&gt;：在浏览器输入 localhost 进入配置页面：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/eaa108434b82cdd4aa27c7c844e70aa0.png&#34; alt=&#34;image-20241103111739546&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第三步&lt;/strong&gt;：在该页面的 &lt;strong&gt;Tools 栏下&lt;/strong&gt;，点击 &lt;strong&gt;phpmyadmin&lt;/strong&gt; 跳转到数据库管理页面，首次登录不用输密码 (登录用户名为 root 或 admin)，&lt;strong&gt;注意选择服务器一定为 MySQL&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/55ebc0f1d068b9f40e25e9ad2ba6013a.png&#34; alt=&#34;image-20241103111803261&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第四步&lt;/strong&gt;：进入管理页后点击 “&lt;strong&gt;SQL&lt;/strong&gt;” 栏，复制输入以下代码，点击执行。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DATABASE&lt;/span&gt; my_wiki;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;wikiuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Smwuser1234&amp;#39;&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIVILEGES&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; my_wiki.&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;wikiuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;OPTION&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/9530cb18cc7302b56bde87f08fb525d0.png&#34; alt=&#34;image-20241103111849561&#34;&gt;&lt;/p&gt;
-&lt;p&gt;安装配置完成。&lt;/p&gt;
-&lt;h3 id=&#34;2mediawiki-安装&#34;&gt;2、Mediawiki 安装&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;第一步&lt;/strong&gt;：选择 MediaWiki 安装包，可以在官方版本库：https://releases.wikimedia.org/mediawiki/中进行下载，也可以直接选用安装包中给定的 MediaWiki-1.35.4 版本；将&lt;code&gt;mediawiki-1.35.4.zip&lt;/code&gt;压缩包解压后，放在 wampserver 的 www 文件夹下。注意需要&lt;strong&gt;修改解压后的文件夹名为 mediawiki&lt;/strong&gt;。解压完成后，&lt;code&gt;wamp\www\mediawiki&lt;/code&gt;文件夹中的文件应当如下图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/ee2a28be4355b67ee0d6c009cbcd6677.png&#34; alt=&#34;image-20241103112324808&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第二步&lt;/strong&gt;：在浏览器地址栏输入：&lt;code&gt;localhost/mediawiki&lt;/code&gt;，回车后开始进行安装 mediawiki 安装。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/0a05117660a936b083a11177174043f1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第三步&lt;/strong&gt;：选择语言为 &lt;strong&gt;zh-中文&lt;/strong&gt;，&lt;strong&gt;注意不要选择 zh-cn - 中文 (中国大陆)&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/7c511cbf4230198037221e5783f039a8.png&#34; alt=&#34;image-20241103112429196&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第四步&lt;/strong&gt;：点击继续直到出现 “&lt;strong&gt;连接到数据库&lt;/strong&gt;”，输入数据库名称为 my_wiki，数据库用户名为 wikiuser，密码为 Smwuser1234&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/5b1898c94231bd308754719e004b0e90.png&#34; alt=&#34;image-20241103112502120&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第五步&lt;/strong&gt;：点击继续，填写并设置你的 wiki 名称、用户名、密码、邮件地址等。项目名字空间选择 “与 wiki 名称相同” 即可。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/a7ce0847644e0426dab4dc0da2edc50b.png&#34; alt=&#34;image-20241103112530266&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第六步&lt;/strong&gt;：选择 “多问我一些问题吧”，继续进行配置。其他设置无需修改，选择 “扩展程序” 下的&lt;strong&gt;全部扩展&lt;/strong&gt;并打勾。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/69803732aaccdc3ab1253e16a470cbbd.png&#34; alt=&#34;image-20241103112558076&#34;&gt;&lt;/p&gt;
-&lt;p&gt;同时选择启用文件上传。&lt;strong&gt;“已删除文件的目录” 会自动生成，无需手动设置&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/792e0604b6f95a9dfbe8f188ef2a5a55.png&#34; alt=&#34;image-20241103112616045&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;第七步&lt;/strong&gt;：点击继续并完成安装。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/63404a3ebd68f2303a87dcdbffce9585.webp&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;提示你下载 &lt;strong&gt;LocalSettings.php 文件&lt;/strong&gt;，保存后将它复制至你的 Wiki 站点根目录下 (即 &lt;code&gt;wamp\www\mediawiki&lt;/code&gt; 文件夹下)。&lt;/p&gt;
-&lt;p&gt;重新输入你的网站地址 (localhost/mediawiki)，如果能看到跟下面差不多的画面，那么就安装成功了！&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/37639d6b9b4ebed2442d95c050e7a9a1.png&#34; alt=&#34;image-20241103112710422&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意：LocalSetting.php 文件是 MediaWiki 网站的主要配置文件，我们之后的很多网站定制化都需要在该文件中进行配置和修改！&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;三mediawiki-平台安装-ubuntu-系统&#34;&gt;三、Mediawiki 平台安装 (Ubuntu 系统)&lt;/h2&gt;
-&lt;p&gt;参见官网教程：https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu&lt;/p&gt;
-&lt;h2 id=&#34;四插件安装&#34;&gt;四、插件安装&lt;/h2&gt;
-&lt;h3 id=&#34;composer-安装&#34;&gt;Composer 安装&lt;/h3&gt;
-&lt;p&gt;需要安装 composer 软件 (sementic 插件安装需要)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/5f685fa3dbf85c7dac3416f8efe5bab4.png&#34; alt=&#34;image-20241103112734101&#34;&gt;&lt;/p&gt;
-&lt;p&gt;安装过程中，php 路径按 wampserver 使用的 php 版本路径设置 (该路径一般在 Wamp 文件夹下的 bin 文件夹的 php 文件夹中，默认是按环境变量)，之后一路 next 即可。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/e00693d4e07b3148d82ced93c4898e84.png&#34; alt=&#34;image-20241103112753870&#34;&gt;&lt;/p&gt;
-&lt;p&gt;安装以后在 cmd 命令行输入 composer，回车，可以看到可以使用 composer 命令&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/100411db931aed78f6f8b1d1e8ae8f65.png&#34; alt=&#34;image-20241103112811826&#34;&gt;&lt;/p&gt;
-&lt;p&gt;如果 composer 命令失败，需要检查一下环境变量配置中是否有 Composer 路径：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/ac23ff6ef69823edece51ed174f4e42d.png&#34; alt=&#34;image-20241103112834073&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意该步非常重要&lt;/strong&gt;：在 cmd 命令行中，输入命令 &lt;code&gt;composer self-update 2.1.14&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/66c99c587ed6fd853ea836c929c45c95.png&#34; alt=&#34;image-20241103112849199&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;pageforms-安装&#34;&gt;PageForms 安装&lt;/h3&gt;
-&lt;p&gt;将 PageForms 安装包进行解压，解压后的文件夹放在 &lt;code&gt;wamp\www\mediawiki\extensions&lt;/code&gt; 文件夹中&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/22ebb66c645aecadcbd6d74a9c1e0ea4.png&#34; alt=&#34;image-20241103112905404&#34;&gt;&lt;/p&gt;
-&lt;p&gt;注意解压后的路径和文件如图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/6abedc74201a63a8691fe5d30ae46e46.png&#34; alt=&#34;image-20241103112926249&#34;&gt;&lt;/p&gt;
-&lt;p&gt;在 LocalSetting.php 配置文件中加入以下语句：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;wfLoadExtension&lt;/span&gt;( &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;PageForms&amp;#39;&lt;/span&gt; );
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 &lt;code&gt;\wamp\www\mediawiki\maintenance&lt;/code&gt; 路径下，在 cmd 命令行中输入 &lt;code&gt;php update.php&lt;/code&gt; 命令&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/b23f94bb3a7df06123675da6c128ba29.png&#34; alt=&#34;image-20241103112951182&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;sementic-mediawiki-安装&#34;&gt;Sementic MediaWiki 安装&lt;/h3&gt;
-&lt;p&gt;使用 &lt;code&gt;composer update&lt;/code&gt; 命令更新 composer，&lt;strong&gt;在 wiki 的根目录路径&lt;/strong&gt; (&lt;code&gt;wamp\www\mediawiki&lt;/code&gt;) 下输入命令：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;composer require mediawiki/semantic-media-wiki &amp;#34;~3.2&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/a1c8e172f55cb468a73a30a8251f33b8.png&#34; alt=&#34;image-20241103113020891&#34;&gt;&lt;/p&gt;
-&lt;p&gt;在 LocalSetting.php 配置文件中加入以下语句：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enableSemantics&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost/mediawiki/&amp;#39;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 &lt;code&gt;\wamp\www\mediawiki\maintenance&lt;/code&gt; 路径下，在 cmd 命令行中输入 &lt;code&gt;php update.php&lt;/code&gt; 命令&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/e0abbdcf38dad65a37c8ffe48581f2c3.png&#34; alt=&#34;image-20241103113050592&#34;&gt;&lt;/p&gt;
-&lt;p&gt;可以在 wiki 中&lt;strong&gt;特殊页面&lt;/strong&gt;的&lt;strong&gt;版本&lt;/strong&gt;页面查看插件安装情况。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/10a1414db648a02c3cf4f2cbdaece1be.png&#34; alt=&#34;image-20241103113129671&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;四作业安排&#34;&gt;四、作业安排&lt;/h2&gt;
-&lt;p&gt;本周主要任务是在自己的电脑上安装好 mediawiki 平台。安装软件平台是锻炼技术能力的第一步，在安装平台、配置环境的过程中，你们会初步了解到现代软件平台的构成方式、使用方式、调试方法，了解到一个网站要以哪些东西构成和运行。此外，在查阅技术文档的过程中，也能够让你们掌握基本的查阅资料、理解文献/文档并最终解决问题的能力。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;作业安排&lt;/strong&gt;：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;在 windows 平台安装好 mediawiki 平台，具体步骤参看教程；&lt;/p&gt;
-&lt;p&gt;(如果是 Mac 电脑，需要在 Mac 上安装 Ubuntu 虚拟机，在 Ubuntu 系统下按照官网教程进行安装 mediawiki 平台)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在 mediawiki 平台中，安装好 pageforms、semantic mediawiki 插件。
-下载、安装方法，参照插件官方页面与本教程：
-&lt;a href=&#34;https://www.mediawiki.org/wiki/Extension:Page_Forms&#34;&gt;https://www.mediawiki.org/wiki/Extension:Page_Forms&lt;/a&gt;
-&lt;a href=&#34;https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki&#34;&gt;https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在 MediaWiki 和 Semantic MediaWiki 官方插件列表中，选择并安装 3 个及以上其他插件 (&lt;strong&gt;注意不要与平台已有的插件重复&lt;/strong&gt;)，并进行基本使用&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.mediawiki.org/wiki/Category:Extensions/zh&#34;&gt;https://www.mediawiki.org/wiki/Category:Extensions/zh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.semantic-mediawiki.org/wiki/Help:Semantic_MediaWiki_extensions&#34;&gt;https://www.semantic-mediawiki.org/wiki/Help:Semantic_MediaWiki_extensions&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为 mediawiki 平台更换一个&lt;strong&gt;皮肤&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.mediawiki.org/wiki/Manual:Skins/zh&#34;&gt;https://www.mediawiki.org/wiki/Manual:Skins/zh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.mediawiki.org/wiki/Category:All_skins/zh&#34;&gt;https://www.mediawiki.org/wiki/Category:All_skins/zh&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;浏览、学习基本的 HTML 语法，并用&lt;strong&gt;纯 HTML 语言&lt;/strong&gt;创建一个天津大学的百科介绍页面 (&lt;strong&gt;两周任务&lt;/strong&gt;)
-&lt;a href=&#34;https://www.runoob.com/html/html-tutorial.html&#34;&gt;https://www.runoob.com/html/html-tutorial.html&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;进阶 (可供学有余力的同学或组队同学尝试)&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在腾讯云使用【学生优惠】购买服务器 (可报销)，并选择 ubuntu 20.04 平台搭建云服务器 (或使用本机的 ubuntu 虚拟机)&lt;/li&gt;
-&lt;li&gt;按照 mediawiki 官网说明，安装并运行 MediaWiki 平台&lt;/li&gt;
-&lt;li&gt;在云服务器中安装 pageforms、semantic mediawiki、cargo 这三个基本插件&lt;/li&gt;
-&lt;li&gt;在云服务中安装 10 个以上其他插件&lt;/li&gt;
-&lt;li&gt;给 Mediawiki 平台更换皮肤&lt;/li&gt;
-&lt;/ol&gt;
-- https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
-        </item>
     
     
     
@@ -585,12 +429,12 @@ def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_w
     
     
         <item>
-        <title>SMW 教程第一章：MediaWiki平台的Windows安装搭建</title>
-        <link>https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
+        <title>SMW教程第一章：MediaWiki平台的Windows安装搭建</title>
+        <link>https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
         <pubDate>Thu, 02 Nov 2023 14:17:02 +0800</pubDate>
         
-        <guid>https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
-        <description>Jay Liu的随笔录 https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
+        <guid>https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
+        <description>Jay Liu的随笔录 https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
 &lt;h2 id=&#34;一培训说明&#34;&gt;一、培训说明&lt;/h2&gt;
 &lt;p&gt;各位同学大家好，在开始我们的教程培训之前，需要向大家介绍关于本次培训的一些信息，以供大家参考&lt;/p&gt;
 &lt;ol&gt;
@@ -735,7 +579,7 @@ def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_w
 &lt;li&gt;在云服务中安装 10 个以上其他插件&lt;/li&gt;
 &lt;li&gt;给 Mediawiki 平台更换皮肤&lt;/li&gt;
 &lt;/ol&gt;
-- https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
+- https://jayliu.tech/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
         </item>
     
     
