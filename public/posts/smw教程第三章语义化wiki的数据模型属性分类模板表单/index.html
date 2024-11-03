@@ -1,0 +1,2676 @@
+<!DOCTYPE html>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+<title>SMW教程第三章：语义化Wiki的数据模型——属性、分类、模板、表单</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="本文介绍了以Semantic Mediawiki作为知识图谱底座的基本数据模型，以及数据模型在MediaWiki上的实现方式">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://jayliu.tech/images/favicon-egg.png">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts/">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags/">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories/">
+                    分类
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80%e8%af%ad%e4%b9%89%e5%8c%96-wiki-%e7%9a%84%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b" class="nav-一语义化-wiki-的数据模型">
+									一、语义化 Wiki 的数据模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e5%b1%9e%e6%80%a7" class="nav-二属性">
+									二、属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e5%b1%9e%e6%80%a7%e7%b1%bb%e5%9e%8b" class="nav-1属性类型">
+									1、属性类型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2%e5%b1%9e%e6%80%a7%e5%ae%9a%e4%b9%89%e4%b8%8e%e5%a4%9a%e8%af%ad%e8%a8%80%e6%94%af%e6%8c%81" class="nav-2属性定义与多语言支持">
+									2、属性定义与多语言支持
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e5%b1%9e%e6%80%a7%e5%ae%9a%e4%b9%89-1%e5%8f%af%e8%a7%86%e5%8c%96%e6%96%b9%e5%bc%8f" class="nav-21-属性定义-1可视化方式">
+									2.1 属性定义 1：可视化方式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%b1%9e%e6%80%a7%e5%ae%9a%e4%b9%89-2%e6%ba%90%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f-%e6%8e%a8%e8%8d%90" class="nav-22-属性定义-2源代码方式-推荐">
+									2.2 属性定义 2：源代码方式 (推荐)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-%e5%b1%9e%e6%80%a7%e7%9a%84%e5%a4%9a%e8%af%ad%e8%a8%80%e6%94%af%e6%8c%81" class="nav-23-属性的多语言支持">
+									2.3 属性的多语言支持
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3%e5%b1%9e%e6%80%a7%e4%bd%bf%e7%94%a8%e4%b8%8e%e6%a0%87%e6%b3%a8%e6%96%b9%e6%b3%95" class="nav-3属性使用与标注方法">
+									3、属性使用与标注方法
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#31-%e6%98%be%e5%bc%8f%e6%a0%87%e6%b3%a8" class="nav-31-显式标注">
+									3.1 显式标注
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#32-%e9%9a%90%e5%bc%8f%e6%a0%87%e6%b3%a8" class="nav-32-隐式标注">
+									3.2 隐式标注
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#4%e9%80%86%e5%b1%9e%e6%80%a7" class="nav-4逆属性">
+									4、逆属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5%e5%ad%90%e5%b1%9e%e6%80%a7" class="nav-5子属性">
+									5、子属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6%e7%89%b9%e6%ae%8a%e5%b1%9e%e6%80%a7" class="nav-6特殊属性">
+									6、特殊属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e5%88%86%e7%b1%bb" class="nav-三分类">
+									三、分类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e9%a1%b5%e9%9d%a2%e5%bd%92%e7%b1%bb" class="nav-1页面归类">
+									1、页面归类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2%e5%88%9b%e5%bb%ba%e5%88%86%e7%b1%bb" class="nav-2创建分类">
+									2、创建分类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3%e5%88%86%e7%b1%bb%e5%b1%82%e6%ac%a1%e4%b8%8e%e5%88%86%e7%b1%bb%e6%a0%91" class="nav-3分类层次与分类树">
+									3、分类层次与分类树
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4%e5%88%86%e7%b1%bb%e9%a1%b5%e9%9d%a2%e7%9a%84%e9%93%be%e6%8e%a5" class="nav-4分类页面的链接">
+									4、分类页面的链接
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5%e5%88%86%e7%b1%bb%e4%b8%8e%e6%a8%a1%e6%9d%bf" class="nav-5分类与模板">
+									5、分类与模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6%e5%88%86%e7%b1%bb%e9%87%8d%e5%91%bd%e5%90%8d" class="nav-6分类重命名">
+									6、分类重命名
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e5%9b%9b%e6%a8%a1%e6%9d%bf" class="nav-四模板">
+									四、模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e6%a8%a1%e6%9d%bf%e4%bb%8b%e7%bb%8d" class="nav-1模板介绍">
+									1、模板介绍
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2transclusion-%e9%a1%b5%e9%9d%a2%e5%b5%8c%e5%85%a5%e6%9c%ba%e5%88%b6" class="nav-2transclusion-页面嵌入机制">
+									2、Transclusion 页面嵌入机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e5%b5%8c%e5%85%a5%e8%af%ad%e6%b3%95" class="nav-21-嵌入语法">
+									2.1 嵌入语法
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%b1%80%e9%83%a8%e5%b5%8c%e5%85%a5" class="nav-22-局部嵌入">
+									2.2 局部嵌入
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3%e6%a8%a1%e6%9d%bf%e5%88%9b%e5%bb%ba" class="nav-3模板创建">
+									3、模板创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#31-pageforms-%e5%8f%af%e8%a7%86%e5%8c%96%e5%88%9b%e5%bb%ba" class="nav-31-pageforms-可视化创建">
+									3.1 PageForms 可视化创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#32-%e6%ba%90%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f" class="nav-32-源代码方式">
+									3.2 源代码方式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#4%e6%a8%a1%e6%9d%bf%e4%bd%bf%e7%94%a8" class="nav-4模板使用">
+									4、模板使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5%e6%a8%a1%e6%9d%bf%e8%af%ad%e6%b3%95%e4%b8%8e%e5%a4%8d%e6%9d%82%e6%a8%a1%e6%9d%bf" class="nav-5模板语法与复杂模板">
+									5、模板语法与复杂模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%94%e8%a1%a8%e5%8d%95" class="nav-五表单">
+									五、表单
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e8%a1%a8%e5%8d%95%e5%88%9b%e5%bb%ba" class="nav-1表单创建">
+									1、表单创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2%e8%a1%a8%e5%8d%95%e4%bd%bf%e7%94%a8" class="nav-2表单使用">
+									2、表单使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e5%85%adpage-forms-%e7%9a%84%e6%a6%82%e5%bf%b5%e4%b8%8e%e4%bd%bf%e7%94%a8" class="nav-六page-forms-的概念与使用">
+									六、Page Forms 的概念与使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1page-forms-%e7%9a%84%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8" class="nav-1page-forms-的简单使用">
+									1、Page Forms 的简单使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2page-forms-%e7%9b%b8%e5%85%b3%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0%e4%b8%8e%e5%85%b7%e4%bd%93%e6%96%87%e6%a1%a3" class="nav-2page-forms-相关解析器函数与具体文档">
+									2、Page Forms 相关解析器函数与具体文档
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0" class="nav-21-解析器函数">
+									2.1 解析器函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3" class="nav-22-参考文档">
+									2.2 参考文档
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%83%e4%bd%9c%e4%b8%9a%e5%ae%89%e6%8e%92" class="nav-七作业安排">
+									七、作业安排
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://jayliu.tech/">
+            Jay Liu的随笔录
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://jayliu.tech/">
+        <div class="single-column-header-title">Jay Liu的随笔录</div>
+        
+        <div class="single-column-header-subtitle">日拱一卒，功不唐捐</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+                
+            
+
+            <div class="post-head-wrapper"
+                
+                    
+                    
+                    style="background-image: url('https://opengraph.githubassets.com/04dfd6c68d3e4474ec57360ec23f051e8ff9f3d4f1c94786364e7ef9645b374c/SemanticMediaWiki/SemanticResultFormats')"
+                    
+                
+            >
+                <div class="post-title">
+                    SMW教程第三章：语义化Wiki的数据模型——属性、分类、模板、表单
+                    
+                    <div class="post-subtitle">
+                        本文介绍了以Semantic Mediawiki作为知识图谱底座的基本数据模型，以及数据模型在MediaWiki上的实现方式
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-11-02 14:17
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E6%95%99%E7%A8%8B">教程</a>
+                                &nbsp;
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h2 id="一语义化-wiki-的数据模型">一、语义化 Wiki 的数据模型</h2>
+<p><img src="https://images.jayliu.tech/blog/2024/11/91729a7dd8afc9a81366490e75ae5888.png" alt="PF数据结构.drawio"></p>
+<p>上图非常重要，它说明了在我们的<strong>语义化框架</strong>中所使用的数据模型，一定要深刻理解；在上一讲中，我们为大家介绍了 MediaWiki 页面 (即图中绿色框) 的基本编辑与操作，这也是传统 Wiki 的关键内容；而在该讲，我们将会为大家介绍<strong>语义化的 Wiki 平台</strong>所涉及到的其他一系列概念，如分类、页面、属性、模板、表单等。</p>
+<p>那么什么是语义化，为什么要对 wiki 平台进行语义化呢？</p>
+<p><strong>下图为维基百科的天津大学页面</strong>：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/1f78df216e59239c4900fd256223bdcb.png" alt="1674806946729"></p>
+<p>在传统的 wiki 网站中 (如维基百科)，对于<strong>结构化数据</strong>的定义、存储、查询并没有一套完整成熟的机制。例如维基百科中 “<strong>天津大学</strong>” 这个<strong>实体</strong>，它的结构化数据在页面上显示在右侧信息框中 (我们也称其为 infobox)，这个信息框是由编辑者<strong>手动维护</strong>的。对于维基百科上大量页面的编辑和维护，绝大多数都依赖志愿者的自发组织；且由于数据量越来越大，内容越来越复杂，对于页面的编辑和维护已经不再像我们上一节那样简单易行。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/72bddbbf392d655ac01f55a0af43636d.png" alt="image-20230127191506689"></p>
+<p>只是简单的一页百科页面，却要涉及到 <strong>121 个模板</strong>，以及<strong>大量的 Lua 脚本</strong>，这带来了大量的学习成本和高昂的维护代价。</p>
+<p><strong>最最致命的问题是</strong>：在原始的 MediaWiki 中，所有的数据都以文本形式存储在关系数据库中，即使一个页面中存在大量的结构化数据 (如天津大学的创建时间、校长、校训等)，也无法被识别与处理。举个例子：想要在维基百科中查询<strong>全世界所有在1890年到1995年间建立的大学</strong>，是无法做到的，因为维基百科的<strong>关系型数据库实际上是囫囵吞枣，只存储了页面全部的文本数据，但无法分辨页面中文本数据的意义</strong>。</p>
+<p>因此，为了<strong>定义、存储、检索</strong>页面中的结构化数据，实现语义化的查询，我们就不得不引入新的方案，来进一步设置页面本身所具有的<strong>属性</strong>、<strong>分类</strong>等结构化信息，并以某种形式存储到数据库中，最后使用一种方案进行语义化的查询检索。而更近一步，我们可以将<strong>语义化的数据</strong>与<strong>知识图谱的基本框架</strong>对应，创建我们自己的知识图谱。</p>
+<p>总的来说，要解决页面语义化和结构化数据的问题，就需要解决语义数据的<strong>定义、存储、检索</strong>这三大问题</p>
+<ul>
+<li>页面结构化数据 (或语义数据) 的<strong>定义</strong>：Page Forms</li>
+<li>页面结构化数据 (或语义数据) 的<strong>存储</strong>：Semantic MediaWiki 或 Cargo</li>
+<li>页面结构化数据 (或语义数据) 的<strong>检索</strong>：Semantic MediaWiki 或 Cargo</li>
+</ul>
+<p>在我们的教程中，我们使用 Page Forms 和 Semantic MediaWiki 作为我们的语义化方案和实现知识图谱的基础：</p>
+<ul>
+<li>每个<strong>分类</strong>都视作一个<strong>本体</strong>；分类与子分类的树形结构，代表了本体树的树形结构；</li>
+<li>本体中的每一个<strong>页面</strong>，代表了知识图谱中与本体对应的一个单独的<strong>实体</strong>；</li>
+<li>每一个实体有其自己的非页面型<strong>属性字段与对应的值</strong>，作为 (实体)-[属性]-(属性值) <strong>三元组</strong>；</li>
+<li>每一个实体有其自己的页面型<strong>属性字段与对应的页面</strong>，作为 (实体)-[关系]-(实体) <strong>三元组</strong>；</li>
+<li>实体与实体之间以<strong>页面型属性字段相互关联</strong>；</li>
+</ul>
+<p>这里出现了许多新的概念，我们在下面给出详细说明；另外我们将在下一讲为同学们详细解释知识图谱的概念，以及它们在 MediaWiki 上的实现方法。</p>
+<h2 id="二属性">二、属性</h2>
+<blockquote>
+<p>该特性由 <strong>Semantic MediaWiki</strong> 与 <strong>Page Forms</strong> 共同提供</p>
+</blockquote>
+<p>”属性 “为 MediaWiki 的页面添加了更细致的数据管理；<strong>属性 (properties) 及类型 (types)</strong> 是 <a href="https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki">Semantic MediaWiki</a> 中定义结构化数据 (或语义数据) 的基本方式。可以将属性<strong>视为对页面 (或实体) 的一系列规范化的描述词</strong>；</p>
+<p>在页面编辑中，我们可以使用一些简单的方式来定义当前页面的属性，比如我们在”天津大学 “页面编辑了一段文字：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">天津大学（Tianjin University），创办于1895年，简称 “天大” ，坐落于天津市，是中华人民共和国教育部直属的首批全国重点大学，是国家“双一流”建设高校、 国家“211工程”和“985工程”建设高校，中国工程院和教育部10所工程教育改革试点高校之一，与南开大学为兄弟院校……
+</code></pre><p>对其进行语义标注 (我们会在后面详细介绍) 后，可以得到：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">天津大学（Tianjin University），创办于[[创办时间::1895]]年，简称 “天大” ，坐落于[[学校位置::39°6&#39;28&#34;N, 117°10&#39;22&#34;E|天津市]]，是中华人民共和国教育部直属的首批全国重点大学，是国家“双一流”建设高校、 国家“211工程”和“985工程”建设高校，中国工程院和教育部10所工程教育改革试点高校之一，与[[兄弟院校::南开大学]]为兄弟院校……
+</code></pre><p>点击保存，然后在左侧工具栏选择 “<strong>浏览属性</strong> “(这里以经典皮肤为例做演示，其他皮肤也有对应的工具，请自行查找其位置，或在特殊页面中选择” 浏览属性 “)：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/ad6d2f6527db1bc5f055be4f155673c9.png" alt="image-20230127191749375"></p>
+<p>可以看到当前页面定义了我们刚刚建好的一些三个属性：<strong>创办时间、学校位置、兄弟院校</strong>。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/24e50802c30c22ad4a31e3493ac581d0.png" alt="image-20230127191844710"></p>
+<p>通过这种方式，我们就能简单实现对天津大学这一实体的结构化数据的创建与语义化。</p>
+<h3 id="1属性类型">1、属性类型</h3>
+<p>我们在上文中为天津大学添加了三个属性：<strong>创办时间、学校位置、兄弟院校</strong>。而实际上，这三个属性对应的值 (内容)，各有其不同的要求：</p>
+<ul>
+<li><strong>兄弟院校</strong>对应的值，应当是与大学分类下的<strong>其他页面实体</strong>，如页面 “南开大学”</li>
+<li><strong>学校位置</strong>对应的值，应当是一个格式正确的<strong>地理坐标</strong>，如 39°6'28 “N，117°10'22” E</li>
+<li><strong>创办时间</strong>对应的值，应当是一个格式正确的<strong>日期时间</strong>，如 1895</li>
+</ul>
+<p>实际上，我们还可以很多创建其他的属性，如 “校训”、“校长”、“教职工人数” 等等，每一个属性对应的值，都会有一定的要求和规范。因此，属性本身也有不同的 “类型”，这里给出 MediaWiki 的属性类型：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">属性类型（英文）</th>
+          <th>属性类型（中文）</th>
+          <th style="text-align: center">属性例子</th>
+          <th style="text-align: center">数值例子</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Page">Page</a></td>
+          <td><strong>页面型</strong></td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_example">Property:Has example</a></td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/index.php?title=Semantic_MediaWiki&amp;action=edit&amp;redlink=1">Semantic MediaWiki</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Text">Text</a></td>
+          <td><strong>文本型</strong></td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:SomeProperty">Property:SomeProperty</a></td>
+          <td style="text-align: center">Did you create the page for Tokyo 東京 ? Yes ✓</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Annotation_URI">Annotation URI</a></td>
+          <td>注释URI型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_annotation_uri">Property:Has annotation uri</a></td>
+          <td style="text-align: center"><a href="http://www.semantic-mediawiki.org/">http://www.semantic-mediawiki.org</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Boolean">Boolean</a></td>
+          <td>布尔型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_boolean">Property:Has boolean</a></td>
+          <td style="text-align: center">true</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Code">Code</a></td>
+          <td>代码型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_code">Property:Has code</a></td>
+          <td style="text-align: center"></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Date">Date</a></td>
+          <td>日期型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_date">Property:Has date</a></td>
+          <td style="text-align: center">2015-05-22T17:32</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/EMail">EMail</a></td>
+          <td>电子邮件地址型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_email_address">Property:Has email address</a></td>
+          <td style="text-align: center"><a href="mailto:president@whitehouse.gov">president@whitehouse.gov</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Geographic_coordinates">Geographic coordinate</a></td>
+          <td>地理坐标型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_coordinates">Property:Has coordinates</a></td>
+          <td style="text-align: center">32°42′54″ N, 117°9′45″ W</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Number">Number</a></td>
+          <td>数值型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_number">Property:Has number</a></td>
+          <td style="text-align: center">47000.11</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Quantity">Quantity</a></td>
+          <td>数量型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Area">Property:Area</a></td>
+          <td style="text-align: center">1052km²</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Record">Record</a></td>
+          <td>记录型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Soccer_result">Property:Soccer result</a></td>
+          <td style="text-align: center">1 9月 2016 (中国, 韩国, 2, 3)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Telephone_number">Telephone number</a></td>
+          <td>电话号码型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Telephone_number">Property:Telephone number</a></td>
+          <td style="text-align: center"><a href="tel:+1-800-225-5288">+1-800-225-5288</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/Temperature">Temperature</a></td>
+          <td>温度型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E5%B1%9E%E6%80%A7:Has_temperatureExample">Property:Has temperatureExample</a></td>
+          <td style="text-align: center">23°C</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%B1%BB%E5%9E%8B/URL">URL</a></td>
+          <td>URL型</td>
+          <td style="text-align: center"><a href="https://www.huijiwiki.com/index.php?title=%E5%B1%9E%E6%80%A7:Has_URL&amp;action=edit&amp;redlink=1">Property:Has_URL</a></td>
+          <td style="text-align: center"><a href="http://www.whitehouse.gov/">http://www.whitehouse.gov</a></td>
+      </tr>
+  </tbody>
+</table>
+<p>在所有属性中，<strong>页面型</strong>与<strong>文本型</strong>是我们最常用的两类数据类型；</p>
+<ul>
+<li><strong>页面型属性</strong>，其值为平台上其他实体页面。正是由于页面型属性的存在，实体和实体之间可以通过某些具体的属性建立有向连接；**除了页面型属性，其他属性都是无法建立实体之间的三元组关系的。**也就无法表达”<em>天津大学的兄弟院校是南开大学</em> “这一经典的” <em>主 - 谓 - 宾</em> “三元组。</li>
+<li><strong>文本型属性</strong>，其值为文本、段落或其他难以划分类型的内容。在<strong>不确定如何为属性分配类型时，首选文本型属性</strong>。</li>
+</ul>
+<p>对于其他属性，有一些特殊的要求：</p>
+<ul>
+<li><strong>日期型属性</strong>：支持多种不同的日期格式，使用方法参考 SMW 官方文档 <a href="https://www.semantic-mediawiki.org/wiki/Help:%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B_%E6%97%A5%E6%9C%9F%E5%9E%8B">https://www.semantic-mediawiki.org/wiki/Help:%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B_%E6%97%A5%E6%9C%9F%E5%9E%8B</a></li>
+<li><strong>地理坐标型属性</strong>：该属性只有在安装了 Maps 插件之后才能正确支持，支持多种不同的地理坐标格式。使用方法参考 SMW 官方文档：https://www.semantic-mediawiki.org/wiki/Help:%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B_%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87%E5%9E%8B</li>
+<li><strong>记录型属性</strong>：可以聚合多个属性到同一个记录型属性中，使用示例参考 SMW 文档：https://www.semantic-mediawiki.org/wiki/Help:%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B_%E8%AE%B0%E5%BD%95%E5%9E%8B#%E7%A4%BA%E4%BE%8B，另外，该属性可以被 “子对象” 特性取代。</li>
+</ul>
+<p>回到我们最初的例子：</p>
+<ul>
+<li><strong>兄弟院校</strong>属性，应设置类型为 “页面型”</li>
+<li><strong>学校位置</strong>属性，应设置类型为 “地理坐标型”，注意需要安装 Maps 插件。</li>
+<li><strong>创办时间</strong>属性，应设置类型为 “日期型”</li>
+</ul>
+<h3 id="2属性定义与多语言支持">2、属性定义与多语言支持</h3>
+<p>上一小结我们介绍了属性的类型，现在我们来展示如何在 MediaWiki 中定义属性。</p>
+<h4 id="21-属性定义-1可视化方式">2.1 属性定义 1：可视化方式</h4>
+<p>在特殊页面中，找到 “<strong>创建属性</strong>”，输入属性名称，选择属性类型。如果该属性只允许特定的值，如 “月份” 只允许 1~12，那么需要将特定的值输入，并以<strong>英文逗号</strong>作分隔，注意设置特定值的这一步<strong>不是必需的</strong>，。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/b48a7906cffac72785c65d215e529d49.png" alt="image-20230127214219231"></p>
+<h4 id="22-属性定义-2源代码方式-推荐">2.2 属性定义 2：源代码方式 (推荐)</h4>
+<p>直接访问链接，注意将&lt;属性名&gt;替换为你想要创建的属性名称</p>
+<pre tabindex="0"><code>http://localhost/mediawiki/index.php?title=属性:&lt;属性名称&gt;&amp;action=edit
+</code></pre><p>如：</p>
+<pre tabindex="0"><code>http://localhost/mediawiki/index.php?title=属性:月份&amp;action=edit
+</code></pre><p>然后在编辑框输入代码：</p>
+<pre tabindex="0"><code>[[具有类型::文本型]]
+</code></pre><p>显然，只需在 <code>[[具有类型::&lt;属性类型&gt;]]</code> 中设置属性类型即可。</p>
+<p>如果该属性只允许特定的值，那么只需要将特定的值设置为如下格式，并将该代码输入到编辑框中。<strong>注意这一步不是必需的</strong>。</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">允许的用于该属性的值为：
+* [[允许取值::1]]
+* [[允许取值::2]]
+* [[允许取值::3]]
+* [[允许取值::4]]
+* [[允许取值::5]]
+* [[允许取值::6]]
+* [[允许取值::7]]
+* [[允许取值::8]]
+* [[允许取值::9]]
+* [[允许取值::10]]
+* [[允许取值::11]]
+* [[允许取值::12]]
+</code></pre><p>定义属性之后，<strong>暂时无法编辑属性页面，需要等待 MediaWiki 处理其作业队列</strong>；如果等待时间较长，可以在 MediaWiki 根目录下的 maintaince 文件夹中，打开 cmd，运行命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>php runJobs.php
+</span></span></code></pre></div><h4 id="23-属性的多语言支持">2.3 属性的多语言支持</h4>
+<p>我们在上述例子中，我们使用<strong>中文</strong>定义了属性名称 “月份”，而在不同语言中可能存在同样的词语来描述相同意义，如<strong>英文</strong>中的 month，<strong>德文</strong>中的 monat 等。为了避免重复和支持国际化，我们想为一个属性添加更多语言的支持，则需要在该属性对应的页面进行编辑，添加如下代码：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">* [[Has preferred property label::@@@]]
+** [[Has preferred property label::&lt;属性在对应语言的名称&gt;@&lt;语言代码&gt;]]
+* [[Has property description::@@@]]
+** [[Has property description::&lt;属性在对应语言的描述&gt;@&lt;语言代码&gt;]]
+</code></pre><p>如，在 <code>属性:月份</code> 页面，我们想要添加<strong>英语</strong>的支持，需要编辑页面，并添加如下代码：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">* [[Has preferred property label::@@@]]
+** [[Has preferred property label::month@en]]
+* [[Has property description::@@@]]
+** [[Has property description::A month is a unit of time@en]]
+</code></pre><p>语言代码对照表：http://www.lingoes.cn/zh/translator/langcode.htm</p>
+<p>尽管添加多语言支持<strong>并不是必须</strong>的，<strong>在知识图谱的具体实践中，与我们教程的做法略有不同，我们往往需要使用英文来作为属性名称 (以便于数据的导入与处理)，并为该属性添加中文支持 (以便于浏览检索)</strong>。</p>
+<p>综上所述，如果我们想要创建三个中文属性，<strong>创办时间、学校位置、兄弟院校</strong>，并添加英文支持，他们的创建流程分别为：</p>
+<ul>
+<li>
+<p>访问 <code>http://localhost/mediawiki/index.php?title=属性:创办时间&amp;action=edit</code>，输入代码：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">[[具有类型::日期型]]
+* [[Has preferred property label::@@@]]
+** [[Has preferred property label::founding time@en]]
+* [[Has property description::@@@]]
+** [[Has property description::founding time of an organization@en]]
+</code></pre></li>
+<li>
+<p>访问 <code>http://localhost/mediawiki/index.php?title=属性:学校位置&amp;action=edit</code>，输入代码：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">[[具有类型::地理坐标型]]
+* [[Has preferred property label::@@@]]
+** [[Has preferred property label::school location@en]]
+* [[Has property description::@@@]]
+** [[Has property description::School location in latitude and longitude@en]]
+</code></pre><p>注意，使用地理坐标类型，需要安装 Maps 插件。</p>
+</li>
+<li>
+<p>访问 <code>http://localhost/mediawiki/index.php?title=属性:兄弟院校&amp;action=edit</code>，输入代码：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">[[具有类型::页面型]]
+* [[Has preferred property label::@@@]]
+** [[Has preferred property label::sister college@en]]
+* [[Has property description::@@@]]
+** [[Has property description::Colleges that are paired are referred to as sister colleges@en]]
+</code></pre></li>
+</ul>
+<h3 id="3属性使用与标注方法">3、属性使用与标注方法</h3>
+<h4 id="31-显式标注">3.1 显式标注</h4>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">输入</th>
+          <th style="text-align: center">实际展示效果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>利用属性&quot;月份&quot;对[[月份::12]]加以标注。</code></td>
+          <td style="text-align: center">利用属性&quot;月份&quot;对<a href="https://www.semantic-mediawiki.org/w/index.php?title=%E9%93%BE%E6%8E%A5&amp;action=edit&amp;redlink=1">12</a>加以标注。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">`在链接的位置上显示[[月份::12</td>
+          <td style="text-align: center">替代文字]]。`</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">`要使属性[[月份::12</td>
+          <td style="text-align: center">]]隐藏起来，彻底不显示，请以一个空格作为替代文字。<code> **注意：**通道符 | 后面的空格必不可少。（要让正文中显示空格，请输入特殊符号</code> `作为空格符）。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>要在不创建属性的情况下建立带有双冒号 :: 的普通链接，请在其前面采用一个英文冒号来实现该置标的转义。比如，[[:C++ :: 操作符]]</code></td>
+          <td style="text-align: center">要在不创建属性的情况下建立带有双冒号 :: 的普通链接，请在其前面采用一个英文冒号来实现该置标的转义。比如，<a href="https://www.semantic-mediawiki.org/w/index.php?title=C%2B%2B_::_%E6%93%8D%E4%BD%9C%E7%AC%A6&amp;action=edit&amp;redlink=1">C++ :: 操作符</a>。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>要将一个取值，比如&quot;链接&quot;，赋予多个属性，请在属性名称之间插入双冒号 ::。比如，[[属性1::属性2::链接]]</code></td>
+          <td style="text-align: center">要将一个取值，比如&quot;链接&quot;，赋予多个属性，请在属性名称之间插入双冒号 :: 。 比如，<a href="https://www.semantic-mediawiki.org/w/index.php?title=%E9%93%BE%E6%8E%A5&amp;action=edit&amp;redlink=1">链接</a>。</td>
+      </tr>
+  </tbody>
+</table>
+<p>当然，需要注意的是：</p>
+<ul>
+<li>由于我们的属性是具有特定类型的，因此在标注文本时，应当保证标注的<strong>内容</strong>与我们的<strong>属性类型</strong>一致。</li>
+<li>同一个属性<strong>可以在页面中出现多次</strong>。比如 “兄弟院校” 属性，在”天津大学 “的页面实体中，可以标注 “南开大学”，同时也标注 “上海交通大学”。</li>
+<li>尽管同一个属性可以出现多次，但同一个属性的<strong>多个相同取值，只会保存一个取值</strong>。比如 “兄弟院校” 属性，在 “天津大学” 的页面实体中，可以多次标注 “南开大学”，但只会存储一次。</li>
+</ul>
+<h4 id="32-隐式标注">3.2 隐式标注</h4>
+<p>显式标注是为了在原有的非结构化文本上进行标注，标注之后依然能够正常展示原有文本。而在很多时候，我们并不希望将标注的属性在页面上显示出来，此时可以使用 set 隐性标注。</p>
+<p>该函数成对地接受属性名称与取值，并采取语义的方式将其存储起来；但是，该函数并不向页面输出任何内容。示例：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{#set:月份=12}}
+</code></pre><p>设置之后，页面不会显示我们编写的内容；但访问 “浏览属性” 页面，依然可以看到我们的属性已经设置在页面实体上。</p>
+<p>我们也可以在同一个 set 下一次性设置多个页面属性，示例：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{#set:创办时间=1895
+|学校位置=39°6&#39;28&#34;N, 117°10&#39;22&#34;E
+|兄弟院校=南开大学
+}}
+</code></pre><p>当一个属性对应多个取值的时候，我们可以将 <code>|+sep=;</code> 添加到该属性结尾，并使用**英文分号；**来对多个取值分隔，示例：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{#set:创办时间=1895
+|学校位置=39°6&#39;28&#34;N, 117°10&#39;22&#34;E
+|兄弟院校=南开大学;上海交通大学|+sep=;
+}}
+</code></pre><p>综上所述，我们对属性的使用和标注有显式和隐式两种方式。</p>
+<ul>
+<li><strong>显式方式标注</strong>，便于对<strong>非结构化</strong>文本进行语义化。另外，由于显式标注语法非常简单，在数据处理阶段，我们可以使用 <strong>NLP</strong> 的方式对文本进行<strong>实体识别和关系抽取</strong>，并按照显式标注语法，来对非结构化文本进行批量标注。这种方式也便于将文本进行众包编辑。</li>
+<li><strong>隐式方式标注</strong>，便于对<strong>结构化</strong>数据进行语义化。这种方式不会影响页面的显示逻辑和显示内容，且可以批量设置多个属性和属性的多个值，编写较为直接简单。</li>
+<li>实践中，我们将<strong>显式与隐式结合使用</strong>，来对页面实体的结构化、非结构化数据进行语义化。</li>
+</ul>
+<h3 id="4逆属性">4、逆属性</h3>
+<p>了解即可，参看文档：</p>
+<p><a href="https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:Semantic_MediaWiki/%E8%B4%9F%E5%B1%9E%E6%80%A7">https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:Semantic_MediaWiki/%E8%B4%9F%E5%B1%9E%E6%80%A7</a></p>
+<h3 id="5子属性">5、子属性</h3>
+<p>了解即可，参看文档：</p>
+<ul>
+<li><a href="https://www.semantic-mediawiki.org/wiki/Help:Special_property_Subproperty_of_(zh-hans)">https://www.semantic-mediawiki.org/wiki/Help:Special_property_Subproperty_of_(zh-hans)</a></li>
+<li><a href="https://www.semantic-mediawiki.org/wiki/Help:%E6%8E%A8%E7%90%86#%E5%AD%90%E5%B1%9E%E6%80%A7">https://www.semantic-mediawiki.org/wiki/Help:%E6%8E%A8%E7%90%86#%E5%AD%90%E5%B1%9E%E6%80%A7</a></li>
+</ul>
+<p>注意，子属性与记录型 (Record) 型属性并不相同，不要混淆。</p>
+<h3 id="6特殊属性">6、特殊属性</h3>
+<p>了解即可，参看文档：</p>
+<p><a href="https://www.semantic-mediawiki.org/wiki/Help:%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7">https://www.semantic-mediawiki.org/wiki/Help:%E7%89%B9%E6%AE%8A%E5%B1%9E%E6%80%A7</a></p>
+<h2 id="三分类">三、分类</h2>
+<p><strong>分类</strong>是 MediaWiki 的一项功能，能够自动索引页面，为读者提供某一主题下的页面实体列表。只需给页面的维基文本中加上一个或多个 <strong>Category</strong> 标记即可将页面归类。这些标记将在页面底部创建<strong>指向分类页面的链接</strong>，从而可以很方便地查看同一分类下的其他相关文章。在语义化 Wiki 中，我们常常使用分类来筛选页面实体。</p>
+<p>所有<strong>分类本身的页面</strong> (如 Category：人) 都位于<strong>分类</strong><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Namespaces">命名空间</a>中，该页面中包含该分类下的页面以及该分类中的子类。当一个页面属于一个或更多分类，这些分类将呈现在页面底部 (或是右上角，取决于<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Preferences">皮肤设置</a>)。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/4a9436b4364062a9d75cc3cbf74f2634.png" alt="image-20230127214335841"></p>
+<p>分类页面本身包含两部分：</p>
+<ul>
+<li>开头是一个像其他页面的可编辑区域，可以放置内容；</li>
+<li>底部是包含于这个分类中的所有页面的列表。该列表是固定存在、自动生成的。该列表按字典顺序排列，以链接的形式呈现 (实际上是按照 Unicode 排序)。</li>
+</ul>
+<p>在特殊页面中，我们可以：</p>
+<ul>
+<li><strong>页面表单-&gt;创建分类</strong>下对分类进行创建</li>
+<li><strong>页面列表-&gt;分类</strong>下查看所有分类</li>
+<li><strong>页面列表-&gt;追踪分类</strong>，这里的分类是由 MediaWiki 自动生成的，主要用来查看平台上存在问题的页面</li>
+<li><strong>维护报告-&gt;需要的分类</strong>，这里的分类没有进行创建，但是在页面实体中已经被使用。</li>
+</ul>
+<h3 id="1页面归类">1、页面归类</h3>
+<p>要为页面归类，只需在页面最后添加这样一行 (<strong>名称</strong>是要归入的分类的名称)：</p>
+<pre tabindex="0"><code>[[Category:&lt;名称&gt;]]
+</code></pre><p>比如你可以在 “天津大学” 页面最后添加：</p>
+<pre tabindex="0"><code>[[Category:大学]]
+</code></pre><p>来将天津大学这个页面实体归类到 “大学” 分类下。</p>
+<p>你可以为页面添加多个 Category 标记，页面名称将列入所有这些分类页面中。比如：</p>
+<pre tabindex="0"><code>[[Category:大学]][[Category:副省部级单位]]
+</code></pre><h3 id="2创建分类">2、创建分类</h3>
+<p>需要说明的是，即使不主动创建分类，只要在页面中归类过，该分类就已经在 MediaWiki 中存在了。但是这样的分类会与其他页面相对孤立，也无法构成分类树等结构，因此依然需要我们手动创建。</p>
+<p>在 ***Category：***命名空间中创建一个页面将会创建一个分类。分类页面的创建与普通页面的创建相同 (参见上一节中的页面创建步骤)，创建时注意在页面名称前加上 “<code>Category:</code>” 即可。创建分类之后，可以在分类页进行编辑，并对分类进行一些约束 (注意这些约束不是必要的，按需添加即可)。例如：</p>
+<ul>
+<li>
+<p>某一个分类可能是另一个分类的<strong>子分类</strong>。例如 “<strong>大学</strong>” 分类是 “<strong>学校</strong>” 分类的<strong>子分类</strong>，因此，在创建”<strong>Category：大学</strong> “页面后，编辑该页面，加入：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">[[Category:学校]]
+</code></pre><p>即可将 “<strong>大学</strong>” 分类设置为 “<strong>学校</strong>” 分类的<strong>子分类</strong>。</p>
+</li>
+<li>
+<p>某一个分类可能对应了一个<strong>表单</strong>，可以使用 Page Forms 的表单功能来创建这个分类下的页面。在创建分类页面后，编辑该页面，加入：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{#default_form:2211 事件}}
+</code></pre><p>即可将分类与表单进行绑定。例如</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{#default_form:学校实体表单}}
+</code></pre></li>
+<li>
+<p>在下一章我们还会使用更加细致的方式来管理分类页，并定义分类对应的 schema。</p>
+</li>
+</ul>
+<p>另外也可以在特殊页面中，选择 “页面表单-&gt;创建分类”，并选择分类的默认表单与子分类。</p>
+<h3 id="3分类层次与分类树">3、分类层次与分类树</h3>
+<p>分类可以是某分类的子分类。与其他页面类似，可将 Category 添加到分类页面的底端，从而将该分类归入某个母分类。</p>
+<p>在设计分类时，应当把所有分类组织成围绕某个根分类的层次结构。分类结构可构成一种树状结构，包含不同的分支。重点是要存在链接到根分类的母子关系链。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/63b34b32e320d40ab7790b1a1ebe1f67.png" alt=""></p>
+<p>MediaWiki 自 1.31 版本起默认打包了<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:CategoryTree">扩展：CategoryTree</a> 扩展，可以在特殊页面中的<strong>页面列表-&gt;分类树</strong>中显示出分类的树形结构，或在某个分类页下看到该分类的子分类树。也可以在编辑页面时，加入代码 <code>‎&lt;categorytree&gt;</code> 即可显示当前平台上的分类树结构；</p>
+<h3 id="4分类页面的链接">4、分类页面的链接</h3>
+<p>要创建一个指向分类页面的链接，需要在 “分类” 前加上冒号 (没有这个冒号，页面将被归入该分类)：</p>
+<p><code>[[:Category:Help]]</code> → <strong><a href="https://www.mediawiki.org/wiki/Category:Help">Category:Help</a></strong></p>
+<p>改变链接所显示的文本，请使用管道符号 “<code>|</code>” 传递文本：</p>
+<p><code>[[:Category:Help|帮助分类]]</code> → <strong><a href="https://www.mediawiki.org/wiki/Category:Help">帮助分类</a></strong></p>
+<p><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Redirects">重定向</a>到分类页面也需使用冒号，否则该页面将被加入到分类页面中。</p>
+<h3 id="5分类与模板">5、分类与模板</h3>
+<p>如果您在模板 (即嵌入页面) 中添加 <code>[[Category:Cats]]</code>，则该模板和嵌入此模板的页面<strong>都</strong>将被添加到 Cats 分类中。</p>
+<ul>
+<li>如果您只希望对<strong>模板本身</strong>进行分类，则应确保分类标记写在 <code>&lt;noinclude&gt;</code> 标签之内。</li>
+<li>如果您只希望对<strong>使用模板的页面</strong>进行分类，而不希望对模板本身进行分类，则应确保分类标记写在 <code>&lt;includeonly&gt;</code> 标签之内。</li>
+</ul>
+<p>由于 MediaWiki 平台的缓存问题，透过模板添加的分类<strong>可能</strong>需要一段时间才能生效。您可以在页面上执行一个<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Null_edit">空编辑</a>以立即更新其分类。</p>
+<h3 id="6分类重命名">6、分类重命名</h3>
+<p>如果您移动了一个分类，由于<a href="https://www.mediawiki.org/wiki/Help:Categories/zh#Redirecting_a_category">重定向功能不适用于分类</a>，所有分类标签都会出错，<strong>因此必须尽量避免重命名一个分类</strong>。</p>
+<h2 id="四模板">四、模板</h2>
+<h3 id="1模板介绍">1、模板介绍</h3>
+<p>模板其实也是一种标准 wiki 页面，但它主要会被**<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Transclusion">嵌入 (transclude)</a>** 到其它页面中。模板的页面名称最前面都有 “<code>Template:</code>” 或者 “<code>模板:</code>“——将它分配到该<a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Namespaces">命名空间</a>。</p>
+<p>下面展示了模板的最简单使用方法。假设你创建了一个名叫 “Template:Welcome” 的模板，其内容如下：</p>
+<pre tabindex="0"><code>您好！您好！欢迎来到wiki。
+</code></pre><p>这样，你就创建了你的第一个模板！如果你接下来插入：</p>
+<pre tabindex="0"><code>{{Welcome}}
+</code></pre><p>到其他任一页面，那么，访问这个插入了模板的页面时，将会看到 “您好！欢迎来到 wiki。” 的字样，而不是看到 <code>{{Welcome}}</code>。模板的内容被 “嵌入 (transclude)” 到了其他页面，也就是说，被整合到了这个页面。你可以在任一页面的任何位置添加 <code>{{Welcome}}</code>，来欢迎其他人。<strong>设想一下该模板被用在 100 个页面中</strong>，假设你后来将模板内容改成：</p>
+<pre tabindex="0"><code>嗨，您好！欢迎来到这个奇妙的wiki。
+</code></pre><p>并且<strong>重新访问之前用到了该模板的那 100 个页面</strong>，你将会看到<strong>新的文字</strong>，而不是原先的文字。用这个方法可以<strong>批量改变 100 个页面</strong>，而并不是手动修改这 100 个页面的内容，因为这个模板是被嵌入这 100 个页面中的。</p>
+<p>这只是模板的一个最基本的应用。配合模板参数、Page Forms 插件、解析器函数等，我们可以实现非常高级、灵活的功能，以控制页面样式、数据传递等。</p>
+<h3 id="2transclusion-页面嵌入机制">2、Transclusion 页面嵌入机制</h3>
+<p><strong>Transclusion</strong> (嵌入) 通常是指通过引用将一个文件的内容纳入另一个文件中。在 MediaWiki 中，它是指使用 MediaWiki 的模板功能，将相同的内容包含在多个页面中，而不必单独编辑这些页面。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/162ee3110e58ba322416d0fd4c7b7a0a.png" alt="Transclusion(wtd-ck)"></p>
+<p>以上图为例，页面 B 的内容为 “foo “，我们在编辑页面 A 时，想要将页面 B 的内容嵌入到当前页面，置于” Lorem ipsum “与” dolor sit amet “两段文字之间，可以使用 <code>{{B}}</code> 这种写法来嵌入：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">Lorem ipsum
+{{B}}
+dolor sit amet
+</code></pre><p>每当目标页面 A 被访问时，源页面 B 的全部内容将在<strong>花括号标签的位置</strong>被渲染。在我们访问 A 页面时，即可看到：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">Lorem ipsum
+foo
+dolor sit amet
+</code></pre><p>当然，正如图上所示，这种页面嵌入是可以多层嵌套的 (如页面 B 嵌入 A，A 再嵌入 X)。</p>
+<h4 id="21-嵌入语法">2.1 嵌入语法</h4>
+<p>如果被嵌入页面来源是在模板命名空间 (例如 “<strong>模板：Welcome</strong>”)，只需使用名称本身，单独使用：<code>{{Welcome}}</code>。</p>
+<p>如果来源是在主文章命名空间 (例如 “<strong>VisualEditor</strong>”)，则必须在名称前面加上冒号：<code>{{:VisualEditor}}</code>。</p>
+<p>如果源代码在任何其他命名空间 (例如 “<strong>用户：Example</strong>”)，则必须使用全名，包括命名空间。<code>{{User:Example}}</code></p>
+<p>如果源文件是目标页面的一个<strong>子页面</strong>，(例如 “<strong>Transclusion/ja</strong>”)，你可以简单地指定该子页面的名称，而不考虑名称空间。<code>{{/ja}}</code></p>
+<h4 id="22-局部嵌入">2.2 局部嵌入</h4>
+<p>通过使用 “<strong>noinclude</strong>”、“<strong>onlyinclude</strong>” 和 “<strong>includeonly</strong>” 标记，可以将一个页面的<strong>部分内容</strong>而不是全部内容嵌入到其他页面。比如，例如，你可以将<strong>苹果</strong>的全部相关内容 (如烟台苹果、红富士、蛇果等) 包含在页面”<strong>苹果</strong> “中，而在制作苹果派的页面” <strong>苹果派食谱</strong> “中，仅仅传入页面” 苹果 “中的” <strong>烟台苹果</strong> “的内容。</p>
+<p>假设<strong>页面 B 是源页面</strong>，我们想要将页面 B 的部分内容嵌入到页面 A，可以对页面 B 中的内容进行标记：</p>
+<ul>
+<li>noinclude - 标记 <code>&lt;noinclude&gt;...&lt;/noinclude&gt;</code> 意味着 noinclude 标记之间的文本只在<strong>源页面 (页面 B) 上显示，不会嵌入到调用页面 (页面 A) 并显示</strong>。这对模板文档和类别很有用。</li>
+<li>includeonly - 标记 <code>&lt;includeonly&gt;...&lt;/includeonly&gt;</code> 意味着标记之间的文本将在<strong>源页面上 (页面 B) 不显示，会嵌入到调用页面 (页面 A) 并显示</strong>。这可能很有用，例如，在包含模板的页面上添加类别，而不将模板本身添加到这些类别。</li>
+<li>onlyinclude - 标记 <code>&lt;onlyinclude&gt;...&lt;onlyinclude&gt;</code> 意味着标记之间的文本在<strong>源页面上 (页面 B) 显示，会嵌入到调用页面 (页面 A) 并显示</strong>。该标签<strong>优先于其他标签</strong>。如果一个页面上至少有一对 “onlyinclude” 标签，那么每当这个页面被嵌入时，<strong>只有 “onlyinclude” 标签内的内容被嵌入</strong>。</li>
+</ul>
+<p>举例：</p>
+<table>
+  <thead>
+      <tr>
+          <th>页面</th>
+          <th>编辑内容</th>
+          <th>显示内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>B</td>
+          <td>&lt;noinclude&gt;我爱&lt;/noinclude&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;includeonly&gt;天大&lt;/includeonly&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->校园</td>
+          <td>我爱<!-- raw HTML omitted --><!-- raw HTML omitted -->校园</td>
+      </tr>
+      <tr>
+          <td>A</td>
+          <td>这里是{{:B}}</td>
+          <td>这里是<!-- raw HTML omitted -->天大<!-- raw HTML omitted -->校园</td>
+      </tr>
+  </tbody>
+</table>
+<p>若在页面 B 的编辑内容中加入一行，则：</p>
+<table>
+  <thead>
+      <tr>
+          <th>页面</th>
+          <th>编辑内容</th>
+          <th>显示内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>B</td>
+          <td>&lt;noinclude&gt;我爱&lt;/noinclude&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->&lt;includeonly&gt;天大&lt;/includeonly&gt;<!-- raw HTML omitted --><!-- raw HTML omitted -->校园<!-- raw HTML omitted -->&lt;onlyinclude&gt;TianJin University&lt;/onlyinclude&gt;</td>
+          <td>我爱<!-- raw HTML omitted --><!-- raw HTML omitted -->校园<!-- raw HTML omitted -->TianJin University</td>
+      </tr>
+      <tr>
+          <td>A</td>
+          <td>这里是{{:B}}</td>
+          <td>这里是TianJin University</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>注意，此时只有 onlyinclude 的内容会被嵌入到页面 A 之中！</strong></p>
+<h3 id="3模板创建">3、模板创建</h3>
+<p>要创建一个模板，主要是两种方式，一种是使用源代码方式创建，一种是使用 PageForms 的可视化引导创建。我们以上文中的<strong>兄弟院校、创办时间、学校位置</strong>三个属性为例来为天津大学页面创建一个<strong>信息框模板</strong>。</p>
+<h4 id="31-pageforms-可视化创建">3.1 PageForms 可视化创建</h4>
+<p>在特殊页面中，找到 “<strong>页面表单-创建模板</strong>”，点击并填写字段：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/f7f7bf8f4e1c15183980a903eb849c4d.png" alt="image-20230201220412656"></p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/fbba4a0758d2b88e7c8137bc2a28d9a8.png" alt="image-20230201221102273"></p>
+<p>注意需要开启 “Use full wikitext instead of #template_display”。这里需要解释的几个选项</p>
+<ul>
+<li>
+<p>模板名称：指定模板名称之后，会在命名空间 “模板” 下，创建一个页面。如这里会创建一个 “模板：大学信息框 “的页面。</p>
+</li>
+<li>
+<p>模板所定义的分类：这里指的是 “<strong>使用该模板的页面</strong>” 所归类到的分类。如在天津大学页面中调用大学信息框模板，会将 “天津大学” 页面归类到 “大学” 这个分类下。</p>
+</li>
+<li>
+<p>字段名称：指的是在调用模板时，标签显示的字段名称。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/4bf902bacba5a4193209b9d6361db184.png" alt="image-20230201221249785"></p>
+</li>
+<li>
+<p>显示标签：指的是在 “<strong>使用该模板的页面</strong>” 上，表格中显示的字段名称。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/50016f4bf18d0d4073d26da3f53effc0.png" alt="image-20230201221540429"></p>
+</li>
+<li>
+<p>语义属性：指的是在 “<strong>使用该模板的页面</strong>” 上，定义的语义<strong>属性</strong>名称。在天津大学页面点击浏览属性：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/26bfeb5ef3475bf5b7d9d771075d047e.png" alt="image-20230201221754641"></p>
+</li>
+<li>
+<p>聚合：如”天津大学 “页面调用了该模板，这里主要用来显示哪些页面反向链接了当前页面。</p>
+</li>
+<li>
+<p>输出格式：可选表格、信息框、纯文本、小节等。这里选择<strong>信息框</strong>即可。</p>
+</li>
+</ul>
+<h4 id="32-源代码方式">3.2 源代码方式</h4>
+<p>直接访问链接，注意将&lt;模板名&gt;替换为你想要创建的模板名称：</p>
+<pre tabindex="0"><code>http://localhost/mediawiki/index.php?title=模板:&lt;属性名称&gt;&amp;action=edit
+</code></pre><p>如：</p>
+<pre tabindex="0"><code>http://localhost/mediawiki/index.php?title=模板:月份&amp;action=edit
+</code></pre><p>然后在编辑框输入代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">noinclude</span>&gt;
+</span></span><span style="display:flex;"><span>这是“大学信息框”模板。调用它时应该采用如下格式：
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">pre</span>&gt;
+</span></span><span style="display:flex;"><span>{{大学信息框
+</span></span><span style="display:flex;"><span>|兄弟院校模板标签=
+</span></span><span style="display:flex;"><span>|创办时间模板标签=
+</span></span><span style="display:flex;"><span>|学校位置模板标签=
+</span></span><span style="display:flex;"><span>}}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">pre</span>&gt;
+</span></span><span style="display:flex;"><span>编辑页面以阅读模板文本。
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">noinclude</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">includeonly</span>&gt;
+</span></span><span style="display:flex;"><span>{| style=&#34;width: 30em; font-size: 90%; border: 1px solid #aaaaaa; background-color: #f9f9f9; color: black; margin-bottom: 0.5em; margin-left: 1em; padding: 0.2em; float: right; clear: right; text-align:left;&#34;
+</span></span><span style="display:flex;"><span>! style=&#34;text-align: center; background-color:#ccccff;&#34; colspan=&#34;2&#34; |&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;font-size: larger;&#34;</span>&gt;{{PAGENAME}}&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 兄弟院校（Sister college）
+</span></span><span style="display:flex;"><span>| {{#arraymap:{{{兄弟院校模板标签|}}}|,|x|[[兄弟院校::x]]}}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 创办时间（Founding time）
+</span></span><span style="display:flex;"><span>| [[创办时间::{{{创办时间模板标签|}}}]]
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 学校位置（School location）
+</span></span><span style="display:flex;"><span>| [[学校位置::{{{学校位置模板标签|}}}]]
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 
+</span></span><span style="display:flex;"><span>|{{#ask:[[Foaf:homepage::{{SUBJECTPAGENAME}}]]|format=list}}
+</span></span><span style="display:flex;"><span>|}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[分类:大学]]
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">includeonly</span>&gt;
+</span></span></code></pre></div><p>在理解 Transclusion 页面嵌入机制之后，该源代码并不难理解。我们不妨在 “天津大学” 页面调用该模板，编辑页面，加入以下代码：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{大学信息框
+|兄弟院校模板标签=南开大学
+|创办时间模板标签=1895
+|学校位置模板标签=39°6&#39;28&#34;N, 117°10&#39;22&#34;E
+}}
+</code></pre><p>那么在源代码中：</p>
+<ul>
+<li>
+<p><code>noinclude</code> 标签中的内容，会显示在页面 “模板：大学信息框” 上，不会嵌入到天津大学页面。</p>
+</li>
+<li>
+<p><code>includeonly</code> 标签中的内容，不会显示在页面 “模板：大学信息框” 上，但会嵌入到天津大学页面。需要注意，这个标签中的内容结合了我们所学到的<strong>魔术字、wiki 表格语法</strong>以及<strong>属性的显式标注</strong>等知识点。</p>
+</li>
+<li>
+<p>我们在天津大学页面中调用模板，输入的 “1895” 会传递给<strong>模板标签变量</strong>”创办时间模板标签 “，然后在模板内部，使用语法 <code> {{{创办时间模板标签|}}}</code>，即可获取到” 南开大学 “这一文本。因此，源代码中的：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">| [[创办时间::{{{创办时间模板标签|}}}]]
+</code></pre><p>经过模板处理之后，在天津大学页面上，等于嵌入了</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">| [[创办时间::1895]]
+</code></pre></li>
+<li>
+<p><code>arraymap</code> 是一个特殊的解析器函数，我们会在下面章节的 <strong>Page Forms 解析器函数</strong>中进行解释。</p>
+</li>
+</ul>
+<h3 id="4模板使用">4、模板使用</h3>
+<p>在页面中调用模板，填入符合语义属性要求的数据即可：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{大学信息框
+|兄弟院校模板标签=南开大学
+|创办时间模板标签=1895
+|学校位置模板标签=39°6&#39;28&#34;N, 117°10&#39;22&#34;E
+}}
+</code></pre><p>需要注意的是，我们在模板中使用的语义属性的显式标注，因此<strong>输入的数据需要满足其格式要求</strong>。如 “学校位置模板标签” 对应的数据，就应填入一个正确的经纬度坐标，而不能是 “中国天津市南开区天津大学卫津路校区” 这样的文字信息。</p>
+<h3 id="5模板语法与复杂模板">5、模板语法与复杂模板</h3>
+<p>实际上，模板中的内容是可以在源代码中进行自定义修改，并实现更多特殊展示效果与功能的。创建模板之后，进入到模板页面，点击编辑即可对模板的源代码进行修改。比如我们可以在模板中调整<strong>信息框的宽度</strong>和<strong>标题行背景色</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{| style=&#34;width: 40em; font-size: 90%; border: 1px solid #aaaaaa; background-color: #f9f9f9; color: black; margin-bottom: 0.5em; margin-left: 1em; padding: 0.2em; float: right; clear: right; text-align:right;&#34;
+</span></span><span style="display:flex;"><span>! style=&#34;text-align: center; background-color:#27ba9b;&#34; colspan=&#34;2&#34; |&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;font-size: larger;&#34;</span>&gt;{{PAGENAME}}&lt;/<span style="color:#f92672">span</span>&gt;
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 兄弟院校（Sister college）
+</span></span><span style="display:flex;"><span>| {{#arraymap:{{{兄弟院校模板标签|}}}|,|x|[[兄弟院校::x]]}}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 创办时间（Founding time）
+</span></span><span style="display:flex;"><span>| [[创办时间::{{{创办时间模板标签|}}}]]
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 学校位置（School location）
+</span></span><span style="display:flex;"><span>| [[学校位置::{{{学校位置模板标签|}}}]]
+</span></span><span style="display:flex;"><span>|-
+</span></span><span style="display:flex;"><span>! 
+</span></span><span style="display:flex;"><span>|{{#ask:[[Foaf:homepage::{{SUBJECTPAGENAME}}]]|format=list}}
+</span></span><span style="display:flex;"><span>|}
+</span></span></code></pre></div><p><img src="https://images.jayliu.tech/blog/2024/11/2c1820a16b0a9069bc390f406506c48a.png" alt="image-20230201224608142"></p>
+<p>事实上，你可以在<strong>模板中添加任意形式的内容</strong>，甚至在模板内部再调用其他模板，来控制实体页的展示方式！</p>
+<p>而对模板进行编辑和自定义，需要了解模板的基本语法：</p>
+<ul>
+<li>维基百科模板语法 (了解)：https://zh.wikipedia.org/wiki/Help:%E6%A8%A1%E6%9D%BF</li>
+<li>huijiwiki 模板教程 1 (了解)：https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E6%A8%A1%E6%9D%BF#%E8%B0%83%E7%94%A8%E6%A8%A1%E6%9D%BF</li>
+<li>huijiwiki 模板教程 2 (了解)：https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E6%A8%A1%E6%9D%BF%E5%8F%82%E6%95%B0</li>
+</ul>
+<p>注意在以上教程中，解释了如 “<strong>模板嵌套</strong>”，“<strong>命名参数</strong>”，“<strong>位置参数</strong>”，“<strong>参数嵌套</strong>” 的问题。<strong>这里将在作业中进行考察。</strong></p>
+<h2 id="五表单">五、表单</h2>
+<p>在完成了创建属性、创建分类、创建模板之后，我们对于 MediaWiki 的页面实体控制已经可以实现批量化、自动化的创建和修改了。而为了便于非专业用户编辑和使用，Page Forms 还提供了 “<strong>表单</strong>” 功能。</p>
+<h3 id="1表单创建">1、表单创建</h3>
+<p>在特殊页面中，找到”<strong>页面表单-创建表单</strong> “：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/1257fedf5ffc3204531aaba2280398bc.png" alt="image-20230201232307573"></p>
+<p>在添加元素下，点击添加 “<strong>大学信息框</strong>” 模板：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/dce017b589a0a8d04b6ed631af87c3f1.png" alt="image-20230201232533527"></p>
+<p>这里要解释一些功能：</p>
+<ul>
+<li>
+<p>添加该模板后，可以选择 “<strong>在所创建的页面中允许此模板的多个 (或零个) 实例</strong>”。以大学信息框模板为例，如勾选该项，可以在该页面添加多个大学信息框的 infobox。</p>
+</li>
+<li>
+<p>表单标签：用户在表单输入时的标签提示。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/00b729542eb51257ea4982e5d4714610.png" alt="image-20230201232933245"></p>
+</li>
+<li>
+<p>输入项类型：选择默认即可，也可改为其他自定义的输入项。</p>
+</li>
+<li>
+<p>其他参数：可以选择一些如 placeholder 等其他参数，以控制表单输入页的样式和功能。</p>
+</li>
+<li>
+<p>添加小节：除模板的字段外，也可以将单纯的文本作为表单的输入项，按照小节来添加内容。</p>
+</li>
+</ul>
+<p>点击创建即可完成表单的定义。</p>
+<h3 id="2表单使用">2、表单使用</h3>
+<p>点击创建后，进入表单界面，输入 “天津大学” 进入表单编辑页：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/8cd98d78cc7d1f846288e870be104aa9.png" alt="image-20230201233241993"></p>
+<p>可用该表单来可视化编辑天津大学页的内容：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/7b13ec758b1c55554c2867b23c99269c.png" alt="image-20230201233327360"></p>
+<h2 id="六page-forms-的概念与使用">六、Page Forms 的概念与使用</h2>
+<p>Page Forms (2016年之前被称为 Semantic Forms) 是 MediaWiki 的一个扩展，允许用户使用<strong>表单</strong>来<strong>添加、编辑和查询数据</strong>。它最初是作为 Semantic MediaWiki 扩展的一个分支而创建的，以便能够编辑那些通过 SMW 来存储其参数的模板，这就是为什么它最初被称为 “Semantic Forms”。不过，它现在也可以与 Cargo 扩展一起工作，或者在两个扩展都没有安装的情况下单独工作。</p>
+<p>一般来说，Page Forms 是与 Semantic MediaWiki 或者 Cargo 共同使用的。它们为 MediaWiki 提供了<strong>结构化语义数据</strong>的解决方案。</p>
+<h3 id="1page-forms-的简单使用">1、Page Forms 的简单使用</h3>
+<p>在特殊页面中，找到 “<strong>页面表单-创建类</strong>。在这里 Page Forms 插件提供了一个可视化的界面，来<strong>一次性创建某类数据的属性、模板、分类、表单</strong>。如果你填写了这些字段并点击” 提交 “，该页面将自动创建所有必要的属性、模板、分类、表单页面。然后你就可以到创建的表单页面，开始输入数据。</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/a21ef8947b45a32b6cc78d0e04bd13b4.png" alt="image-20230201231034046"></p>
+<h3 id="2page-forms-相关解析器函数与具体文档">2、Page Forms 相关解析器函数与具体文档</h3>
+<p>Page Forms 的具体文档，包括</p>
+<h4 id="21-解析器函数">2.1 解析器函数</h4>
+<p>Page Forms 提供了多个解析器函数，如 <code>arraymap</code>、<code>arraytemplate</code>、<code>default form</code> 等，这里主要介绍两个常用函数：</p>
+<h5 id="211-arraymap">2.1.1 arraymap</h5>
+<p>arraymap 是一个灵活的函数，用以展开一段内容中的每一个元素，具体方法：</p>
+<ul>
+<li><code>{{#arraymap:&lt;要展开的内容&gt;|&lt;分隔符&gt;|&lt;变量&gt;|&lt;变量公式&gt;|&lt;展开后的分隔符&gt;}}</code></li>
+</ul>
+<p>如果要展开的内容是一个逗号隔开的字符串，例如：<code>关羽,张飞,马超,赵云,黄忠</code></p>
+<ul>
+<li><code>{{#arraymap:关羽,张飞,马超,赵云,黄忠|,|@@@|前一段@@@后一段}}| &amp;&amp; }}</code></li>
+</ul>
+<p>这段代码的意思就是将关羽、张飞、马超、赵云、黄忠视为要展开的 5 个元素 (由指定的分隔符 “，” 从要展开的字符串里获得)，每个元素都被放到公式 “前缀@@@后缀” 中去并用符号 “&amp;&amp;” 隔开，代码展开之后等价于：</p>
+<pre tabindex="0"><code>前一段关羽后一段&amp;&amp;前一段张飞后一段&amp;&amp;前一段马超后一段&amp;&amp;前一段赵云后一段&amp;&amp;前一段黄忠后一段
+</code></pre><p>注意：arraymap 函数常用于模板中，用来接收和处理同一字段输入的多个值。</p>
+<h5 id="212-default-form">2.1.2 default form</h5>
+<p><code>default form</code> 函数用来为当前页面制定默认使用的表单，指定后页面就可以使用表单编辑。</p>
+<ul>
+<li>写法：<code>{{#default_form:表单名称}}</code>，</li>
+<li>例如：<code>{{#default_form:大学信息框}}</code>，</li>
+</ul>
+<h4 id="22-参考文档">2.2 参考文档</h4>
+<p>以下文档为英文文档，在用到时参考即可。</p>
+<ul>
+<li>
+<p><strong>表单定义语法</strong>：如何在表单名字空间 “Form：” 之中的页面定义表单。涵盖完整的表单定义语法，包括 <code>{{{info}}}</code>、<code>{{{for template}}}</code>、<code>{{{end template}}}</code>、<code>{{{field}}}</code>、<code>{{{section}}}</code> 以及 <code>{{{standard input}}}</code>。同时还包括如何添加选项卡和工具提示。</p>
+<p><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Page_Forms/Defining_forms">https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Page_Forms/Defining_forms</a></p>
+</li>
+<li>
+<p><strong>表单输入类型</strong>：列出所有允许的输入类型，以及每种类型的参数。</p>
+<p><a href="https://www.mediawiki.org/wiki/Extension:Page_Forms/Input_types">https://www.mediawiki.org/wiki/Extension:Page_Forms/Input_types</a></p>
+</li>
+</ul>
+<h2 id="七作业安排">七、作业安排</h2>
+<p>本周主要介绍了 Semantic MediaWiki 中的基本概念、特性和使用方法。从<strong>页面实体、属性</strong>，到<strong>分类、模板、表单</strong>，这一套架构构成了 MediaWiki 的<strong>语义化架构</strong>。我们可以在这个架构下来对知识体系进行重构，在知识库之上创建知识图谱。本周学习的内容较多，但是由于这几部分内容关联性较强，因此放在一起进行介绍，更容易让大家理解整个架构。</p>
+<p>作业：</p>
+<ul>
+<li>任务 1：浏览、学习基本的 CSS 语法，并用 <strong>HTML 语言 + CSS</strong> 修改原有的天津大学的百科介绍页面 (<strong>两周任务</strong>)</li>
+<li>任务 2：安装 Maps 插件，插件版本为 10.0</li>
+<li>任务 3：测试 Transclusion 页面嵌入机制，要求在平台上使用 “<strong>noinclude</strong>”、“<strong>onlyinclude</strong>” 和 “<strong>includeonly</strong>” 标记展示嵌入机制的功能。</li>
+<li>任务 3：在 MediaWiki 中创建 “<strong>大学</strong>” 的属性、分类、模板、表单，并应用在 “天津大学” 页面上。要求：
+<ul>
+<li>表单定义时，添加元素至少 3 个模板，其中包括一个信息框模板；添加 2 个以上小节；</li>
+<li>表单的输入类型，必须使用到 <code>datepicker</code> 类型、<code>combobox</code> 类型 (参考官网文档)；</li>
+<li>不可使用默认信息框样式，需要进行自定义的样式修改；</li>
+<li>信息框中属性至少为 10 条，属性类型至少为 4 种；</li>
+<li>模板定义时，要用到 <code>arraymap函数</code>，且展开后的分隔符需要使用分号 <code>;</code>。</li>
+</ul>
+</li>
+</ul>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-11-02</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/">
+			Next<br>SMW教程第一章：MediaWiki平台的Windows安装搭建
+                </a>
+                
+                
+                
+                <a class="older-posts">
+			Previous<br>No older posts.
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+<div id="waline"></div>
+<script>
+    Waline.init({
+        el: '#waline',
+        
+        dark: "body.night",
+        serverURL: "https://comment.jayliu.tech/" ,
+    });
+    
+    </script>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://jayliu.tech/">
+    
+        <div class="nav-title">
+            Jay Liu的随笔录
+        </div>
+        
+        <div class="nav-subtitle">
+            日拱一卒，功不唐捐
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts/">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags/">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories/">
+                分类
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2024 Jay Liu的随笔录
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80%e8%af%ad%e4%b9%89%e5%8c%96-wiki-%e7%9a%84%e6%95%b0%e6%8d%ae%e6%a8%a1%e5%9e%8b" class="nav-一语义化-wiki-的数据模型">
+									一、语义化 Wiki 的数据模型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8c%e5%b1%9e%e6%80%a7" class="nav-二属性">
+									二、属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e5%b1%9e%e6%80%a7%e7%b1%bb%e5%9e%8b" class="nav-1属性类型">
+									1、属性类型
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2%e5%b1%9e%e6%80%a7%e5%ae%9a%e4%b9%89%e4%b8%8e%e5%a4%9a%e8%af%ad%e8%a8%80%e6%94%af%e6%8c%81" class="nav-2属性定义与多语言支持">
+									2、属性定义与多语言支持
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e5%b1%9e%e6%80%a7%e5%ae%9a%e4%b9%89-1%e5%8f%af%e8%a7%86%e5%8c%96%e6%96%b9%e5%bc%8f" class="nav-21-属性定义-1可视化方式">
+									2.1 属性定义 1：可视化方式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%b1%9e%e6%80%a7%e5%ae%9a%e4%b9%89-2%e6%ba%90%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f-%e6%8e%a8%e8%8d%90" class="nav-22-属性定义-2源代码方式-推荐">
+									2.2 属性定义 2：源代码方式 (推荐)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-%e5%b1%9e%e6%80%a7%e7%9a%84%e5%a4%9a%e8%af%ad%e8%a8%80%e6%94%af%e6%8c%81" class="nav-23-属性的多语言支持">
+									2.3 属性的多语言支持
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3%e5%b1%9e%e6%80%a7%e4%bd%bf%e7%94%a8%e4%b8%8e%e6%a0%87%e6%b3%a8%e6%96%b9%e6%b3%95" class="nav-3属性使用与标注方法">
+									3、属性使用与标注方法
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#31-%e6%98%be%e5%bc%8f%e6%a0%87%e6%b3%a8" class="nav-31-显式标注">
+									3.1 显式标注
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#32-%e9%9a%90%e5%bc%8f%e6%a0%87%e6%b3%a8" class="nav-32-隐式标注">
+									3.2 隐式标注
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#4%e9%80%86%e5%b1%9e%e6%80%a7" class="nav-4逆属性">
+									4、逆属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5%e5%ad%90%e5%b1%9e%e6%80%a7" class="nav-5子属性">
+									5、子属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6%e7%89%b9%e6%ae%8a%e5%b1%9e%e6%80%a7" class="nav-6特殊属性">
+									6、特殊属性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e5%88%86%e7%b1%bb" class="nav-三分类">
+									三、分类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e9%a1%b5%e9%9d%a2%e5%bd%92%e7%b1%bb" class="nav-1页面归类">
+									1、页面归类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2%e5%88%9b%e5%bb%ba%e5%88%86%e7%b1%bb" class="nav-2创建分类">
+									2、创建分类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3%e5%88%86%e7%b1%bb%e5%b1%82%e6%ac%a1%e4%b8%8e%e5%88%86%e7%b1%bb%e6%a0%91" class="nav-3分类层次与分类树">
+									3、分类层次与分类树
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4%e5%88%86%e7%b1%bb%e9%a1%b5%e9%9d%a2%e7%9a%84%e9%93%be%e6%8e%a5" class="nav-4分类页面的链接">
+									4、分类页面的链接
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5%e5%88%86%e7%b1%bb%e4%b8%8e%e6%a8%a1%e6%9d%bf" class="nav-5分类与模板">
+									5、分类与模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6%e5%88%86%e7%b1%bb%e9%87%8d%e5%91%bd%e5%90%8d" class="nav-6分类重命名">
+									6、分类重命名
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e5%9b%9b%e6%a8%a1%e6%9d%bf" class="nav-四模板">
+									四、模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e6%a8%a1%e6%9d%bf%e4%bb%8b%e7%bb%8d" class="nav-1模板介绍">
+									1、模板介绍
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2transclusion-%e9%a1%b5%e9%9d%a2%e5%b5%8c%e5%85%a5%e6%9c%ba%e5%88%b6" class="nav-2transclusion-页面嵌入机制">
+									2、Transclusion 页面嵌入机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e5%b5%8c%e5%85%a5%e8%af%ad%e6%b3%95" class="nav-21-嵌入语法">
+									2.1 嵌入语法
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%b1%80%e9%83%a8%e5%b5%8c%e5%85%a5" class="nav-22-局部嵌入">
+									2.2 局部嵌入
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3%e6%a8%a1%e6%9d%bf%e5%88%9b%e5%bb%ba" class="nav-3模板创建">
+									3、模板创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#31-pageforms-%e5%8f%af%e8%a7%86%e5%8c%96%e5%88%9b%e5%bb%ba" class="nav-31-pageforms-可视化创建">
+									3.1 PageForms 可视化创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#32-%e6%ba%90%e4%bb%a3%e7%a0%81%e6%96%b9%e5%bc%8f" class="nav-32-源代码方式">
+									3.2 源代码方式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#4%e6%a8%a1%e6%9d%bf%e4%bd%bf%e7%94%a8" class="nav-4模板使用">
+									4、模板使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5%e6%a8%a1%e6%9d%bf%e8%af%ad%e6%b3%95%e4%b8%8e%e5%a4%8d%e6%9d%82%e6%a8%a1%e6%9d%bf" class="nav-5模板语法与复杂模板">
+									5、模板语法与复杂模板
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%94%e8%a1%a8%e5%8d%95" class="nav-五表单">
+									五、表单
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e8%a1%a8%e5%8d%95%e5%88%9b%e5%bb%ba" class="nav-1表单创建">
+									1、表单创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2%e8%a1%a8%e5%8d%95%e4%bd%bf%e7%94%a8" class="nav-2表单使用">
+									2、表单使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e5%85%adpage-forms-%e7%9a%84%e6%a6%82%e5%bf%b5%e4%b8%8e%e4%bd%bf%e7%94%a8" class="nav-六page-forms-的概念与使用">
+									六、Page Forms 的概念与使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1page-forms-%e7%9a%84%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8" class="nav-1page-forms-的简单使用">
+									1、Page Forms 的简单使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2page-forms-%e7%9b%b8%e5%85%b3%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0%e4%b8%8e%e5%85%b7%e4%bd%93%e6%96%87%e6%a1%a3" class="nav-2page-forms-相关解析器函数与具体文档">
+									2、Page Forms 相关解析器函数与具体文档
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0" class="nav-21-解析器函数">
+									2.1 解析器函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3" class="nav-22-参考文档">
+									2.2 参考文档
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%83%e4%bd%9c%e4%b8%9a%e5%ae%89%e6%8e%92" class="nav-七作业安排">
+									七、作业安排
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2024 Jay Liu的随笔录
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
