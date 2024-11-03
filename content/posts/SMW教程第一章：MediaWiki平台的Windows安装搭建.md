@@ -4,6 +4,7 @@ draft = false
 title = 'SMW教程第一章：MediaWiki平台的Windows安装搭建'
 featured_image = 'https://opengraph.githubassets.com/04dfd6c68d3e4474ec57360ec23f051e8ff9f3d4f1c94786364e7ef9645b374c/SemanticMediaWiki/SemanticResultFormats'
 description = '本文提供了MediaWiki平台的安装与配置指南，包括数据库设置、插件安装和皮肤更换等，适合知识图谱平台构建初学者使用。'
+categories = '教程'
 +++
 
 # SMW 教程第一章：MediaWiki平台的Windows安装搭建

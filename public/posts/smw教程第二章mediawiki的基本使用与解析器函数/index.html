@@ -1,0 +1,3328 @@
+<!DOCTYPE html>
+<html><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+<title>SMW教程第二章：MediaWiki的基本使用与解析器函数</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="本文介绍了MediaWiki平台的基本操作方法，并给出MediaWiki解析器函数这一高级功能的基本使用方法">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+<link rel="icon" href="https://jayliu.tech/images/favicon-egg.png">
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@waline/client@v2/dist/waline.css"
+  />
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts/">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags/">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories/">
+                    分类
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#smw%e6%95%99%e7%a8%8b%e7%ac%ac%e4%ba%8c%e7%ab%a0mediawiki%e7%9a%84%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8%e4%b8%8e%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0" class="nav-smw教程第二章mediawiki的基本使用与解析器函数">
+									SMW教程第二章：MediaWiki的基本使用与解析器函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80mediawiki-%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8" class="nav-一mediawiki-基本使用">
+									一、MediaWiki 基本使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1mediawiki-%e5%9f%ba%e6%9c%ac%e7%bc%96%e8%be%91" class="nav-1mediawiki-基本编辑">
+									1、MediaWiki 基本编辑
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#11-%e6%ba%90%e4%bb%a3%e7%a0%81%e7%bc%96%e8%be%91%e5%99%a8" class="nav-11-源代码编辑器">
+									1.1 源代码编辑器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#12-%e8%a1%a8%e5%8d%95%e7%bc%96%e8%be%91%e5%99%a8" class="nav-12-表单编辑器">
+									1.2 表单编辑器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#13-wiki-%e6%a0%87%e8%ae%b0%e8%af%ad%e8%a8%80" class="nav-13-wiki-标记语言">
+									1.3 wiki 标记语言
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#14-wiki-%e8%a1%a8%e6%a0%bc" class="nav-14-wiki-表格">
+									1.4 wiki 表格
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#15-wiki-%e5%9b%be%e7%89%87" class="nav-15-wiki-图片">
+									1.5 wiki 图片
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#2mediawiki-%e9%a1%b5%e9%9d%a2%e6%93%8d%e4%bd%9c" class="nav-2mediawiki-页面操作">
+									2、MediaWiki 页面操作
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e5%88%9b%e5%bb%ba" class="nav-21-创建">
+									2.1 创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e7%a7%bb%e5%8a%a8" class="nav-22-移动">
+									2.2 移动
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-%e9%87%8d%e5%ae%9a%e5%90%91" class="nav-23-重定向">
+									2.3 重定向
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#24-%e6%b6%88%e6%ad%a7%e4%b9%89" class="nav-24-消歧义">
+									2.4 消歧义
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#25-%e5%8e%86%e5%8f%b2%e4%b8%8e%e5%9b%9e%e9%80%80" class="nav-25-历史与回退">
+									2.5 历史与回退
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#26-%e5%88%a0%e9%99%a4" class="nav-26-删除">
+									2.6 删除
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3mediawiki-%e9%ad%94%e6%9c%af%e5%ad%97" class="nav-3mediawiki-魔术字">
+									3、MediaWiki 魔术字
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#31-%e7%8a%b6%e6%80%81%e5%bc%80%e5%85%b3%e9%ad%94%e6%9c%af%e5%ad%97" class="nav-31-状态开关魔术字">
+									3.1 状态开关魔术字
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#32-%e5%8f%98%e9%87%8f%e9%ad%94%e6%9c%af%e5%ad%97-%e5%8f%82%e8%80%83%e5%8d%b3%e5%8f%af%e4%bb%85%e4%be%9b%e4%ba%86%e8%a7%a3" class="nav-32-变量魔术字-参考即可仅供了解">
+									3.2 变量魔术字 (参考即可，仅供了解)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#33-%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0%e9%ad%94%e6%9c%af%e5%ad%97-%e5%8f%82%e8%80%83%e5%8d%b3%e5%8f%af%e4%bb%85%e4%be%9b%e4%ba%86%e8%a7%a3" class="nav-33-解析器函数魔术字-参考即可仅供了解">
+									3.3 解析器函数魔术字 (参考即可，仅供了解)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#34-%e7%89%b9%e6%ae%8a%e7%ac%a6%e5%8f%b7" class="nav-34-特殊符号">
+									3.4 特殊符号
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8cmediawiki-%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0" class="nav-二mediawiki-解析器函数">
+									二、MediaWiki 解析器函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e5%9f%ba%e7%a1%80%e5%87%bd%e6%95%b0" class="nav-1基础函数">
+									1、基础函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#11-expr" class="nav-11-expr">
+									1.1 expr
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#12-%e5%8f%96%e8%88%8d%e6%95%b0%e4%bd%8d" class="nav-12-取舍数位">
+									1.2 取舍数位
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#13-if" class="nav-13-if">
+									1.3 if
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#14-ifeq" class="nav-14-ifeq">
+									1.4 ifeq
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#15-ifexist" class="nav-15-ifexist">
+									1.5 ifexist
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#16-ifexpr" class="nav-16-ifexpr">
+									1.6 ifexpr
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#17-iferror" class="nav-17-iferror">
+									1.7 iferror
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#18-switch" class="nav-18-switch">
+									1.8 switch
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#19-time" class="nav-19-time">
+									1.9 time
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#110-replace" class="nav-110-replace">
+									1.10 replace
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#111-tag-%e4%ba%86%e8%a7%a3%e5%8d%b3%e5%8f%af" class="nav-111-tag-了解即可">
+									1.11 tag (了解即可)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#2var-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-2var-系列函数">
+									2、Var 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-vardefine" class="nav-21-vardefine">
+									2.1 vardefine
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-vardefineecho" class="nav-22-vardefineecho">
+									2.2 vardefineecho
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-var" class="nav-23-var">
+									2.3 var
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#24-varexists" class="nav-24-varexists">
+									2.4 varexists
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#25-var_final" class="nav-25-var_final">
+									2.5 var_final
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3maps-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-3maps-系列函数">
+									3、Maps 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4pageforms-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-4pageforms-系列函数">
+									4、PageForms 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5smw-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-5smw-系列函数">
+									5、SMW 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6%e5%85%b6%e4%bb%96" class="nav-6其他">
+									6、其他
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e4%bd%9c%e4%b8%9a%e5%ae%89%e6%8e%92" class="nav-三作业安排">
+									三、作业安排
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://jayliu.tech/">
+            Jay Liu的随笔录
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://jayliu.tech/">
+        <div class="single-column-header-title">Jay Liu的随笔录</div>
+        
+        <div class="single-column-header-subtitle">日拱一卒，功不唐捐</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+                
+            
+
+            <div class="post-head-wrapper"
+                
+                    
+                    
+                    style="background-image: url('https://opengraph.githubassets.com/04dfd6c68d3e4474ec57360ec23f051e8ff9f3d4f1c94786364e7ef9645b374c/SemanticMediaWiki/SemanticResultFormats')"
+                    
+                
+            >
+                <div class="post-title">
+                    SMW教程第二章：MediaWiki的基本使用与解析器函数
+                    
+                    <div class="post-subtitle">
+                        本文介绍了MediaWiki平台的基本操作方法，并给出MediaWiki解析器函数这一高级功能的基本使用方法
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-11-02 14:17
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E6%95%99%E7%A8%8B">教程</a>
+                                &nbsp;
+                        
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="smw教程第二章mediawiki的基本使用与解析器函数">SMW教程第二章：MediaWiki的基本使用与解析器函数</h1>
+<p>从本章开始，我们将系统地学习 MediaWiki 的一系列概念、技巧和使用方法。</p>
+<p>在学习之前，这里先简单介绍一些概念，这些概念在本章中偶有出现，在日后的章节会详细介绍，这里为了不影响教程学习，给出简单的说明：</p>
+<ul>
+<li><strong>模板</strong>：MediaWiki 中的一种 “元页面”，可以定义编辑并应用在大量页面中</li>
+<li><strong>模块</strong>：MediaWiki 中，可以在页面编辑并使用的一种 Lua 代码块，可以通过定义编辑多个模块，应用在大量页面中以控制页面逻辑等。</li>
+<li><strong>命名空间 (NS、namespace)</strong>：MediaWiki 中，对不同功能的页面划分了不同区域，比如 “特殊页面” 中的所有链接，都属于 “特殊” 这一区域，命名空间即为当前页面标题的 “前缀” (“<code>&lt;命名空间&gt;:&lt;页面名称&gt;</code>”，如”<code>特殊:版本</code>“)。主空间默认无前缀，我们所编辑的页面主要在主空间中。除了特殊和主空间之外，还有” 帮助 “、” 讨论 “、” 分类 “、” 模块 “、” 模板 “等等空间。</li>
+<li><strong>Lua</strong>：一种脚本语言，一般用于游戏开发或网页脚本编程。在 MediaWiki 中它充当了一种胶水语言的功能，可以为用户提供一种较为方便的开发方式，将 MediaWiki 的前端控制、页面编辑、API 调用、页面逻辑等粘合在一起。在本课程中<strong>不对该语言的使用和开发进行要求</strong>，但建议各位自学 MediaWiki 的模块 (Module) 和简单的 Lua 编程，以在后续项目实践中更好地完成自己的任务。</li>
+</ul>
+<h2 id="一mediawiki-基本使用">一、MediaWiki 基本使用</h2>
+<h3 id="1mediawiki-基本编辑">1、MediaWiki 基本编辑</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">编辑方法</th>
+          <th style="text-align: center">别名</th>
+          <th style="text-align: center">推荐</th>
+          <th style="text-align: center">文字编辑</th>
+          <th style="text-align: center">模板编辑</th>
+          <th style="text-align: center">模板设计/开发</th>
+          <th style="text-align: center">支持<a href="https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4">NS</a></th>
+          <th style="text-align: center">加载</th>
+          <th style="text-align: center">移动端支持</th>
+          <th style="text-align: center">内容自动保存</th>
+          <th style="text-align: center">浏览器兼容性</th>
+          <th style="text-align: center">表格支持</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><strong>源代码编辑</strong></td>
+          <td style="text-align: center">源码</td>
+          <td style="text-align: center">推荐资深用户</td>
+          <td style="text-align: center">一般</td>
+          <td style="text-align: center">高</td>
+          <td style="text-align: center">适合</td>
+          <td style="text-align: center">所有</td>
+          <td style="text-align: center">极快</td>
+          <td style="text-align: center">好，但不方便（代码高亮除外，需手动关闭）</td>
+          <td style="text-align: center">有</td>
+          <td style="text-align: center">好</td>
+          <td style="text-align: center">一般</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>表单编辑器</strong></td>
+          <td style="text-align: center">表单，Form Edit</td>
+          <td style="text-align: center">推荐开发者</td>
+          <td style="text-align: center">不适合</td>
+          <td style="text-align: center">不适合</td>
+          <td style="text-align: center">适合开发者</td>
+          <td style="text-align: center">需手动指派</td>
+          <td style="text-align: center">一般</td>
+          <td style="text-align: center">差</td>
+          <td style="text-align: center">无</td>
+          <td style="text-align: center">一般</td>
+          <td style="text-align: center">无</td>
+      </tr>
+  </tbody>
+</table>
+<p>在 MediaWiki 中，我们可以对一个页面进行编辑，以呈现我们所想要表达的内容。在某个页面点击 ‘Edit’ 按钮，即可进入编辑页。</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/VisualEditor_toolbar-zh.png/800px-VisualEditor_toolbar-zh.png" alt="img"></p>
+<h4 id="11-源代码编辑器">1.1 源代码编辑器</h4>
+<p><strong>源代码编辑器</strong>是 MediaWiki 的经典编辑工具，具有直观、直接、泛用性强等特点，源代码编辑器中使用的是 <strong>Mark up 标记语言</strong>，同时<strong>支持 Html+CSS 语法</strong>。但是注意，由于安全性考虑，MediaWiki 的编辑器<strong>不支持某些 HTML 标签语法</strong>，如 img，iframe，a 标签等等，<strong>如果想使用该系列标签，请学习 Widget 插件或 Gadget 插件</strong>。</p>
+<ul>
+<li>优点
+<ul>
+<li>直接、底层，没有黑箱，方便开发者进行设计</li>
+<li>支持正则</li>
+<li>带有语法高亮 (需安装插件)</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>对新手不够友好</li>
+<li>表格编辑较为困难，需要使用特定的表格语法来创建</li>
+</ul>
+</li>
+</ul>
+<p>在编辑源代码时，编辑者需<strong>手动输入代码以控制文本样式，这部分代码是由 wiki 标记语言所指定的</strong>，常见的有：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/97e7696e453d5c4307b4c650d91421e1.png" alt="pSFqicT.png"></p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/cca9db590f37cb44bb6f367777a861f6.png" alt="pSFqP3V.png"></p>
+<h4 id="12-表单编辑器">1.2 表单编辑器</h4>
+<p><strong>表单编辑器</strong>来自第三方扩展 Page Forms，即上一章节安装的<strong>页面表单插件</strong>，它提供了一种预设模板的编辑方式，需要编辑者和开发者预先进行复杂的设计和准备工作。该部分的使用会在下一章节给出说明。</p>
+<h4 id="13-wiki-标记语言">1.3 wiki 标记语言</h4>
+<p>wiki 标记语言是在 MediaWiki 中进行页面编辑的基本语法，在源代码编辑器中我们已经介绍了一部分语法，对于更多的编辑方法，需参考官方文档。该部分为<strong>作业内容</strong>，具体使用方法请参见文档：</p>
+<ul>
+<li>huiji 编辑文档 (简单易学)：https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E7%BC%96%E8%BE%91%E9%A1%B5%E9%9D%A2#%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%EF%BC%88Wikitext%EF%BC%89</li>
+<li>Wikipedia 官方文档 (最及时最全面，内容为英文)：https://en.wikipedia.org/wiki/Help:Wikitext</li>
+<li>中文维基官方文档 (较为全面，有翻译错误)：https://zh.wikipedia.org/zh-cn/Help:Wiki%E6%A8%99%E8%A8%98%E5%BC%8F%E8%AA%9E%E8%A8%80</li>
+</ul>
+<p>注意，<strong>该部分内容不需要记忆或背诵，能够根据需求查找并使用即可</strong></p>
+<h4 id="14-wiki-表格">1.4 wiki 表格</h4>
+<p>理论上来说，在 wiki 页面中创建并编辑表格，属于 wiki 标记语言的一部分，但由于 wiki 中表格的使用比较复杂，这里单独说明：</p>
+<ul>
+<li>
+<p>对于某个页面来说，想要在该页面单独插入一个表格，可以使用 MediaWiki 表格转换工具：https://www.tablesgenerator.com/mediawiki_tables#</p>
+</li>
+<li>
+<p>如果安装了可视化编辑器插件，可以在编辑器中打开可视化编辑，选择 “高级”—“插入”—“表格”</p>
+</li>
+<li>
+<p>对于批量修改、模板定义、自定义表格样式等需求，需要单独理解 MediaWiki 的表格机制，参考 MediaWiki 官方文档：https://www.mediawiki.org/wiki/Help:Tables/zh#Wiki%E8%A1%A8%E6%A0%BC%E6%A0%87%E7%A4%BA%E6%91%98%E8%A6%81，或 huiji 文档：https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E8%A1%A8%E6%A0%BC#%E8%A1%A8%E6%A0%BC%E4%BB%8B%E7%BB%8D</p>
+</li>
+</ul>
+<h4 id="15-wiki-图片">1.5 wiki 图片</h4>
+<p>理论上来说，在 wiki 页面中创建并编辑图片，属于 wiki 标记语言的一部分，但由于 wiki 中图片的使用比较复杂，这里单独说明：</p>
+<ul>
+<li>
+<p>在页面中插入图片，该图片必须上传到本地 wiki 平台中，可以在 “<code>特殊页面</code>” 中找到 “<code>上传文件</code>”，然后进行文件上传。</p>
+</li>
+<li>
+<p>对于某个页面来说，想在该页面单独插入一个表格，可以在编辑器中点击图片图标进行上传插入</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/4c34512cf0b226550cd1614edf3e09fa.png" alt="pSFb00J.png"></p>
+</li>
+<li>
+<p>对于比较复杂的插入图片样式控制，需要参考 MediaWiki 官方文档：https://www.mediawiki.org/wiki/Help:Images/zh</p>
+</li>
+</ul>
+<h3 id="2mediawiki-页面操作">2、MediaWiki 页面操作</h3>
+<h4 id="21-创建">2.1 创建</h4>
+<p>在地址栏中直接输入，在我们的教程中，MediaWiki 的页面地址是严格遵照</p>
+<pre tabindex="0"><code>&lt;子站前缀或localhost&gt;/mediawiki/index.php/&lt;页面名称&gt;
+</code></pre><p>的方式组成的，因此<strong>只需要将当前页面的名称替换成想要寻找的页面名称</strong>即可。如想要创建一个名为 “<strong>天津大学</strong>” 的页面，只需访问</p>
+<pre tabindex="0"><code>localhost/mediawiki/index.php/天津大学
+</code></pre><p>并选择 “<strong>创建本页面</strong>” 即可。</p>
+<p>如果是<strong>模板、模块</strong>等带有前缀的页面，则需要加上 <code>模板:</code>，<code>模块:</code>，<code>帮助:</code>，<code>Widget:</code>……等 <strong>namespace 前缀</strong>，如 “<code>分类:人物</code>”、“<code>模板:infobox</code>” 等页面，缺少前缀则会生成默认文章页。</p>
+<ul>
+<li>模板、模块、帮助、分类、特殊等 namespace 前缀可以用 “Template”、“Module”、“Help”、“Category”、“Special” 来替代；</li>
+<li>无论是使用中文还是英文的 namespace 前缀，冒号必须是英文的半角冒号</li>
+</ul>
+<h4 id="22-移动">2.2 移动</h4>
+<p>MediaWiki 页面的标题并没有 “改名” 的功能，类似的操作，被称为<strong>移动</strong>。当您发现您所创建的页面名称有误 (例如输入错字，或没有遵守<a href="https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E5%91%BD%E5%90%8D%E5%B8%B8%E8%A7%84">帮助：命名常规</a>等)，那么您就可以重新命名 (移动) 该页面。</p>
+<p><img src="https://i.328888.xyz/2023/01/04/WULut.png" alt="WULut.png"></p>
+<p><img src="https://i.328888.xyz/2023/01/04/WUKdX.png" alt="WUKdX.png"></p>
+<p>“移动” 功能最大的优点是能够<strong>同时移动相关页面的修订历史</strong>。如果只是将旧页面手动复制到新页面，那么该条目的修订历史将被分散在两个地方，往往会对之后的编辑带来不便。</p>
+<p>在移动页面中，有数个选项：</p>
+<ul>
+<li>“保留重定向” (仅向<a href="https://www.huijiwiki.com/wiki/%E7%89%B9%E6%AE%8A:%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8">管理员</a>、<a href="https://en.wikipedia.org/wiki/%E6%9C%BA%E5%99%A8%E4%BA%BA">机器人</a>提供、预设选择)：移动页面时，同时在旧有页面创建重定向。如果不选此项，移动后旧有页面将会成为红色链接，移动日志也会显示 “不留重定向”。</li>
+<li>“监视来源页面和目标页面”：移动页面后，将重定向页面及新页面加到您的监视清单中 (连同讨论页一并加入)。可以在参数设置=&gt;监视列表=&gt;进阶选项=&gt;“将我移动的页面和文件添加到我的监视列表” 一项选择是否预设。</li>
+<li>“是，删除该页面” (仅在目标页面存在时向管理员提供)：移动页面时如果目标页面存在，<a href="https://www.huijiwiki.com/wiki/MediaWiki:Delete_and_move_text">MediaWiki:Delete and move text</a> 中的内容会展示，并会向管理员提供此选择。用户必须选择此项，并点选 ⧼Delete and move⧽，页面才会被移动，目标页面即时删除，并展示理由：“删除以便移动”。如果不是管理员，且移动页面时目标页面存在，会显示错误信息。</li>
+</ul>
+<h4 id="23-重定向">2.3 重定向</h4>
+<p>重定向用于<strong>多个名称</strong>表示<strong>同一个实体</strong>的时候，例如：</p>
+<p><strong>阿拉贡</strong>是 <em><strong>Aragorn</strong></em> 的中文译名。我们只需要一个<a href="https://lotr.huijiwiki.com/wiki/%E9%98%BF%E6%8B%89%E8%B4%A1">页面</a>来介绍阿拉贡，但为了让搜索 <em>Aragorn</em> 的用户也能找到页面，我们需要建立 <em>Aragorn</em> 页面，并将其重定向至阿拉贡页。</p>
+<p><strong>重定向步骤：</strong></p>
+<ol>
+<li>
+<p>创建重定向页，并使用源代码编辑器编辑。</p>
+</li>
+<li>
+<p>输入</p>
+<pre tabindex="0"><code>#重定向 [[主页面名称]]
+</code></pre><p>或者</p>
+<pre tabindex="0"><code>#REDIRECT [[主页面名称]]
+</code></pre><p>即可。</p>
+</li>
+</ol>
+<p>例如将 <em>Aragorn</em> 重定向至阿拉贡页，只需：</p>
+<ol>
+<li>
+<p>建立 <a href="https://lotr.huijiwiki.com/wiki/Aragorn"><em>Aragorn</em></a> 页，</p>
+</li>
+<li>
+<p>使用源代码编辑器，输入</p>
+<pre tabindex="0"><code>#重定向 [[阿拉贡]]
+</code></pre><p>即可。</p>
+</li>
+</ol>
+<h4 id="24-消歧义">2.4 消歧义</h4>
+<p>消歧义用于有<strong>多个实体</strong>具有<strong>同一名称</strong>的时候，例如：</p>
+<p>对于 “<strong>天花</strong>” 这个名称，可能指代多个实体，如<strong>烈性传染病天花</strong>、<strong>玉米的雄蕊</strong>、<strong>中国传统建筑中的构件</strong>等。对于这种问题，参见维基百科与 huijiwiki 的<strong>消歧义文档</strong></p>
+<ul>
+<li>维基百科：https://zh.wikipedia.org/zh-hans/Wikipedia:%E6%B6%88%E6%AD%A7%E4%B9%89</li>
+<li>huijiwiki：https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E6%B6%88%E6%AD%A7%E4%B9%89</li>
+</ul>
+<p>建议搭建安装使用<a href="https://www.mediawiki.org/wiki/Extension:Disambiguator">消歧义插件</a>，并使用 {{<a href="https://zh.wikipedia.org/wiki/Template:Disambig">Disambig</a>}} 来标记消歧义页。</p>
+<h4 id="25-历史与回退">2.5 历史与回退</h4>
+<p>“编辑历史” 与 “回退” 是 MediaWiki 特有的功能，在日常编辑和维护过程中非常重要。</p>
+<p><strong>编辑历史的查看</strong></p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/cf6c9291986d2d23734c2b225ef173c4.png" alt="img"></p>
+<p>历史版本的对比</p>
+<p>维基的每一次编辑都会生成一个独有的历史版本，在页面的 “<strong>查看历史</strong>” 入口中能够看到本页面从创建起的所有历史版本和对应信息。</p>
+<ul>
+<li>对比历史版本</li>
+</ul>
+<p>您可以选择两个不同的版本进行对比，编辑器会清晰的表示出改动的内容。</p>
+<p><strong>历史版本的回退</strong></p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/4afe3a954491dbb550d7803b9e116d76.png" alt="img"></p>
+<p>历史的回退</p>
+<ul>
+<li>方法一，选取某个版本，点击 “撤销” 进行操作</li>
+<li>方法二，点击某个历史版本的链接，进入其页面，然后点击 “保存编辑”，这个历史版本将覆盖现有版本。</li>
+</ul>
+<h4 id="26-删除">2.6 删除</h4>
+<p>删除页面有两种方式：</p>
+<ul>
+<li>一是对某个页面进行<strong>单独删除</strong>操作，如在某个页面中点击删除按钮：</li>
+</ul>
+<p><img src="https://i.328888.xyz/2023/01/04/WU94C.png" alt="WU94C.png"></p>
+<ul>
+<li>
+<p>二是对最近页面进行<strong>批量删除</strong>，需要在 <code>特殊页面</code> 中找到 <code>大量删除</code> 按钮，</p>
+<p><img src="https://i.328888.xyz/2023/01/04/WUJIP.png" alt="WUJIP.png"></p>
+<p>然后列举页面，批量选择页面即可。</p>
+</li>
+</ul>
+<h3 id="3mediawiki-魔术字">3、MediaWiki 魔术字</h3>
+<p><strong>魔术字</strong> (Magic words) 是 MediaWiki 软件所识别的特定字符串，它们可以<strong>返回特定的值</strong>或<strong>触发特定功能</strong>。魔术字有如下三种：</p>
+<ul>
+<li>状态开关：以两个下划线 “<strong>” 为前后缀的大写单词。例如</strong> FOO__；</li>
+<li>变量：同模版类似，以 “{{” 开头，“}}” 结尾，且所有字母大写，如 {{FOO}}；</li>
+<li>解析器函数：这些形如 {{foo:&hellip;}} 或 {{#foo:&hellip;}} 的魔术字在使用时包含参数，且函数名称对大小写不敏感 (包括可大小写混用)。请同时参见 <a href="https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E8%A7%A3%E6%9E%90%E5%99%A8%E5%87%BD%E6%95%B0">Help：解析器函数</a>。</li>
+</ul>
+<p>**注意，所有魔术字，都可以以源代码方式直接编辑到页面中进行测试和使用！**建议大家在页面编辑中进行尝试和使用以加深理解</p>
+<h4 id="31-状态开关魔术字">3.1 状态开关魔术字</h4>
+<p>状态开关可以控制页面的显示方式或其他行为。它往往用于排除或加入特定的页面内容。</p>
+<table>
+  <thead>
+      <tr>
+          <th>魔术字</th>
+          <th>描述</th>
+          <th>版本</th>
+          <th>主题</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>__NOTOC__</code></td>
+          <td>隐藏目录。</td>
+          <td></td>
+          <td>目录</td>
+      </tr>
+      <tr>
+          <td><code>__FORCETOC__</code></td>
+          <td>强制于默认位置（第一个章节标题上方）显示目录。</td>
+          <td></td>
+          <td>目录</td>
+      </tr>
+      <tr>
+          <td><code>__TOC__</code></td>
+          <td>在魔术字的位置插入目录（忽略NOTOC）。如果这个魔术字在一个页面内被多次使用，目录将会被放置在首个TOC出现的位置。</td>
+          <td></td>
+          <td>目录</td>
+      </tr>
+      <tr>
+          <td><code>__NOEDITSECTION__</code></td>
+          <td>隐藏章节标题旁的编辑链接。</td>
+          <td></td>
+          <td>编辑</td>
+      </tr>
+      <tr>
+          <td><code>__NEWSECTIONLINK__</code></td>
+          <td>在非讨论页顶端“编辑页面”标签右侧加入一个按钮，用于在页面结尾加入新的章节（参见MediaWiki上的说明）。</td>
+          <td>1.7+</td>
+          <td>编辑</td>
+      </tr>
+      <tr>
+          <td><code>__NONEWSECTIONLINK__</code></td>
+          <td>移除讨论页顶端“编辑页面”右侧的加入新章节链接。</td>
+          <td>1.15+</td>
+          <td>编辑</td>
+      </tr>
+      <tr>
+          <td><code>__NOGALLERY__</code></td>
+          <td>用于分类页面。不显示分类中所包含-{zh-hans:文件;zh-hant:档案}-的缩略图，而以普通链接代替。</td>
+          <td>1.7+</td>
+          <td>分类</td>
+      </tr>
+      <tr>
+          <td><code>__HIDDENCAT__</code></td>
+          <td>用于分类页面。加入后此分类成为隐藏分类，将不会显示在上级分类其及成员页面的分类列表中（可以通过参数设置中的选项强制显示），建议用{{<a href="https://zh.wikipedia.org/wiki/Template:Hiddencat">hiddencat</a>}}。</td>
+          <td>1.13+</td>
+          <td>分类</td>
+      </tr>
+      <tr>
+          <td><code>__NOCONTENTCONVERT__</code> <code>__NOCC__</code></td>
+          <td>不对当前页面进行字词转换。</td>
+          <td></td>
+          <td>字词转换</td>
+      </tr>
+      <tr>
+          <td><code>__NOTITLECONVERT__</code> <code>__NOTC__</code></td>
+          <td>不进行标题转换，其他内容照常转换。</td>
+          <td></td>
+          <td>字词转换</td>
+      </tr>
+      <tr>
+          <td><code>__START__</code></td>
+          <td>没有特殊效果。已被彻底废弃</td>
+          <td></td>
+          <td>其他</td>
+      </tr>
+      <tr>
+          <td><code>__INDEX__</code></td>
+          <td>允许搜索引擎检索本页（忽略$wgArticleRobotPolicies的设置，但无法忽略robots.txt）。</td>
+          <td>1.14+</td>
+          <td>其他</td>
+      </tr>
+      <tr>
+          <td><code>__NOINDEX__</code></td>
+          <td>阻止搜索引擎检索本页。</td>
+          <td>1.14+</td>
+          <td>其他</td>
+      </tr>
+      <tr>
+          <td><code>__STATICREDIRECT__</code></td>
+          <td>用于重定向页。当有人移动页面并勾选“更新所有指向原标题的重定向”时，禁止MediaWiki更新本页的重定向。</td>
+          <td>1.13+</td>
+          <td>其他</td>
+      </tr>
+      <tr>
+          <td><code>__NOTITLE__</code></td>
+          <td>用于强制隐藏页面的标题（FirstHeading）。一同去掉的还有“登陆后就可以编辑&hellip;”的提示。</td>
+          <td></td>
+          <td>其他</td>
+      </tr>
+      <tr>
+          <td><code>__DISAMBIG__</code></td>
+          <td>用于消歧义页，该页会被标记为消歧义页并显示于<a href="https://zh.wikipedia.org/wiki/Special:%E6%B6%88%E6%AD%A7%E4%B9%89%E9%A1%B5%E9%9D%A2">Special:消歧义页面</a>，建议用{{<a href="https://zh.wikipedia.org/wiki/Template:Disambig">Disambig</a>}}。</td>
+          <td>使用<a href="https://www.mediawiki.org/wiki/Extension:Disambiguator">消歧义插件</a></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="32-变量魔术字-参考即可仅供了解">3.2 变量魔术字 (参考即可，仅供了解)</h4>
+<p>这里给出的魔术字<strong>仅供参考</strong>，<strong>不需要刻意记忆！！在有需要时进行查询即可！！</strong></p>
+<p><strong>变量魔术字</strong>可以返回某个特定的数据 (关于当前页面、wiki 站点或日期的)，但是其具体数值可能会随着时间推移变化。变量的语法与<a href="https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E6%A8%A1%E6%9D%BF">模板</a> (模板相关内容会在后续章节进行介绍，这里仅作了解) 类似。其中标记为 “<strong>[高开销]</strong>” 的变量会被软件记录，且在一个页面中可使用的总数会被限制。</p>
+<p>如果某一模板名与变量名重复，软件会自动将其解释为变量 (因此若要包含<a href="https://www.huijiwiki.com/index.php?title=%E6%A8%A1%E6%9D%BF:PAGENAME&amp;action=edit&amp;redlink=1">模板：PAGENAME</a>，页面中需要写作 <code>{{模板:PAGENAME}}</code>)。在某些情况下，加入参数会强制软件将变量视作一个模板，如 <code>{{CURRENTDAYNAME|x}}</code> 将会包含<a href="https://www.huijiwiki.com/index.php?title=%E6%A8%A1%E6%9D%BF:CURRENTDAYNAME&amp;action=edit&amp;redlink=1">模板：CURRENTDAYNAME</a>。</p>
+<p>这里仅给出一个页面标题魔术字的例子：</p>
+<p><strong>页面标题</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">变量</th>
+          <th style="text-align: center">输出</th>
+          <th style="text-align: center">描述</th>
+          <th style="text-align: center">版本</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>{{FULLPAGENAME}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">命名空间及页面标题</td>
+          <td style="text-align: center">1.6+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{PAGENAME}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">页面标题</td>
+          <td style="text-align: center"></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{BASEPAGENAME}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">页面标题，不包括当前子页面标题及命名空间（页面“Wikipedia:页面/子页面/子页面的子页面”则返回“页面/子页面”）</td>
+          <td style="text-align: center">1.7+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ROOTPAGENAME}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">获得当前页面的根页名，不包括所有子页面标题及命名空间（页面“Wikipedia:页面/子页面/子页面的子页面”则返回“页面”）</td>
+          <td style="text-align: center"></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{SUBPAGENAME}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">子页面标题（页面“Wikipedia:页面/子页面”则返回“子页面”）</td>
+          <td style="text-align: center">1.6+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{SUBJECTPAGENAME}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">当前页面对应的内容页标题（包含命名空间）</td>
+          <td style="text-align: center">1.7+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{TALKPAGENAME}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">当前页面对应的讨论页标题（包含命名空间）</td>
+          <td style="text-align: center">1.7+</td>
+      </tr>
+  </tbody>
+</table>
+<p>变量魔术字的<strong>具体文档</strong>请参考</p>
+<ul>
+<li>维基百科文档：https://zh.wikipedia.org/wiki/Help:%E9%AD%94%E6%9C%AF%E5%AD%97#%E5%8F%98%E9%87%8F</li>
+<li>huiji 文档 1：https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E9%AD%94%E6%9C%AF%E5%AD%97#%E5%8F%98%E9%87%8F%E9%AD%94%E6%9C%AF%E5%AD%97</li>
+<li>huiji 文档 2：https://www.huijiwiki.com/wiki/%E5%B8%AE%E5%8A%A9:%E5%8F%98%E9%87%8F</li>
+</ul>
+<h4 id="33-解析器函数魔术字-参考即可仅供了解">3.3 解析器函数魔术字 (参考即可，仅供了解)</h4>
+<p>这里给出的魔术字<strong>仅供参考</strong>，<strong>不需要刻意记忆！！在有需要时进行查询即可！！</strong></p>
+<p>解析器函数有一个或多个参数 (技术上来看，所有使用参数的魔术字均为解析器函数)，且魔术字的名称前有时会有一个#号，以将它们与一般的模版区分开来。</p>
+<p>解析器函数是 MediaWiki 中的重要工具，对于我们控制页面样式、进行开发等极其重要。**通过解析器函数、html/css/js、模板、Lua 等工具进行配合，我们可以实现非常丰富的前端展示效果。**我们会在后续章节介绍更为详细的解析器函数的用法。</p>
+<p><strong>URL 数据</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">魔术字</th>
+          <th style="text-align: center">输出</th>
+          <th style="text-align: center">描述</th>
+          <th style="text-align: center">版本</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>{{localurl:页面标题}}</code> `{{localurl:页面标题</td>
+          <td style="text-align: center">字符串}}`</td>
+          <td style="text-align: center">/wiki/%E9%A1%B5%E9%9D%A2%E6%A0%87%E9%A2%98 /w/index.php?title=%E9%A1%B5%E9%9D%A2%E6%A0%87%E9%A2%98&amp;字符串</td>
+          <td style="text-align: center">指定标题的相对路径</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{fullurl:页面标题}}</code> `{{fullurl:页面标题</td>
+          <td style="text-align: center">字符串}}<code> </code>{{fullurl:跨维基链接:页面标题</td>
+          <td style="text-align: center">字符串}}`</td>
+          <td style="text-align: center">//zh.wikipedia.org/wiki/Category:%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3 //zh.wikipedia.org/w/index.php?title=Category:%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3&amp;action=edit <a href="https://en.wikipedia.org/wiki/Category:Help?action=edit">https://en.wikipedia.org/wiki/Category:Help?action=edit</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{filepath:文件名}}</code> `{{filepath:文件名</td>
+          <td style="text-align: center">nowiki}}`</td>
+          <td style="text-align: center">//upload.wikimedia.org/wikipedia/zh/b/bc/Wiki.png //upload.wikimedia.org/wikipedia/zh/b/bc/Wiki.png</td>
+          <td style="text-align: center">指定多媒体文件的绝对路径</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{urlencode:字 符 串}}</code> <code>{{urlencode:x y z 一二三}}</code></td>
+          <td style="text-align: center">%E5%AD%97+%E7%AC%A6+%E4%B8%B2 x+y+z+%E4%B8%80%E4%BA%8C%E4%B8%89</td>
+          <td style="text-align: center">将字符串以<a href="https://zh.wikipedia.org/wiki/%E7%99%BE%E5%88%86%E5%8F%B7%E7%BC%96%E7%A0%81">百分号编码</a>以供URL使用。</td>
+          <td style="text-align: center"><a href="https://www.mediawiki.org/wiki/Special:Code/MediaWiki/14273">1.7+</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{anchorencode:字 符 串}}</code> <code>{{anchorencode:x y z 一二三}}</code></td>
+          <td style="text-align: center">字_符_串<!-- raw HTML omitted -->x_y_z一二三</td>
+          <td style="text-align: center">将字符串编码以供URL锚点（URL中#号后面的部分）使用。</td>
+          <td style="text-align: center"><a href="https://www.mediawiki.org/wiki/Special:Code/MediaWiki/16279">1.8+</a></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>命名空间</strong></p>
+<p><code>{{ns:}}</code> 返回指定索引编号所对应命名空间的本地名称。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">内容页面命名空间</th>
+          <th style="text-align: center"></th>
+          <th style="text-align: center">讨论页命名空间</th>
+          <th style="text-align: center"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><strong>用法</strong></td>
+          <td style="text-align: center"><strong>输出</strong></td>
+          <td style="text-align: center"><strong>用法</strong></td>
+          <td style="text-align: center"><strong>输出</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:-2}}</code>或<code>{{ns:media}}</code></td>
+          <td style="text-align: center">Media</td>
+          <td style="text-align: center">不适用</td>
+          <td style="text-align: center">不适用</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:-1}}</code>或<code>{{ns:Special}}</code></td>
+          <td style="text-align: center">Special</td>
+          <td style="text-align: center">不支持</td>
+          <td style="text-align: center">不支持</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:0}}</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center"><code>{{ns:1}}</code>或<code>{{ns:Talk}}</code></td>
+          <td style="text-align: center">Talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:2}}</code>或<code>{{ns:User}}</code></td>
+          <td style="text-align: center">User</td>
+          <td style="text-align: center"><code>{{ns:3}}</code>或<code>{{ns:User talk}}</code></td>
+          <td style="text-align: center">User talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:4}}</code>或<code>{{ns:Project}}</code></td>
+          <td style="text-align: center">Wikipedia</td>
+          <td style="text-align: center"><code>{{ns:5}}</code>或<code>{{ns:Project talk}}</code></td>
+          <td style="text-align: center">Wikipedia talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:6}}</code>或<code>{{ns:File}}</code>或<code>{{ns:Image}}</code></td>
+          <td style="text-align: center">File</td>
+          <td style="text-align: center"><code>{{ns:7}}</code>或<code>{{ns:File talk}}</code>或<code>{{ns:Image talk}}</code></td>
+          <td style="text-align: center">File talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:8}}</code>或<code>{{ns:MediaWiki}}</code></td>
+          <td style="text-align: center">MediaWiki</td>
+          <td style="text-align: center"><code>{{ns:9}}</code>或<code>{{ns:MediaWiki talk}}</code></td>
+          <td style="text-align: center">MediaWiki talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:10}}</code>或<code>{{ns:Template}}</code></td>
+          <td style="text-align: center">Template</td>
+          <td style="text-align: center"><code>{{ns:11}}</code>或<code>{{ns:Template talk}}</code></td>
+          <td style="text-align: center">Template talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:12}}</code>或<code>{{ns:Help}}</code></td>
+          <td style="text-align: center">Help</td>
+          <td style="text-align: center"><code>{{ns:13}}</code>或<code>{{ns:Help talk}}</code></td>
+          <td style="text-align: center">Help talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:14}}</code>或<code>{{ns:Category}}</code></td>
+          <td style="text-align: center">Category</td>
+          <td style="text-align: center"><code>{{ns:15}}</code>或<code>{{ns:Category talk}}</code></td>
+          <td style="text-align: center">Category talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:100}}</code>或<code>{{ns:Portal}}</code></td>
+          <td style="text-align: center">Portal</td>
+          <td style="text-align: center"><code>{{ns:101}}</code>或<code>{{ns:Portal talk}}</code></td>
+          <td style="text-align: center">Portal talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:102}}</code>或<code>{{ns:WikiProject}}</code></td>
+          <td style="text-align: center">WikiProject</td>
+          <td style="text-align: center"><code>{{ns:103}}</code>或<code>{{ns:WikiProject talk}}</code></td>
+          <td style="text-align: center">WikiProject talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:118}}</code>或<code>{{ns:Draft}}</code></td>
+          <td style="text-align: center">Draft</td>
+          <td style="text-align: center"><code>{{ns:119}}</code>或<code>{{ns:Draft talk}}</code></td>
+          <td style="text-align: center">Draft talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ns:828}}</code>或<code>{{ns:Module}}</code></td>
+          <td style="text-align: center">Module</td>
+          <td style="text-align: center"><code>{{ns:829}}</code>或<code>{{ns:Module talk}}</code></td>
+          <td style="text-align: center">Module talk</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">不适用</td>
+          <td style="text-align: center">不适用</td>
+          <td style="text-align: center"><code>{{ns:2600}}</code>或<code>{{ns:Topic}}</code></td>
+          <td style="text-align: center">Topic</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>格式</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">用法</th>
+          <th style="text-align: center">输入 → 输出</th>
+          <th style="text-align: center">描述</th>
+          <th style="text-align: center">版本</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>{{lc:字符串}}</code></td>
+          <td style="text-align: center"><code>{{lc:DATA CENTER}}</code> → data center</td>
+          <td style="text-align: center">转换为小写字母输出</td>
+          <td style="text-align: center">1.5+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{lcfirst:字符串}}</code></td>
+          <td style="text-align: center"><code>{{lcfirst:DATA CENTER}}</code> → dATA CENTER</td>
+          <td style="text-align: center">将<strong>字符串的第一个字符</strong>转换为小写字母</td>
+          <td style="text-align: center">1.5+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{uc:字符串}}</code></td>
+          <td style="text-align: center"><code>{{uc:text transform}}</code> → TEXT TRANSFORM</td>
+          <td style="text-align: center">转换为大写字母输出</td>
+          <td style="text-align: center">1.5+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{ucfirst:字符串}}</code></td>
+          <td style="text-align: center"><code>{{ucfirst:text transform}}</code> → Text transform</td>
+          <td style="text-align: center">将<strong>字符串的第一个字符</strong>转换为大写字母</td>
+          <td style="text-align: center">1.5+</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{formatnum:无格式数字}}</code> `{{formatnum:格式化的数字</td>
+          <td style="text-align: center">R}}`</td>
+          <td style="text-align: center"><code>{{formatnum:-987654321.654321}}</code> → −987,654,321.654321 `{{formatnum:-987,654,321.654321</td>
+          <td style="text-align: center">R}}` → -987654321.654321</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{#dateformat:日期}}</code> <code>{{#formatdate:日期}}</code> `{{#dateformat:日期</td>
+          <td style="text-align: center">格式}}<code> </code>{{#formatdate:日期</td>
+          <td style="text-align: center">格式}}`</td>
+          <td style="text-align: center">`{{#dateformat:11 seP 2001</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">`{{padleft:xyz</td>
+          <td style="text-align: center">字符串长度}}<code> </code>{{padleft:xyz</td>
+          <td style="text-align: center">字符串长度</td>
+          <td style="text-align: center">字符}}`</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">`{{padright:xyz</td>
+          <td style="text-align: center">字符串长度}}<code> </code>{{padright:xyz:字符串长度</td>
+          <td style="text-align: center">字符}}`</td>
+          <td style="text-align: center">`{{padright:xyz</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">`{{plural:计数</td>
+          <td style="text-align: center">单数形式</td>
+          <td style="text-align: center">复数形式}}`</td>
+          <td style="text-align: center">`{{plural:1</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="34-特殊符号">3.4 特殊符号</h4>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">变量</th>
+          <th style="text-align: center">输出</th>
+          <th style="text-align: center">描述</th>
+          <th style="text-align: center">版本</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>{{!}}</code></td>
+          <td style="text-align: center">|</td>
+          <td style="text-align: center">在参数中代替 |</td>
+          <td style="text-align: center"><a href="https://gerrit.wikimedia.org/r/136234">1.24+</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>{{=}}</code></td>
+          <td style="text-align: center">=</td>
+          <td style="text-align: center">在参数中代替 =</td>
+          <td style="text-align: center"><a href="https://phabricator.wikimedia.org/T91154">phab:T91154</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>#REDIRECT [[條目名稱]]</code> <code>#重定向 [[條目名稱]]</code></td>
+          <td style="text-align: center"></td>
+          <td style="text-align: center">标记此条目为重定向页。此语法仅在条目第一行时有效。另见<a href="https://zh.wikipedia.org/wiki/Help:%E9%87%8D%E5%AE%9A%E5%90%91">Help:重定向</a>。</td>
+          <td style="text-align: center"></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>ISBN 0-12-345678-9</code></td>
+          <td style="text-align: center"><a href="https://zh.wikipedia.org/wiki/Special:%E7%BD%91%E7%BB%9C%E4%B9%A6%E6%BA%90/0123456789">ISBN 0-12-345678-9</a></td>
+          <td style="text-align: center">同样是MediaWiki软件所识别的特定字符串，并且符合条件时会自动转换为链接。目前中文维基百科支持的此类魔术语法有<a href="https://zh.wikipedia.org/wiki/Help:%E5%90%84%E9%A1%9E%E6%9B%B8%E8%99%9F">ISBN</a>、<a href="https://zh.wikipedia.org/wiki/PMID">PMID</a>以及<a href="https://zh.wikipedia.org/wiki/RFC">RFC</a>。参见<a href="https://zh.wikipedia.org/wiki/Help:%E9%AD%94%E8%A1%93%E9%80%A3%E7%B5%90">Help:魔术链接</a>。</td>
+          <td style="text-align: center"></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="二mediawiki-解析器函数">二、MediaWiki 解析器函数</h2>
+<p>我们在上文中提到了 MediaWiki 的魔术字，其中有解析器函数魔术字，这里会详细介绍 MediaWiki 中解析器函数的概念。</p>
+<p><strong>解析器函数</strong> (ParserFunction) 是 <code>MediaWiki</code> 系统中的重要组成部分，这是 MediaWiki 系统区别于其他维基类软件和 CMS 系统 (例如 WordPress) 的最大不同之一。解析器函数简单来说就是通过特定的语法来 (<code>{{#}}</code>) 调用 PHP 的底层函数，进行逻辑表达或是运算，实现一些复杂的功能和效果。典型语法是：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{#函数名: 参数1 | 参数2 | 参数3 …}}
+</code></pre><p>特点：</p>
+<ul>
+<li>各函数名都对<strong>大小写不敏感</strong>。</li>
+<li>语句中的空格、换行等<strong>空白字符将被省略</strong>。</li>
+<li>解析器函数实际上是 <strong>wiki 标记语言</strong>的一部分，同样需要由 MediaWiki 的解析器进行<strong>转译</strong> (Parser)，因此<strong>运行效率受到一定限制</strong>。</li>
+<li>解析器函数可以由插件所提供，如 SMW 插件、PageForms 插件、Maps 插件都提供了更丰富的解析器函数以实现集成的复杂功能。</li>
+<li>由 Module 提供的 Lua 脚本可以更高效的执行函数逻辑，可以<strong>一定程度上取代解析器函数</strong>。但是，某些特定插件所提供的特殊解析器函数，如 SMW 插件、PageForms 插件等，是无法用 Lua 脚本替代的；另外在 MediaWiki 平台使用 Lua 脚本，涉及到 MediaWiki 平台的<strong>模块 (Module)</strong> 功能和 <strong>Lua 编程语言</strong>，该部分在同学们的自选主题中，有能力的小组自行选择并分享。</li>
+</ul>
+<p>在下文中仅给出了一些简单的说明和示例，想了解更多细节，请参阅官方文档：</p>
+<ul>
+<li>基础解析器函数：https://www.mediawiki.org/wiki/Help:Extension:ParserFunctions#</li>
+<li>Var 系列函数：https://www.mediawiki.org/wiki/Extension:Variables</li>
+</ul>
+<h3 id="1基础函数">1、基础函数</h3>
+<p>该系列函数由 <strong>ParseFunction 插件</strong>提供，给出了一系列<strong>逻辑</strong>与<strong>数学运算</strong>的表达式操作。注意，在<strong>解析器函数中并没有 “循环” 这一功能</strong>，如果想实现 “循环”，需要使用其他方法，如 MediaWiki 模块 (Module)，或使用 Widget/Gadget 来嵌入 JS 代码。</p>
+<h4 id="11-expr">1.1 expr</h4>
+<p><code>expr</code> 函数，计算<a href="https://www.huijiwiki.com/index.php?title=%E6%95%B0%E5%AD%A6&amp;action=edit&amp;redlink=1">数学</a>表达式。语法为：</p>
+<pre tabindex="0"><code>{{ #expr: 表达式 }}
+</code></pre><p>表达式支持的运算符有：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">运算符</th>
+          <th style="text-align: center">名称</th>
+          <th style="text-align: center">优先级</th>
+          <th style="text-align: center">元数</th>
+          <th style="text-align: center">结合性</th>
+          <th style="text-align: center">样例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">+</td>
+          <td style="text-align: center">正</td>
+          <td style="text-align: center">9</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">右</td>
+          <td style="text-align: center">{{#expr: + 7}} = 7</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">负</td>
+          <td style="text-align: center">9</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">右</td>
+          <td style="text-align: center">{{#expr: - 7}} = -7</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">not</td>
+          <td style="text-align: center">逻辑非</td>
+          <td style="text-align: center">9</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">右</td>
+          <td style="text-align: center">{{#expr: not 7}} = 0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">*</td>
+          <td style="text-align: center">乘</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 * 7}} = 210</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">/</td>
+          <td style="text-align: center">除</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 / 7}} = 4.2857142857143</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">div</td>
+          <td style="text-align: center">除</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 div 7}} = 4.2857142857143</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">mod</td>
+          <td style="text-align: center">模</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 mod 7}} = 2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">+</td>
+          <td style="text-align: center">加</td>
+          <td style="text-align: center">6</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 + 7}} = 37</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">减</td>
+          <td style="text-align: center">6</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 - 7}} = 23</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">=</td>
+          <td style="text-align: center">等于</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 = 7}} = 0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&lt;</td>
+          <td style="text-align: center">小于</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 &lt; 7}} = 0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&gt;</td>
+          <td style="text-align: center">大于</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 &gt; 7}} = 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&lt;=</td>
+          <td style="text-align: center">小于等于</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 &lt;= 7}} = 0</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&gt;=</td>
+          <td style="text-align: center">大于等于</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 &gt;= 7}} = 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">&lt;&gt;</td>
+          <td style="text-align: center">不等于</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 &lt;&gt; 7}} = 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">!=</td>
+          <td style="text-align: center">不等于</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 != 7}} = 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">and</td>
+          <td style="text-align: center">逻辑与</td>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 and 7}} = 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">or</td>
+          <td style="text-align: center">逻辑或</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">左</td>
+          <td style="text-align: center">{{#expr: 30 or 7}} = 1</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="12-取舍数位">1.2 取舍数位</h4>
+<table>
+  <thead>
+      <tr>
+          <th>round</th>
+          <th>舍入（最大9）</th>
+          <th>{{#expr: 30 / 7 round 7}} = 4.2857143</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ceil</td>
+          <td>向上取整</td>
+          <td>{{#expr: ceil(1/3) }} = 1</td>
+      </tr>
+      <tr>
+          <td>floor</td>
+          <td>向下取整</td>
+          <td>{{#expr: floor(1/3) }} =0</td>
+      </tr>
+  </tbody>
+</table>
+<p>round 运算对运算数正负，位数正负都有不同的表现，参见下例。</p>
+<p>逻辑运算符把假映射为 0，把真映射为非 0，且返回值只有 0 或 1。</p>
+<p>同一表达式中先计算高优先级运算。括号优先级高于一切。</p>
+<h4 id="13-if">1.3 if</h4>
+<p><code>if</code>&lt;函数是一个 if-then-else 结构。语法是：</p>
+<pre tabindex="0"><code>{{#if: &lt;判断字符串&gt; | &lt;then字符串&gt; | &lt;else字符串&gt; }}
+{{#if: &lt;判断字符串&gt; | &lt;then字符串&gt; |}}
+</code></pre><p>若判断字符串为非空字符串 (忽略前导或后缀空格)，则函数返回 then 字符串，否则函数返回 else 字符串。else 字符可被省略而不会造成错误，但函数在判断字符串为空时便会返回空字符串。</p>
+<h4 id="14-ifeq">1.4 ifeq</h4>
+<p><code>ifeq</code> 比较两个字符串，返回比较结果。语法为：</p>
+<pre tabindex="0"><code>{{#ifeq: &lt;字符串1&gt; | &lt;字符串2&gt; | &lt;相等时返回的字符串&gt; | &lt;不相等时返回的字符串&gt; }}
+</code></pre><p>注意：两个空字符串是相等的。</p>
+<p>示例：</p>
+<p>假设模板 Ifeq test 的内容是</p>
+<pre tabindex="0"><code>{{#ifeq:{{{lang}}}|zh|我使用中文|I don&#39;t use Chinese}}
+</code></pre><p>则 {{Ifeq test|lang=zh}} 的结果是<strong>我使用中文</strong>；而 {{Ifeq test|lang=en|I prefer English}} 的结果是 <strong>I don&rsquo;t use Chinese</strong>。</p>
+<h4 id="15-ifexist">1.5 ifexist</h4>
+<p><code>ifexist</code> 会判断指定的页面是否存在，然后返回对应的文字：</p>
+<pre tabindex="0"><code>{{#ifexist: &lt;待测页面标题&gt; | &lt;存在文字&gt; | &lt;不存在文字&gt; }}
+</code></pre><p>示例：</p>
+<ul>
+<li>{{#ifexist:test|有 test 頁面|無 test 頁面}} 得到<strong>有 test 頁面</strong></li>
+<li>{{#ifexist:User:Sex|該用戶頁存在|該用戶頁不存在}} 得到該用戶頁不存在</li>
+<li>{{#ifexist：维基百科|<strong>√</strong>|<strong>×</strong>}} 得到 <strong>×</strong></li>
+</ul>
+<h4 id="16-ifexpr">1.6 ifexpr</h4>
+<p><code>ifexpr</code> 计算数学表达式，并根据计算结果返回字符串。</p>
+<pre tabindex="0"><code>{{ #ifexpr: &lt;表达式&gt; | &lt;表达式不为0的结果&gt; | &lt;表达式为0的结果&gt; }}
+</code></pre><p>表达式语法与 <code>expr</code> 相同。</p>
+<h4 id="17-iferror">1.7 iferror</h4>
+<pre tabindex="0"><code>{{#iferror: 测试表达式 | 出错时显示结果 | 正确运算时显示结果 }}
+</code></pre><h4 id="18-switch">1.8 switch</h4>
+<p><code>switch</code> 将一个值与多个预设值比较，若有匹配时则返回指定字符串，即<a href="https://www.huijiwiki.com/index.php?title=%E5%8F%8C%E5%B0%84&amp;action=edit&amp;redlink=1">双射</a>。语法是：</p>
+<pre tabindex="0"><code class="language-wiki" data-lang="wiki">{{ #switch: &lt;比较值&gt;
+| &lt;预设值1&gt; [= &lt;结果1&gt;]
+| &lt;预设值2&gt; [= &lt;结果2&gt;]
+| ...
+| &lt;预设值n&gt; [= &lt;结果n&gt;]
+| [#default = ]&lt;缺省结果&gt; 
+}}
+</code></pre><p><code>switch</code> 将从左往右逐一尝试，直到出现匹配。函数将返回第一个匹配值对应的结果，而忽略后面的匹配值。如果没有匹配，函数将返回缺省结果。如果缺省结果没有设置，函数将返回空串。</p>
+<p>注意：“缺省结果” 是<strong>最后一个没有等号</strong>的预设值或 “#default” 预设值对应的结果；如果期望把一个包含 “=” 号的字符串作为缺省结果，则必须采用 “#default” 预设值形式。例如：</p>
+<pre tabindex="0"><code>#default = &lt;span style=&#34;color:red;&#34;&gt;red&lt;/span&gt;
+</code></pre><p><code>switch</code> 也可用作<strong>满射</strong> (多对一，避免重复设置结果)。即某预设值后未设置结果，这样如果该预设值与比较值匹配，则函数返回<strong>第一个有结果的</strong>预设值的结果。例如：</p>
+<pre tabindex="0"><code>{{ #switch: &lt;比较值&gt;
+| &lt;预设值1&gt;
+| &lt;预设值2&gt;
+| &lt;预设值3&gt; = &lt;结果3&gt;
+| &lt;缺省结果&gt;
+}}
+</code></pre><p>如果比较值与预设值 1、预设值 2 或预设值 3 匹配，都将返回结果 3。注意：“#default” 后必须有 “=”，但其他预设值可以使用 “#default” 的结果。</p>
+<h4 id="19-time">1.9 time</h4>
+<p><code>time</code> 是一个时间日期格式化函数，它的语法为：</p>
+<pre tabindex="0"><code>{{ #time: 格式参数 }}
+</code></pre><p>或者</p>
+<pre tabindex="0"><code>{{ #time: 格式参数 | 时间参数 }}
+</code></pre><p><strong>格式参数</strong>使用示例 <strong>(参考为主，了解即可)</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">参数</th>
+          <th style="text-align: center">执行代码</th>
+          <th style="text-align: center">输出（示例）</th>
+          <th style="text-align: center">描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">A</td>
+          <td style="text-align: center">{{#time:A}}</td>
+          <td style="text-align: center">PM</td>
+          <td style="text-align: center">显示AM或PM</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">a</td>
+          <td style="text-align: center">{{#time:a}}</td>
+          <td style="text-align: center">pm</td>
+          <td style="text-align: center">显示am或pm</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">c</td>
+          <td style="text-align: center">{{#time:c}}</td>
+          <td style="text-align: center">2023-01-03T14:15:21+00:00</td>
+          <td style="text-align: center">显示长日期</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">D</td>
+          <td style="text-align: center">{{#time:D}}</td>
+          <td style="text-align: center">二</td>
+          <td style="text-align: center">星期数，以一个汉字显示</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">d</td>
+          <td style="text-align: center">{{#time:d}}</td>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">日期日数，有0补齐，</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">F或M</td>
+          <td style="text-align: center">{{#time:F或M}}</td>
+          <td style="text-align: center">1月</td>
+          <td style="text-align: center">月份</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">G或g</td>
+          <td style="text-align: center">{{#time:G或g}}</td>
+          <td style="text-align: center">14</td>
+          <td style="text-align: center">当前UTC时间小时数，1位或2位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">H或h</td>
+          <td style="text-align: center">{{#time:H或h}}</td>
+          <td style="text-align: center">14</td>
+          <td style="text-align: center">小时数，2位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">i</td>
+          <td style="text-align: center">{{#time:i}}</td>
+          <td style="text-align: center">15</td>
+          <td style="text-align: center">分钟数，2位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">j</td>
+          <td style="text-align: center">{{#time:j}}</td>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">日数，2位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">L</td>
+          <td style="text-align: center">{{#time:L}}</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">日期星期数，1位数字，星期日为1，星期六为7</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">l</td>
+          <td style="text-align: center">{{#time:l}}</td>
+          <td style="text-align: center">星期二</td>
+          <td style="text-align: center">日期星期数，3位汉字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">m</td>
+          <td style="text-align: center">{{#time:m}}</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">月份数，2位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">N</td>
+          <td style="text-align: center">{{#time:N}}</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">星期数，星期一为1，星期日为7</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">{{#time:n}}</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">月份数，1位或2位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">r</td>
+          <td style="text-align: center">{{#time:r}}</td>
+          <td style="text-align: center">Tue, 03 Jan 2023 14:15:21 +0000</td>
+          <td style="text-align: center">英文长日期格式</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">s</td>
+          <td style="text-align: center">{{#time:s}}</td>
+          <td style="text-align: center">21</td>
+          <td style="text-align: center">秒数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">t</td>
+          <td style="text-align: center">{{#time:t}}</td>
+          <td style="text-align: center">31</td>
+          <td style="text-align: center">该月天数</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">U</td>
+          <td style="text-align: center">{{#time:U}}</td>
+          <td style="text-align: center">1672755321</td>
+          <td style="text-align: center">unix时间序号</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">W</td>
+          <td style="text-align: center">{{#time:W}}</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">日期周数，显示日期为当年第几周</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">w</td>
+          <td style="text-align: center">{{#time:w}}</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">星期数，星期日为0，星期六为6</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Y</td>
+          <td style="text-align: center">{{#time:Y}}</td>
+          <td style="text-align: center">2023</td>
+          <td style="text-align: center">日期年份，4位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">y</td>
+          <td style="text-align: center">{{#time:y}}</td>
+          <td style="text-align: center">23</td>
+          <td style="text-align: center">日期年份，2位数字</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">z</td>
+          <td style="text-align: center">{{#time:z}}</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">显示日期为当年第几日</td>
+      </tr>
+  </tbody>
+</table>
+<p>注意：</p>
+<ul>
+<li>系统默认的时间参数为当前 UTC+0时间 (格林威治时间)，可以使用 <code>{{#time:参数|+8 hours}}</code> 得到当前北京时间 (UTC+8时间)。</li>
+<li>可以使用<strong>多个格式参数</strong>，来拼接获得不同的日期格式，如 <code>{{#time: Y M j}}</code> 得到 <code>2023 1月 4</code></li>
+<li>可以在格式参数中<strong>自由输入字符</strong>，来对得到的日期时间结果进行控制，如 <code>{{#time: Y年Mj日}}</code> 得到 <code>2023年1月4日</code>，这里 “年” 这个字符被放在了 “2023” 和 “1月” 之间，“日” 这个字符，被放在了 “4” 之后</li>
+<li>可以使用<strong>格式参数与时间参数进行配合</strong>，得到复杂的时间输出效果：<code>{{#time:Y-m-d H:i:s|+1 year +2 months +3 days +4 hours +5 minutes +6 seconds}}</code> 返回 <strong>2024-03-07 11:21:03</strong></li>
+</ul>
+<h4 id="110-replace">1.10 replace</h4>
+<p><code>replace</code> 函数用来替换内容中特定的元素。格式为：</p>
+<pre tabindex="0"><code>{{#replace:&#34;内容&#34;|需要替换的元素|用来替换的元素}}
+</code></pre><p>例：</p>
+<pre tabindex="0"><code>{{#replace:个人wiki|wiki|维基}}
+</code></pre><p>可以得到：<code>个人维基</code></p>
+<h4 id="111-tag-了解即可">1.11 tag (了解即可)</h4>
+<p><code>tag</code> 函数即标签函数，用来替代解析器函数实现标签 (&lt;&gt;) 功能，在某些因解析时机造成的标签无法生效的情况下，需要用 tag 函数来改写解析器标签。格式为：</p>
+<pre tabindex="0"><code>{{#tag:&#34;标签名&#34;| 内容 | 参数= | ... }}
+</code></pre><p>例：</p>
+<pre tabindex="0"><code>{{#tag:rec| 内容 | ... }}
+</code></pre><p>可以得到：<code>&lt;rec&gt;内容&lt;/rec&gt;</code></p>
+<p>这一方法主要用以**解决时机不同造成的模板内部无法使用 “&lt;&gt;” 标签的问题。**这类问题在后续创建 MediaWiki 的复杂模板的时候会遇到。</p>
+<h3 id="2var-系列函数">2、Var 系列函数</h3>
+<p><strong>Variables</strong> 插件允许你在一个页面上定义一个变量，以后在同一页面或包含的模板中使用它，改变它的值，可能是以旧值为条件的表达式给出的值，等等。</p>
+<p>它很像一个模板 (MediaWiki 中的一种 “元页面”，可以定义编辑并应用在大量页面中)，只是非常轻量级，而且只限于一个页面，所以你可以在一个页面上使用许多变量，而不会因为大量的模板而拖慢维基的速度。将这个扩展与 ParserFunctions 插件结合起来，可以获得最佳效果。</p>
+<h4 id="21-vardefine">2.1 vardefine</h4>
+<p>声明变量 (定义)</p>
+<ul>
+<li><code>{{#vardefine:*变量名称*|*变量值*}}</code></li>
+<li>例如：<code>{{#vardefine:iconwidth|25}}</code> 使得变量 iconwidth = 25</li>
+</ul>
+<h4 id="22-vardefineecho">2.2 vardefineecho</h4>
+<ul>
+<li><code>{{#vardefineecho:*变量名称*|*变量值*}}</code></li>
+</ul>
+<p>作用与 <code>#vardefine</code> 相同，区别是会在定义后将这一数值打印出来。</p>
+<ul>
+<li>例子：{{#vardefineecho:iconwidth|25}} 除了会使得变量 iconwidth 的值为 25 外，还会留下 “25” 在页面上</li>
+</ul>
+<h4 id="23-var">2.3 var</h4>
+<p>调用变量的数值：</p>
+<ul>
+<li>
+<pre tabindex="0"><code>{{#var:变量名称}}
+</code></pre><ul>
+<li>如果变量没有定义，则返回一个<strong>空值</strong>而不会提示任何错误信息</li>
+<li>可以给数值为空或者没有定义的变量赋值，写法如下：
+<ul>
+<li><code>{{#var:变量名称|默认值}}</code></li>
+<li>等同于 <code>{{#if: {{#var:变量名称}} |{{#var:变量名称}} |默认值}}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>#var 的数值可以应用于 parser 和函数中</p>
+<h4 id="24-varexists">2.4 varexists</h4>
+<ul>
+<li><code>{{#varexists: 变量名称}}</code></li>
+</ul>
+<p>类似 <em>ifexist</em> 函数，如果变量存在则返回 <strong>1</strong> (定义为空值时也会视为已存在)，如果变量尚未被定义，则返回<strong>空值</strong>。</p>
+<h4 id="25-var_final">2.5 var_final</h4>
+<p>在 Variables 2.0 版本中新加入的函数功能，这个函数类似#var，只不过返回的是变量在本页面的最终值 (因为一个变量可能会被多次赋值)。</p>
+<ul>
+<li>
+<p>注意，#var_final 的工作机制决定了这个函数的数值只能在整个页面的 markup 被执行完毕后才能返回，因此他的数值无法在 parser 和函数中被调用。</p>
+</li>
+<li>
+<p><code>{{#var_final: 变量名称 |默认值}}</code></p>
+</li>
+</ul>
+<p><em>默认值</em>可以作为页面变量的 “兜底”，即确保了即使没有任何赋值的情况下也能使得该变量有一个默认值。</p>
+<h3 id="3maps-系列函数">3、Maps 系列函数</h3>
+<p>自选分享主题，参见 Maps 文档：https://maps.extension.wiki/wiki/Leaflet_Maps_examples</p>
+<h3 id="4pageforms-系列函数">4、PageForms 系列函数</h3>
+<p>在下一章节进行介绍</p>
+<h3 id="5smw-系列函数">5、SMW 系列函数</h3>
+<p>在下一章节进行介绍</p>
+<h3 id="6其他">6、其他</h3>
+<p>除了上文介绍的一系列函数之外，MediaWiki 的扩展插件功能提供了非常多非常丰富的解析器函数。我们可以在 <code>特殊页面:版本</code> 最下部，看到当前平台所支持的解析器函数：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/e58876242a684addcbb3738a6881bf50.png" alt="image-20241103151727523"></p>
+<p>一般在扩展插件的 MediaWiki 官方主页，都有关于该插件扩展的解析器函数的具体用法，<strong>大家需要在日后自行学习和使用。</strong></p>
+<h2 id="三作业安排">三、作业安排</h2>
+<p>本周主要介绍了操作 MediaWiki 中的最重要的内容——页面，在我们后续的课程中，会将 MediaWiki 平台上的每一个<strong>页面</strong>都视作一个<strong>实体</strong>，作为我们知识图谱构建的基石。因此掌握如何<strong>操作</strong>页面，如何<strong>编辑</strong>页面，如何<strong>控制</strong>页面是非常重要的。本周的主要任务是阅读教程并进行实践，掌握 MediaWiki 中页面的基本概念、基本编辑和控制方法。需要注意的是，这里仅仅给出了一些基础的，对于单一页面进行操作的内容，在后续的章节，我们会进一步介绍如何批量编辑、控制、修改页面，如何用更现代化的方式 (HTML+CSS+JS) 来控制页面内容、样式与展示逻辑。</p>
+<p>作业：</p>
+<ul>
+<li>
+<p>任务 1：浏览、学习基本的 HTML 语法，并用<strong>纯 HTML 语言</strong>创建一个天津大学的百科介绍页面 (<strong>两周任务</strong>)
+<a href="https://www.runoob.com/html/html-tutorial.html">https://www.runoob.com/html/html-tutorial.html</a></p>
+</li>
+<li>
+<p>任务 2：在 MediaWiki 平台，创建页面，页面名称为<strong>北洋大学</strong>，要求页面内容与任务 1 中百科介绍页面的内容相同。在编辑页面时，样式方面<strong>尽量还原</strong>你在任务 1 中实现的 HTML 效果 (不要求 1:1 复刻)。页面要求：</p>
+<ul>
+<li>
+<p>必须要用到的编辑方法：加粗、下划线、内部链接、外部链接、插入图片 (控制图片宽度为 300px，无边框)</p>
+</li>
+<li>
+<p>必须创建并插入 (至少) 一个表格，如天大两院院士列表：</p>
+<p><img src="https://images.jayliu.tech/blog/2024/11/6bad83491cc760aa78a894db85deb381.png" alt="image-20241103151802748"></p>
+</li>
+<li>
+<p>必须在该页面使用 2 个状态开关魔术字，4 个变量魔术字，2 个解析器函数魔术字，要求必须使用一个<strong>显示当前平台页面总数的魔术字</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>任务 3：安装<a href="https://www.mediawiki.org/wiki/Extension:Disambiguator">消歧义插件</a></p>
+</li>
+<li>
+<p>任务 4：</p>
+<ul>
+<li>将”北洋大学 “页面<strong>移动</strong>至” 天津大学 “页面</li>
+<li>将原有 “北洋大学” 页面<strong>重定向</strong>至”天津大学 “页面</li>
+<li><strong>创建</strong> 2 个页面”北洋大学 (日本) “、” 北洋大学 (消歧义) “</li>
+<li>将”北洋大学 (消歧义) “页面作为**” 消歧义页 “<strong>，编辑</strong>该页面**，将 “北洋大学” 这一<strong>名称</strong>，指向 “天津大学” 和 “北洋大学 (日本)” 两个<strong>页面</strong>。同时在该页面使用消歧义插件。</li>
+<li>消歧义页面示例：https://asoiaf.huijiwiki.com/wiki/%E4%B8%B9%E5%A6%AE%E8%8E%89%E4%B8%9D%C2%B7%E5%9D%A6%E6%A0%BC%E5%88%A9%E5%AE%89 (%E6%B6%88%E6%AD%A7%E4%B9%89)</li>
+</ul>
+<p><img src="https://i.328888.xyz/2023/01/04/WUzdy.png" alt="WUzdy.png"></p>
+</li>
+<li>
+<p>任务 4：创建一个新页面，在该页面中实操 MediaWiki 的解析器函数。要求：</p>
+<ul>
+<li>使用 5 个基础函数</li>
+<li>使用 3 个 Var 系列函数</li>
+<li>将基础函数与 Var 系列函数结合使用</li>
+</ul>
+</li>
+</ul>
+<p>进阶：</p>
+<ul>
+<li>参考维基百科，填充 “北洋大学 (日本)” 页面的内容</li>
+<li>安装 “消歧义” 插件并在消歧义页进行使用</li>
+<li>安装并使用 Maps 插件的解析器函数</li>
+</ul>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">Last modified on 2023-11-02</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/smw%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/">
+			Next<br>SMW教程第一章：MediaWiki平台的Windows安装搭建
+                </a>
+                
+                
+                
+                <a class="older-posts">
+			Previous<br>No older posts.
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+<div id="waline"></div>
+<script>
+    Waline.init({
+        el: '#waline',
+        
+        dark: "body.night",
+        serverURL: "https://comment.jayliu.tech/" ,
+    });
+    
+    </script>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://jayliu.tech/">
+    
+        <div class="nav-title">
+            Jay Liu的随笔录
+        </div>
+        
+        <div class="nav-subtitle">
+            日拱一卒，功不唐捐
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts/">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags/">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories/">
+                分类
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2024 Jay Liu的随笔录
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- CATALOG -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#smw%e6%95%99%e7%a8%8b%e7%ac%ac%e4%ba%8c%e7%ab%a0mediawiki%e7%9a%84%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8%e4%b8%8e%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0" class="nav-smw教程第二章mediawiki的基本使用与解析器函数">
+									SMW教程第二章：MediaWiki的基本使用与解析器函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e4%b8%80mediawiki-%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8" class="nav-一mediawiki-基本使用">
+									一、MediaWiki 基本使用
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1mediawiki-%e5%9f%ba%e6%9c%ac%e7%bc%96%e8%be%91" class="nav-1mediawiki-基本编辑">
+									1、MediaWiki 基本编辑
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#11-%e6%ba%90%e4%bb%a3%e7%a0%81%e7%bc%96%e8%be%91%e5%99%a8" class="nav-11-源代码编辑器">
+									1.1 源代码编辑器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#12-%e8%a1%a8%e5%8d%95%e7%bc%96%e8%be%91%e5%99%a8" class="nav-12-表单编辑器">
+									1.2 表单编辑器
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#13-wiki-%e6%a0%87%e8%ae%b0%e8%af%ad%e8%a8%80" class="nav-13-wiki-标记语言">
+									1.3 wiki 标记语言
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#14-wiki-%e8%a1%a8%e6%a0%bc" class="nav-14-wiki-表格">
+									1.4 wiki 表格
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#15-wiki-%e5%9b%be%e7%89%87" class="nav-15-wiki-图片">
+									1.5 wiki 图片
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#2mediawiki-%e9%a1%b5%e9%9d%a2%e6%93%8d%e4%bd%9c" class="nav-2mediawiki-页面操作">
+									2、MediaWiki 页面操作
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-%e5%88%9b%e5%bb%ba" class="nav-21-创建">
+									2.1 创建
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-%e7%a7%bb%e5%8a%a8" class="nav-22-移动">
+									2.2 移动
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-%e9%87%8d%e5%ae%9a%e5%90%91" class="nav-23-重定向">
+									2.3 重定向
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#24-%e6%b6%88%e6%ad%a7%e4%b9%89" class="nav-24-消歧义">
+									2.4 消歧义
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#25-%e5%8e%86%e5%8f%b2%e4%b8%8e%e5%9b%9e%e9%80%80" class="nav-25-历史与回退">
+									2.5 历史与回退
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#26-%e5%88%a0%e9%99%a4" class="nav-26-删除">
+									2.6 删除
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3mediawiki-%e9%ad%94%e6%9c%af%e5%ad%97" class="nav-3mediawiki-魔术字">
+									3、MediaWiki 魔术字
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#31-%e7%8a%b6%e6%80%81%e5%bc%80%e5%85%b3%e9%ad%94%e6%9c%af%e5%ad%97" class="nav-31-状态开关魔术字">
+									3.1 状态开关魔术字
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#32-%e5%8f%98%e9%87%8f%e9%ad%94%e6%9c%af%e5%ad%97-%e5%8f%82%e8%80%83%e5%8d%b3%e5%8f%af%e4%bb%85%e4%be%9b%e4%ba%86%e8%a7%a3" class="nav-32-变量魔术字-参考即可仅供了解">
+									3.2 变量魔术字 (参考即可，仅供了解)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#33-%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0%e9%ad%94%e6%9c%af%e5%ad%97-%e5%8f%82%e8%80%83%e5%8d%b3%e5%8f%af%e4%bb%85%e4%be%9b%e4%ba%86%e8%a7%a3" class="nav-33-解析器函数魔术字-参考即可仅供了解">
+									3.3 解析器函数魔术字 (参考即可，仅供了解)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#34-%e7%89%b9%e6%ae%8a%e7%ac%a6%e5%8f%b7" class="nav-34-特殊符号">
+									3.4 特殊符号
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%8cmediawiki-%e8%a7%a3%e6%9e%90%e5%99%a8%e5%87%bd%e6%95%b0" class="nav-二mediawiki-解析器函数">
+									二、MediaWiki 解析器函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e5%9f%ba%e7%a1%80%e5%87%bd%e6%95%b0" class="nav-1基础函数">
+									1、基础函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#11-expr" class="nav-11-expr">
+									1.1 expr
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#12-%e5%8f%96%e8%88%8d%e6%95%b0%e4%bd%8d" class="nav-12-取舍数位">
+									1.2 取舍数位
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#13-if" class="nav-13-if">
+									1.3 if
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#14-ifeq" class="nav-14-ifeq">
+									1.4 ifeq
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#15-ifexist" class="nav-15-ifexist">
+									1.5 ifexist
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#16-ifexpr" class="nav-16-ifexpr">
+									1.6 ifexpr
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#17-iferror" class="nav-17-iferror">
+									1.7 iferror
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#18-switch" class="nav-18-switch">
+									1.8 switch
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#19-time" class="nav-19-time">
+									1.9 time
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#110-replace" class="nav-110-replace">
+									1.10 replace
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#111-tag-%e4%ba%86%e8%a7%a3%e5%8d%b3%e5%8f%af" class="nav-111-tag-了解即可">
+									1.11 tag (了解即可)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#2var-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-2var-系列函数">
+									2、Var 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#21-vardefine" class="nav-21-vardefine">
+									2.1 vardefine
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#22-vardefineecho" class="nav-22-vardefineecho">
+									2.2 vardefineecho
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#23-var" class="nav-23-var">
+									2.3 var
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#24-varexists" class="nav-24-varexists">
+									2.4 varexists
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#25-var_final" class="nav-25-var_final">
+									2.5 var_final
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3maps-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-3maps-系列函数">
+									3、Maps 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4pageforms-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-4pageforms-系列函数">
+									4、PageForms 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5smw-%e7%b3%bb%e5%88%97%e5%87%bd%e6%95%b0" class="nav-5smw-系列函数">
+									5、SMW 系列函数
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6%e5%85%b6%e4%bb%96" class="nav-6其他">
+									6、其他
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e4%bd%9c%e4%b8%9a%e5%ae%89%e6%8e%92" class="nav-三作业安排">
+									三、作业安排
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+
+<div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+Ported from <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	2024 Jay Liu的随笔录
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
