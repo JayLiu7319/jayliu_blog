@@ -430,11 +430,11 @@ def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_w
     
         <item>
         <title>SMW 教程第一章：MediaWiki平台的Windows安装搭建</title>
-        <link>https://jayliu.tech/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
+        <link>https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
         <pubDate>Thu, 02 Nov 2023 14:17:02 +0800</pubDate>
         
-        <guid>https://jayliu.tech/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
-        <description>Jay Liu的随笔录 https://jayliu.tech/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
+        <guid>https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
+        <description>Jay Liu的随笔录 https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
 &lt;h2 id=&#34;一培训说明&#34;&gt;一、培训说明&lt;/h2&gt;
 &lt;p&gt;各位同学大家好，在开始我们的教程培训之前，需要向大家介绍关于本次培训的一些信息，以供大家参考&lt;/p&gt;
 &lt;ol&gt;
@@ -579,7 +579,7 @@ def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_w
 &lt;li&gt;在云服务中安装 10 个以上其他插件&lt;/li&gt;
 &lt;li&gt;给 Mediawiki 平台更换皮肤&lt;/li&gt;
 &lt;/ol&gt;
-- https://jayliu.tech/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
+- https://jayliu.tech/posts/smw-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
         </item>
     
     
