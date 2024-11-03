@@ -5,6 +5,8 @@ theme = 'diary'
 
 [params]
 favicon = "images/favicon-egg.png"
+  [params.contact]
+    email = 'jayliu@tju.edu.cn'
 
 
 [[menu.main]]
