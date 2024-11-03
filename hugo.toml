@@ -10,16 +10,16 @@ favicon = "images/favicon-egg.png"
 
 
 [[menu.main]]
-url = "/categories"
+url = "/categories/"
 name = "分类"
 weight = 3
 
 [[menu.main]]
-url = "/tags"
+url = "/tags/"
 name = "标签"
 weight = 2
 
 [[menu.main]]
-url = "/posts"
+url = "/posts/"
 name = "归档"
 weight = 1
