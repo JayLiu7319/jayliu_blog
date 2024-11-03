@@ -1,5 +1,5 @@
 +++
-date = '2023-11-02T14:17:02+08:00'
+date = '2023-11-04T14:17:02+08:00'
 draft = false
 title = 'SMW教程第三章：语义化Wiki的数据模型——属性、分类、模板、表单'
 featured_image = 'https://opengraph.githubassets.com/04dfd6c68d3e4474ec57360ec23f051e8ff9f3d4f1c94786364e7ef9645b374c/SemanticMediaWiki/SemanticResultFormats'
