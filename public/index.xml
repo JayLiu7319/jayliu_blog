@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jay Liu的随笔录</title>
-    <link>http://localhost:5724/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Jay Liu的随笔录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 02 Nov 2024 14:17:02 +0800</lastBuildDate>
     
-        <atom:link href="http://localhost:5724/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>塞壬的歌声：为什么我们应当摆脱高技术产品？</title>
-        <link>http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</link>
+        <link>http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</link>
         <pubDate>Sat, 02 Nov 2024 14:17:02 +0800</pubDate>
         
-        <guid>http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</guid>
-        <description>Jay Liu的随笔录 http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ -&lt;blockquote&gt;
+        <guid>http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</guid>
+        <description>Jay Liu的随笔录 http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ -&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;技术极简主义——如果让我用一句话来进行概括，于我而言就是：让技术成为工具为我们所支配，而不是让技术支配我们自己。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://t1.picb.cc/uploads/2019/12/03/ki7BkG.jpg&#34; alt=&#34;1b93c1bfd3dcdb529d384ec934b3ddcc&#34;&gt;&lt;/p&gt;
@@ -60,18 +60,18 @@
 &lt;p&gt;为什么我们要摆脱高技术产品？这个标题或许说的有些偏颇，我们要摆脱的是那些支配诱导我们的高技术产品才对。但我希望这篇文章是一个警醒，一个启发，甚至是一个战斗的檄文。我希望我们能够对技术的本质有更深的认识，对于从业者而言，我们更应当去关注推动那些好的技术——让我们更加关注真实的世界，对我们产生润物细无声的推动和影响；我希望我们能自发自觉地与存在诱导倾向的技术进行对抗，为我们精神的自由抗争。&lt;/p&gt;
 &lt;p&gt;在技术向前飞奔的时候，在高技术产品给我们的选择越来越多的时候，我们或许更应当保持对技术的极简主义，用自我的尺度来衡量对技术产品的需要。技术或许的确无罪，但我们身上都有原罪；用技术营造的“新世界”并非不好，但我们的双脚，依然要在真实的世界立足。
 在技术向前飞奔的时候，在高技术产品给我们的选择越来越多的时候，我们或许更应当保持对技术的极简主义，用自我的尺度来衡量对技术产品的需要。技术或许的确无罪，但我们身上都有原罪；用技术营造的“新世界”并非不好，但我们的双脚，依然要在真实的世界立足。&lt;/p&gt;
-- http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ - </description>
+- http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ - </description>
         </item>
     
     
     
         <item>
         <title>法律大模型代码生成</title>
-        <link>http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</link>
+        <link>http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</link>
         <pubDate>Thu, 02 May 2024 15:37:23 +0800</pubDate>
         
-        <guid>http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</guid>
-        <description>Jay Liu的随笔录 http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ -&lt;h2 id=&#34;一伪代码生成&#34;&gt;一、伪代码生成&lt;/h2&gt;
+        <guid>http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</guid>
+        <description>Jay Liu的随笔录 http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ -&lt;h2 id=&#34;一伪代码生成&#34;&gt;一、伪代码生成&lt;/h2&gt;
 &lt;p&gt;提示词：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;你是一个法律专家，同时也是一个高级程序员。请根据给出的法律条文规则，将其翻译成一段合理的伪代码。
 
@@ -423,18 +423,18 @@ def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_w
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-- http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ - </description>
+- http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ - </description>
         </item>
     
     
     
         <item>
         <title>SMW 教程第一章：MediaWiki平台的Windows安装搭建</title>
-        <link>http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
+        <link>http://localhost:1313/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
         <pubDate>Thu, 02 Nov 2023 14:17:02 +0800</pubDate>
         
-        <guid>http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
-        <description>Jay Liu的随笔录 http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
+        <guid>http://localhost:1313/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
+        <description>Jay Liu的随笔录 http://localhost:1313/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
 &lt;h2 id=&#34;一培训说明&#34;&gt;一、培训说明&lt;/h2&gt;
 &lt;p&gt;各位同学大家好，在开始我们的教程培训之前，需要向大家介绍关于本次培训的一些信息，以供大家参考&lt;/p&gt;
 &lt;ol&gt;
@@ -579,7 +579,7 @@ def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_w
 &lt;li&gt;在云服务中安装 10 个以上其他插件&lt;/li&gt;
 &lt;li&gt;给 Mediawiki 平台更换皮肤&lt;/li&gt;
 &lt;/ol&gt;
-- http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
+- http://localhost:1313/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
         </item>
     
     

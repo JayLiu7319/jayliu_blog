@@ -1,4 +1,4 @@
-baseURL = 'https://jayliu.tech/'
+baseURL = 'https://jayliu.tech'
 languageCode = 'zh-cn'
 title = 'Jay Liu的随笔录'
 theme = 'diary'
