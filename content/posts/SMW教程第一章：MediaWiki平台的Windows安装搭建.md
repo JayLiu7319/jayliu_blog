@@ -1,5 +1,5 @@
 +++
-date = '2024-11-03T13:08:18+08:00'
+date = '2023-11-02T14:17:02+08:00'
 draft = false
 title = 'SMW教程第一章：MediaWiki平台的Windows安装搭建'
 featured_image = 'https://opengraph.githubassets.com/04dfd6c68d3e4474ec57360ec23f051e8ff9f3d4f1c94786364e7ef9645b374c/SemanticMediaWiki/SemanticResultFormats'
