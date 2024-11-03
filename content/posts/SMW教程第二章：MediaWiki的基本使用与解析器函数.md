@@ -116,9 +116,9 @@ localhost/mediawiki/index.php/天津大学
 
 MediaWiki 页面的标题并没有 “改名” 的功能，类似的操作，被称为**移动**。当您发现您所创建的页面名称有误 (例如输入错字，或没有遵守[帮助：命名常规](https://www.huijiwiki.com/wiki/帮助:命名常规)等)，那么您就可以重新命名 (移动) 该页面。
 
-![WULut.png](https://i.328888.xyz/2023/01/04/WULut.png)
+![image-20241103211635473](https://images.jayliu.tech/blog/2024/11/6c09560f927b9b1c7e0fb945e51eb6d9.png)
 
-![WUKdX.png](https://i.328888.xyz/2023/01/04/WUKdX.png)
+![image-20241103211704083](https://images.jayliu.tech/blog/2024/11/de24b7bc55eee2af7148885cb163b00e.png)
 
 “移动” 功能最大的优点是能够**同时移动相关页面的修订历史**。如果只是将旧页面手动复制到新页面，那么该条目的修订历史将被分散在两个地方，往往会对之后的编辑带来不便。
 
