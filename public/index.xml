@@ -2,29 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jay Liu的随笔录</title>
-    <link>http://localhost:1313/</link>
+    <link>http://localhost:5724/</link>
     <description>Recent content on Jay Liu的随笔录</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 02 Nov 2024 14:17:02 +0800</lastBuildDate>
     
-        <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://localhost:5724/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>塞壬的歌声：为什么我们应当摆脱高技术产品？</title>
-        <link>http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</link>
+        <link>http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</link>
         <pubDate>Sat, 02 Nov 2024 14:17:02 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</guid>
-        <description>Jay Liu的随笔录 http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ -&lt;blockquote&gt;
+        <guid>http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/</guid>
+        <description>Jay Liu的随笔录 http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ -&lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;技术极简主义——如果让我用一句话来进行概括，于我而言就是：让技术成为工具为我们所支配，而不是让技术支配我们自己。&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&#34;https://t1.picb.cc/uploads/2019/12/03/ki7BkG.jpg&#34; alt=&#34;1b93c1bfd3dcdb529d384ec934b3ddcc&#34;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;技术极简主义——如果让我用一句话来进行概括，于我而言就是：让技术成为工具为我们所支配，而不是让技术支配我们自己。&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;p&gt;我从小就非常非常喜欢读书。与其说喜欢读书，不如说是喜欢“阅读”这个行为。相信很多人小时候都曾和我一样，哪怕是药品说明书上不明就里的禁忌反应和药品说明，都能够激起我极大的阅读兴趣。小时候的我最喜欢的两个地方，一个是一角书屋，一角钱就能租一本书看一天；另一个就是新华书店。阅读于我而言是另一个世界，一个与“真实世界”相区别的“新世界”，在这个“新世界”里我的好奇心的得到了极大的餍足，我感到了一种“自由”。&lt;/p&gt;
 &lt;p&gt;作为千禧一代，我们这一代是幸运的——我们在互联网大潮中出生，我在很早就接受了“电子阅读”的设定。小学的时候我有了自己的第一个MP5——这个名字对于现在的人来说可能已经很陌生了，但它是我电子阅读的起点。MP5+网络小说提供了极大的可阅读量，让当时我新奇又痴迷。我几乎每晚都在上床关灯之后，偷偷打开自己的MP5，打开其中的一本超长篇网文开始“扫书”。电子阅读营造的“新世界”是纸质阅读的衍伸甚至超越。&lt;/p&gt;
 &lt;p&gt;但是我们这一代又是不幸的——我们随着高技术的发展出生成长，因而几乎很难意识到高技术对我们的真正影响。我在很久以后才意识到，那个在被窝里偷偷看小说的我，在自己人生珍贵的少年时期，阅读了海量的无意义内容。这些超长篇的小说，既没有水准，又没有营养——千字一章节的日更，一目十行地浏览，网文是真正的碎片化阅读的起点。互联网技术的发展、电子屏幕的技术进步，为我们带来了电子阅读，却也杀死了我无可计数的时间。技术进步给我们带来的除了便利，还有更多隐蔽性极强，我们根本不会意识到的危害和隐患。&lt;/p&gt;
@@ -63,18 +60,18 @@
 &lt;p&gt;为什么我们要摆脱高技术产品？这个标题或许说的有些偏颇，我们要摆脱的是那些支配诱导我们的高技术产品才对。但我希望这篇文章是一个警醒，一个启发，甚至是一个战斗的檄文。我希望我们能够对技术的本质有更深的认识，对于从业者而言，我们更应当去关注推动那些好的技术——让我们更加关注真实的世界，对我们产生润物细无声的推动和影响；我希望我们能自发自觉地与存在诱导倾向的技术进行对抗，为我们精神的自由抗争。&lt;/p&gt;
 &lt;p&gt;在技术向前飞奔的时候，在高技术产品给我们的选择越来越多的时候，我们或许更应当保持对技术的极简主义，用自我的尺度来衡量对技术产品的需要。技术或许的确无罪，但我们身上都有原罪；用技术营造的“新世界”并非不好，但我们的双脚，依然要在真实的世界立足。
 在技术向前飞奔的时候，在高技术产品给我们的选择越来越多的时候，我们或许更应当保持对技术的极简主义，用自我的尺度来衡量对技术产品的需要。技术或许的确无罪，但我们身上都有原罪；用技术营造的“新世界”并非不好，但我们的双脚，依然要在真实的世界立足。&lt;/p&gt;
-- http://localhost:1313/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ - </description>
+- http://localhost:5724/posts/%E5%A1%9E%E5%A3%AC%E7%9A%84%E6%AD%8C%E5%A3%B0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E5%BA%94%E5%BD%93%E6%91%86%E8%84%B1%E9%AB%98%E6%8A%80%E6%9C%AF%E4%BA%A7%E5%93%81/ - </description>
         </item>
     
     
     
         <item>
         <title>法律大模型代码生成</title>
-        <link>http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</link>
+        <link>http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</link>
         <pubDate>Thu, 02 May 2024 15:37:23 +0800</pubDate>
         
-        <guid>http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</guid>
-        <description>Jay Liu的随笔录 http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ -&lt;h2 id=&#34;一伪代码生成&#34;&gt;一、伪代码生成&lt;/h2&gt;
+        <guid>http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</guid>
+        <description>Jay Liu的随笔录 http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ -&lt;h2 id=&#34;一伪代码生成&#34;&gt;一、伪代码生成&lt;/h2&gt;
 &lt;p&gt;提示词：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;你是一个法律专家，同时也是一个高级程序员。请根据给出的法律条文规则，将其翻译成一段合理的伪代码。
 
@@ -426,7 +423,163 @@ def review_withdrawal(decision_action: str, facts_and_reasons: str, consent_to_w
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-- http://localhost:1313/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ - </description>
+- http://localhost:5724/posts/%E6%B3%95%E5%BE%8B%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/ - </description>
+        </item>
+    
+    
+    
+        <item>
+        <title>SMW 教程第一章：MediaWiki平台的Windows安装搭建</title>
+        <link>http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</link>
+        <pubDate>Thu, 02 Nov 2023 14:17:02 +0800</pubDate>
+        
+        <guid>http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/</guid>
+        <description>Jay Liu的随笔录 http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ -&lt;h1 id=&#34;smw-教程第一章mediawiki平台的windows安装搭建&#34;&gt;SMW 教程第一章：MediaWiki平台的Windows安装搭建&lt;/h1&gt;
+&lt;h2 id=&#34;一培训说明&#34;&gt;一、培训说明&lt;/h2&gt;
+&lt;p&gt;各位同学大家好，在开始我们的教程培训之前，需要向大家介绍关于本次培训的一些信息，以供大家参考&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;培训目标&lt;/strong&gt;：引导各位同学掌握知识图谱的基本概念和构建思路；掌握 Mediawiki 平台的搭建、使用和开发；掌握 Semantic Mediawiki 的安装和应用；掌握从平台搭建、Schema 设计、数据获取、数据处理与语义化、数据导入导出、知识图谱可视化等全流程的技术；在教程基础上能够根据自身项目主题搭建知识图谱平台，并进行可视化分析、算法应用等；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;培训内容&lt;/strong&gt;：培训内容主要分为两个部分，一是&lt;strong&gt;教程主线&lt;/strong&gt;，二是&lt;strong&gt;相关技术&lt;/strong&gt;。其中，教程主线按照&lt;strong&gt;章节&lt;/strong&gt;划分，为我们培训的&lt;strong&gt;主要内容&lt;/strong&gt;与&lt;strong&gt;规定动作&lt;/strong&gt;，同学们每周需要完成一个章节的教程学习并进行实操，完成对应章节的作业；相关技术按照&lt;strong&gt;主题&lt;/strong&gt;划分，主要是在构建 MediaWiki 平台时涉及到的一系列相关知识，由同学们自由学习和互相分享，&lt;strong&gt;不作强制要求&lt;/strong&gt;，大二项目制小组可以选择其中一个主题 (或自拟主题并经由大二经理认可)，在每周培训会上进行分享，会有相应的加分；大四毕设同学也可以根据自身能力选择并分享。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;教程主线：
+&lt;ul&gt;
+&lt;li&gt;第一章：Mediawiki 平台的安装搭建、皮肤与插件使用&lt;/li&gt;
+&lt;li&gt;第二章：Mediawiki 与 Semantic Mediawiki 的使用和基本概念&lt;/li&gt;
+&lt;li&gt;第三章：Mediawiki 下知识图谱的概念、实现思路与 Schema 设计&lt;/li&gt;
+&lt;li&gt;第四章：Mediawiki 模板设计与数据导入【基础篇】(院士基础数据)&lt;/li&gt;
+&lt;li&gt;第五章：Mediawiki 模板设计与数据导入【高级篇】(院士详细数据)&lt;/li&gt;
+&lt;li&gt;第六章：Mediawiki 数据查询与组件功能开发&lt;/li&gt;
+&lt;li&gt;第七章：Mediawiki、Vue 与 Dgraph 知识图谱可视化 (进阶内容)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;相关技术
+&lt;ul&gt;
+&lt;li&gt;数据获取：爬虫技术 (Python、Selenium、八爪鱼/火车头)&lt;/li&gt;
+&lt;li&gt;数据整理：NLP 算法 (命名实体识别、实体消歧、实体统一、指代消解、关系抽取)、UML 设计、Mindmaster 导图&lt;/li&gt;
+&lt;li&gt;数据呈现：前端基础 (HTML/CSS/JS)、MediaWiki 模板自动生成 (Python)、MediaWiki 模块开发 (Lua)、MediaWiki 高级插件配置与使用 (Semantic Result Formats、Maps、Cargo……)、MediaWiki Extension 开发、MediaWiki Skin 开发……&lt;/li&gt;
+&lt;li&gt;算法洞察：图算法 (社团发现、异常检测、链接预测……)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;培训形式&lt;/strong&gt;：培训形式上，主要以&lt;strong&gt;教程引导&lt;/strong&gt; + &lt;strong&gt;实践作业&lt;/strong&gt; + &lt;strong&gt;学生自组织培训分享&lt;/strong&gt;为主。我们会提前一周发布本周的教程与作业，并在每周的培训会上对同学们的作业进行&lt;strong&gt;逐一展示、逐一检查&lt;/strong&gt;，保证同学落实到位。在每周的培训会上，首先由选择某一相关技术的小组或同学进行&lt;strong&gt;技术分享和实操演示&lt;/strong&gt;，然后由助教和经理对同学们的作业进行检查与打分。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;培训周期&lt;/strong&gt;：培训时长为 6~8 周，每周固定时间在腾讯会议开培训会。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;二mediawiki-平台安装-windows-系统&#34;&gt;二、MediaWiki 平台安装 (Windows 系统)&lt;/h2&gt;
+&lt;h3 id=&#34;1wampserver-安装&#34;&gt;1、Wampserver 安装&lt;/h3&gt;
+&lt;p&gt;Wampserver 是一个 Web 集成环境，该集成环境中打包安装了包括 php、apache、mysql 以及 mariadb 等软件 (ps：如果电脑&lt;strong&gt;原来已有 mysql 或者 php 服务运行&lt;/strong&gt;的话最好停止)。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一步&lt;/strong&gt;：Wampserver 版本使用教程包中提供的安装包安装，&lt;strong&gt;一路按照默认选项点下一步即可&lt;/strong&gt;，注意安装过程中选择 PHP 版本为 7.3 以上。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/f374f5e6e9b3c36e9a6a223d93fe784e.png&#34; alt=&#34;image-20241103111702824&#34;&gt;&lt;/p&gt;
+&lt;p&gt;首次运行可能会被 360 杀毒软件报警，忽略警告即可。该软件开始正常运行以后&lt;strong&gt;图标会变绿&lt;/strong&gt;，表明 Wamp 安装成功。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二步&lt;/strong&gt;：在浏览器输入 localhost 进入配置页面：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/eaa108434b82cdd4aa27c7c844e70aa0.png&#34; alt=&#34;image-20241103111739546&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三步&lt;/strong&gt;：在该页面的 &lt;strong&gt;Tools 栏下&lt;/strong&gt;，点击 &lt;strong&gt;phpmyadmin&lt;/strong&gt; 跳转到数据库管理页面，首次登录不用输密码 (登录用户名为 root 或 admin)，&lt;strong&gt;注意选择服务器一定为 MySQL&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/55ebc0f1d068b9f40e25e9ad2ba6013a.png&#34; alt=&#34;image-20241103111803261&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第四步&lt;/strong&gt;：进入管理页后点击 “&lt;strong&gt;SQL&lt;/strong&gt;” 栏，复制输入以下代码，点击执行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-SQL&#34; data-lang=&#34;SQL&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;DATABASE&lt;/span&gt; my_wiki;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CREATE&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;wikiuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; IDENTIFIED &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Smwuser1234&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;PRIVILEGES&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ON&lt;/span&gt; my_wiki.&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;wikiuser&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;GRANT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;OPTION&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/9530cb18cc7302b56bde87f08fb525d0.png&#34; alt=&#34;image-20241103111849561&#34;&gt;&lt;/p&gt;
+&lt;p&gt;安装配置完成。&lt;/p&gt;
+&lt;h3 id=&#34;2mediawiki-安装&#34;&gt;2、Mediawiki 安装&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;第一步&lt;/strong&gt;：选择 MediaWiki 安装包，可以在官方版本库：https://releases.wikimedia.org/mediawiki/中进行下载，也可以直接选用安装包中给定的 MediaWiki-1.35.4 版本；将&lt;code&gt;mediawiki-1.35.4.zip&lt;/code&gt;压缩包解压后，放在 wampserver 的 www 文件夹下。注意需要&lt;strong&gt;修改解压后的文件夹名为 mediawiki&lt;/strong&gt;。解压完成后，&lt;code&gt;wamp\www\mediawiki&lt;/code&gt;文件夹中的文件应当如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/ee2a28be4355b67ee0d6c009cbcd6677.png&#34; alt=&#34;image-20241103112324808&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二步&lt;/strong&gt;：在浏览器地址栏输入：&lt;code&gt;localhost/mediawiki&lt;/code&gt;，回车后开始进行安装 mediawiki 安装。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/0a05117660a936b083a11177174043f1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三步&lt;/strong&gt;：选择语言为 &lt;strong&gt;zh-中文&lt;/strong&gt;，&lt;strong&gt;注意不要选择 zh-cn - 中文 (中国大陆)&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/7c511cbf4230198037221e5783f039a8.png&#34; alt=&#34;image-20241103112429196&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第四步&lt;/strong&gt;：点击继续直到出现 “&lt;strong&gt;连接到数据库&lt;/strong&gt;”，输入数据库名称为 my_wiki，数据库用户名为 wikiuser，密码为 Smwuser1234&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/5b1898c94231bd308754719e004b0e90.png&#34; alt=&#34;image-20241103112502120&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第五步&lt;/strong&gt;：点击继续，填写并设置你的 wiki 名称、用户名、密码、邮件地址等。项目名字空间选择 “与 wiki 名称相同” 即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/a7ce0847644e0426dab4dc0da2edc50b.png&#34; alt=&#34;image-20241103112530266&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第六步&lt;/strong&gt;：选择 “多问我一些问题吧”，继续进行配置。其他设置无需修改，选择 “扩展程序” 下的&lt;strong&gt;全部扩展&lt;/strong&gt;并打勾。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/69803732aaccdc3ab1253e16a470cbbd.png&#34; alt=&#34;image-20241103112558076&#34;&gt;&lt;/p&gt;
+&lt;p&gt;同时选择启用文件上传。&lt;strong&gt;“已删除文件的目录” 会自动生成，无需手动设置&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/792e0604b6f95a9dfbe8f188ef2a5a55.png&#34; alt=&#34;image-20241103112616045&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第七步&lt;/strong&gt;：点击继续并完成安装。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/63404a3ebd68f2303a87dcdbffce9585.webp&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;提示你下载 &lt;strong&gt;LocalSettings.php 文件&lt;/strong&gt;，保存后将它复制至你的 Wiki 站点根目录下 (即 &lt;code&gt;wamp\www\mediawiki&lt;/code&gt; 文件夹下)。&lt;/p&gt;
+&lt;p&gt;重新输入你的网站地址 (localhost/mediawiki)，如果能看到跟下面差不多的画面，那么就安装成功了！&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/37639d6b9b4ebed2442d95c050e7a9a1.png&#34; alt=&#34;image-20241103112710422&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：LocalSetting.php 文件是 MediaWiki 网站的主要配置文件，我们之后的很多网站定制化都需要在该文件中进行配置和修改！&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;三mediawiki-平台安装-ubuntu-系统&#34;&gt;三、Mediawiki 平台安装 (Ubuntu 系统)&lt;/h2&gt;
+&lt;p&gt;参见官网教程：https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu&lt;/p&gt;
+&lt;h2 id=&#34;四插件安装&#34;&gt;四、插件安装&lt;/h2&gt;
+&lt;h3 id=&#34;composer-安装&#34;&gt;Composer 安装&lt;/h3&gt;
+&lt;p&gt;需要安装 composer 软件 (sementic 插件安装需要)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/5f685fa3dbf85c7dac3416f8efe5bab4.png&#34; alt=&#34;image-20241103112734101&#34;&gt;&lt;/p&gt;
+&lt;p&gt;安装过程中，php 路径按 wampserver 使用的 php 版本路径设置 (该路径一般在 Wamp 文件夹下的 bin 文件夹的 php 文件夹中，默认是按环境变量)，之后一路 next 即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/e00693d4e07b3148d82ced93c4898e84.png&#34; alt=&#34;image-20241103112753870&#34;&gt;&lt;/p&gt;
+&lt;p&gt;安装以后在 cmd 命令行输入 composer，回车，可以看到可以使用 composer 命令&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/100411db931aed78f6f8b1d1e8ae8f65.png&#34; alt=&#34;image-20241103112811826&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如果 composer 命令失败，需要检查一下环境变量配置中是否有 Composer 路径：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/ac23ff6ef69823edece51ed174f4e42d.png&#34; alt=&#34;image-20241103112834073&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意该步非常重要&lt;/strong&gt;：在 cmd 命令行中，输入命令 &lt;code&gt;composer self-update 2.1.14&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/66c99c587ed6fd853ea836c929c45c95.png&#34; alt=&#34;image-20241103112849199&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pageforms-安装&#34;&gt;PageForms 安装&lt;/h3&gt;
+&lt;p&gt;将 PageForms 安装包进行解压，解压后的文件夹放在 &lt;code&gt;wamp\www\mediawiki\extensions&lt;/code&gt; 文件夹中&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/22ebb66c645aecadcbd6d74a9c1e0ea4.png&#34; alt=&#34;image-20241103112905404&#34;&gt;&lt;/p&gt;
+&lt;p&gt;注意解压后的路径和文件如图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/6abedc74201a63a8691fe5d30ae46e46.png&#34; alt=&#34;image-20241103112926249&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 LocalSetting.php 配置文件中加入以下语句：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;wfLoadExtension&lt;/span&gt;( &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;PageForms&amp;#39;&lt;/span&gt; );
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 &lt;code&gt;\wamp\www\mediawiki\maintenance&lt;/code&gt; 路径下，在 cmd 命令行中输入 &lt;code&gt;php update.php&lt;/code&gt; 命令&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/b23f94bb3a7df06123675da6c128ba29.png&#34; alt=&#34;image-20241103112951182&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;sementic-mediawiki-安装&#34;&gt;Sementic MediaWiki 安装&lt;/h3&gt;
+&lt;p&gt;使用 &lt;code&gt;composer update&lt;/code&gt; 命令更新 composer，&lt;strong&gt;在 wiki 的根目录路径&lt;/strong&gt; (&lt;code&gt;wamp\www\mediawiki&lt;/code&gt;) 下输入命令：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;composer require mediawiki/semantic-media-wiki &amp;#34;~3.2&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/a1c8e172f55cb468a73a30a8251f33b8.png&#34; alt=&#34;image-20241103113020891&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 LocalSetting.php 配置文件中加入以下语句：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;enableSemantics&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;localhost/mediawiki/&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 &lt;code&gt;\wamp\www\mediawiki\maintenance&lt;/code&gt; 路径下，在 cmd 命令行中输入 &lt;code&gt;php update.php&lt;/code&gt; 命令&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/e0abbdcf38dad65a37c8ffe48581f2c3.png&#34; alt=&#34;image-20241103113050592&#34;&gt;&lt;/p&gt;
+&lt;p&gt;可以在 wiki 中&lt;strong&gt;特殊页面&lt;/strong&gt;的&lt;strong&gt;版本&lt;/strong&gt;页面查看插件安装情况。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://images.jayliu.tech/blog/2024/11/10a1414db648a02c3cf4f2cbdaece1be.png&#34; alt=&#34;image-20241103113129671&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;四作业安排&#34;&gt;四、作业安排&lt;/h2&gt;
+&lt;p&gt;本周主要任务是在自己的电脑上安装好 mediawiki 平台。安装软件平台是锻炼技术能力的第一步，在安装平台、配置环境的过程中，你们会初步了解到现代软件平台的构成方式、使用方式、调试方法，了解到一个网站要以哪些东西构成和运行。此外，在查阅技术文档的过程中，也能够让你们掌握基本的查阅资料、理解文献/文档并最终解决问题的能力。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;作业安排&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在 windows 平台安装好 mediawiki 平台，具体步骤参看教程；&lt;/p&gt;
+&lt;p&gt;(如果是 Mac 电脑，需要在 Mac 上安装 Ubuntu 虚拟机，在 Ubuntu 系统下按照官网教程进行安装 mediawiki 平台)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 mediawiki 平台中，安装好 pageforms、semantic mediawiki 插件。
+下载、安装方法，参照插件官方页面与本教程：
+&lt;a href=&#34;https://www.mediawiki.org/wiki/Extension:Page_Forms&#34;&gt;https://www.mediawiki.org/wiki/Extension:Page_Forms&lt;/a&gt;
+&lt;a href=&#34;https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki&#34;&gt;https://www.semantic-mediawiki.org/wiki/Semantic_MediaWiki&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 MediaWiki 和 Semantic MediaWiki 官方插件列表中，选择并安装 3 个及以上其他插件 (&lt;strong&gt;注意不要与平台已有的插件重复&lt;/strong&gt;)，并进行基本使用&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.mediawiki.org/wiki/Category:Extensions/zh&#34;&gt;https://www.mediawiki.org/wiki/Category:Extensions/zh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.semantic-mediawiki.org/wiki/Help:Semantic_MediaWiki_extensions&#34;&gt;https://www.semantic-mediawiki.org/wiki/Help:Semantic_MediaWiki_extensions&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;为 mediawiki 平台更换一个&lt;strong&gt;皮肤&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.mediawiki.org/wiki/Manual:Skins/zh&#34;&gt;https://www.mediawiki.org/wiki/Manual:Skins/zh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.mediawiki.org/wiki/Category:All_skins/zh&#34;&gt;https://www.mediawiki.org/wiki/Category:All_skins/zh&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;浏览、学习基本的 HTML 语法，并用&lt;strong&gt;纯 HTML 语言&lt;/strong&gt;创建一个天津大学的百科介绍页面 (&lt;strong&gt;两周任务&lt;/strong&gt;)
+&lt;a href=&#34;https://www.runoob.com/html/html-tutorial.html&#34;&gt;https://www.runoob.com/html/html-tutorial.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;进阶 (可供学有余力的同学或组队同学尝试)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在腾讯云使用【学生优惠】购买服务器 (可报销)，并选择 ubuntu 20.04 平台搭建云服务器 (或使用本机的 ubuntu 虚拟机)&lt;/li&gt;
+&lt;li&gt;按照 mediawiki 官网说明，安装并运行 MediaWiki 平台&lt;/li&gt;
+&lt;li&gt;在云服务器中安装 pageforms、semantic mediawiki、cargo 这三个基本插件&lt;/li&gt;
+&lt;li&gt;在云服务中安装 10 个以上其他插件&lt;/li&gt;
+&lt;li&gt;给 Mediawiki 平台更换皮肤&lt;/li&gt;
+&lt;/ol&gt;
+- http://localhost:5724/posts/semantic-mediawiki-%E6%95%99%E7%A8%8B%E7%AC%AC%E4%B8%80%E7%AB%A0mediawiki%E5%B9%B3%E5%8F%B0%E7%9A%84windows%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA/ - </description>
         </item>
     
     
