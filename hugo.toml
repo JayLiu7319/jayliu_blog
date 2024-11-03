@@ -5,8 +5,10 @@ theme = 'diary'
 
 [params]
 favicon = "images/favicon-egg.png"
+walineServer = "https://comment.jayliu.tech/"
   [params.contact]
     email = 'jayliu@tju.edu.cn'
+
 
 
 [[menu.main]]
