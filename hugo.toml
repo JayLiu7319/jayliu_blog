@@ -6,6 +6,7 @@ theme = 'diary'
 [params]
 favicon = "images/favicon-egg.png"
 subtitle = '日拱一卒，功不唐捐'
+enableReadingTime=true
 walineServer = "https://comment.jayliu.tech/"
   [params.contact]
     email = 'jayliu@tju.edu.cn'
